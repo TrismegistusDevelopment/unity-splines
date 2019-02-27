@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using Trismegistus.CoreTools.Utils;
 
 namespace Trismegistus.Navigation
 { 
@@ -47,7 +45,7 @@ namespace Trismegistus.Navigation
             var navManager = (NavigationManager) target;
             navManager.WaypointPrefab =
                 (WaypointBehaviour) EditorGUILayout.ObjectField("Prefab", navManager.WaypointPrefab, typeof(WaypointBehaviour), false);
-            navManager.CalculateWaypoints();
+            //navManager.CalculateWaypoints();
             serializedObject.Update();
             var gradient = serializedObject.FindProperty("GradientForWaypoints");
             
@@ -69,7 +67,7 @@ namespace Trismegistus.Navigation
                 if (GUILayout.Button("-", GUILayout.Width(30)))
                 {
                     navManager.Iterations--;
-                    navManager.CalculateWaypoints();
+                    //navManager.CalculateWaypoints();
                     EditorUtility.SetDirty(target);
                     foreach (var wp in navManager.Waypoints)
                     {
@@ -83,7 +81,7 @@ namespace Trismegistus.Navigation
                 navManager.Iterations = EditorGUILayout.IntField(navManager.Iterations);
                 if (prevIterations != navManager.Iterations)
                 {
-                    navManager.CalculateWaypoints();
+                    //navManager.CalculateWaypoints();
                     EditorUtility.SetDirty(target);
                     foreach (var wp in navManager.Waypoints)
                     {
@@ -93,7 +91,7 @@ namespace Trismegistus.Navigation
                 if (GUILayout.Button("+", GUILayout.Width(30)))
                 {
                     navManager.Iterations++;
-                    navManager.CalculateWaypoints();
+                    //navManager.CalculateWaypoints();
                     EditorUtility.SetDirty(target);
                     foreach (var wp in navManager.Waypoints)
                     {
@@ -102,7 +100,7 @@ namespace Trismegistus.Navigation
                 }
                 if (GUILayout.Button("Reload", GUILayout.Width(50)))
                 {
-                    navManager.CalculateWaypoints();
+                    //navManager.CalculateWaypoints();
                     EditorUtility.SetDirty(target);
                     foreach (var wp in navManager.Waypoints)
                     {
@@ -117,7 +115,7 @@ namespace Trismegistus.Navigation
                 if (navManager.WaypointPrefab == null) GUI.enabled = false;
                 if (GUILayout.Button("+", GUILayout.Width(30)))
                 {
-                    navManager.AddInspectorLine();
+                    //navManager.AddInspectorLine();
                     foreach (var wp in navManager.Waypoints)
                     {
                         EditorUtility.SetDirty(wp);
@@ -148,14 +146,14 @@ namespace Trismegistus.Navigation
                         if (!thisIndex && prevIndex == i) navManager.IndexToAddButton = -1;
                         GUI.backgroundColor = guiBackgroundColor;
 
-                        if (TriInspectorEditor.DrawListButtons(navManager, i, w.Count))
+                        /*if (TriInspectorEditor.DrawListButtons(navManager, i, w.Count))
                         {
                             foreach (var wp in navManager.Waypoints)
                             {
                                 EditorUtility.SetDirty(wp);
                             }
                             return;
-                        }
+                        }*/
                     }
                     EditorGUILayout.EndVertical();
                     EditorGUILayout.BeginVertical();
@@ -182,23 +180,16 @@ namespace Trismegistus.Navigation
             {
                 EditorGUI.BeginChangeCheck();
                 Vector3 newTargetPosition = Handles.PositionHandle(waypoint.Position+Vector3.up, Quaternion.identity);
-
-                if (!EditorGUI.EndChangeCheck()) continue;
-
-                Undo.RecordObject(waypoint.transform, $"Change waypoint {waypoint.FullCaption} Position");
-                waypoint.Position = newTargetPosition - Vector3.up;
-                try
+                if (EditorGUI.EndChangeCheck())
                 {
-                    n.CalculateWaypoints();
+                    Undo.RecordObject(waypoint.transform, $"Change waypoint {waypoint.FullCaption} Position");
+                    waypoint.Position = newTargetPosition - Vector3.up;
+                    //n.CalculateWaypoints();
+                    EditorUtility.SetDirty(waypoint);
                 }
-                catch (Exception e)
-                {
-                    n.FindWaypoints();
-                    Debug.Log($"CalculateWaypoints failed: {e}");
-                }
-                    
-                EditorUtility.SetDirty(waypoint);
             }
         }
+        
+        
     }
 }

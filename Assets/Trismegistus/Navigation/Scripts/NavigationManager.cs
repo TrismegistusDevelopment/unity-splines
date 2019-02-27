@@ -1,14 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Trismegistus.CoreTools.Utils;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Trismegistus.Navigation
 {
-    public class NavigationManager : MonoBehaviour, ITriInspectorMovableList
+    public interface INavigationManager
+    {
+        Vector3 CurrentWaypointPosition { get; }
+        bool AllTargetsWalked { get; }
+        int WaypointsCount { get; }
+        List<WaypointBehaviour> Waypoints { get; }
+
+        Vector3 GetDestination(int index);
+        void SwitchToTheNextWaypoint();
+        int SelectClosestWaypointIndex(Vector3 position);
+        Vector3 SelectClosestWaypointPosition(Vector3 position);
+    }
+    
+    public class NavigationManager : MonoBehaviour, INavigationManager
     {
         public static NavigationManager Instance {get; private set; }
 
@@ -20,76 +32,45 @@ namespace Trismegistus.Navigation
 
         public Gradient GradientForWaypoints;
 
-        public Vector3 CurrentWaypointPosition
-        {
-            get
-            {
-                var index = currentWaypointIndex >= Waypoints.Count
-                    ? Waypoints.Count - 1
-                    : currentWaypointIndex;
-                return Waypoints[index].Position; 
-            }
-        }
+        public Vector3 CurrentWaypointPosition =>
+            _waypoints[_currentWaypointIndex >= _waypoints.Count
+                ? _waypoints.Count - 1
+                : _currentWaypointIndex].Position;
 
+        public bool AllTargetsWalked => _currentWaypointIndex == _waypoints.Count;
+
+        public int WaypointsCount => _waypoints.Count;
+
+        public List<WaypointBehaviour> Waypoints => _waypoints;
+        
         public UnityEvent WaypointChanged;
-
-        public bool AllTargetsWalked => currentWaypointIndex == Waypoints.Count;
-
-        public int WaypointsCount => Waypoints.Count;
-
-        public List<WaypointBehaviour> Waypoints;
+        
         public WaypointEntity[] DynamicWaypoints;
         public int Iterations = 20;
         public int IndexToAddButton;
-        private int currentWaypointIndex;
+        
+        private List<WaypointBehaviour> _waypoints;
+        private int _currentWaypointIndex;
         
         void Awake()
         {
             Instance = this;
             Init();
         }
-
-        public void Init()
-        {
-            FindWaypoints();
-            currentWaypointIndex = 0;
-            WaypointChanged = new UnityEvent();
-
-            foreach (var waypoint in Waypoints)
-            {
-                waypoint.GetComponent<WaypointBehaviour>().PlayerReachedThePoint.AddListener(SwitchToTheNextWaypoint);
-            }
-        }
+        
 
 #if UNITY_EDITOR
         void OnDrawGizmos()
         {
-            var wps = Waypoints;
-
-            if (wps == null || wps.Count == 0)
-            {
-                FindWaypoints();
-            }
-
-            if (wps == null || wps.Count == 0)
-            {
-                return;
-            }
-
             var dwps = DynamicWaypoints;
+            if (dwps == null || dwps.Length == 0)
+            {
+                //CalculateWaypoints();
+            }
 
             if (dwps == null || dwps.Length == 0)
             {
-                try
-                {
-                    CalculateWaypoints();
-                }
-                catch (Exception e)
-                {
-                    Debug.Log($"Error while calculating waywoints: {e}");
-                    return;
-                }
-                if (dwps == null) return;
+                return;
             }
 
             var length = IsCycled ? dwps.Length : dwps.Length - 1;
@@ -101,7 +82,7 @@ namespace Trismegistus.Navigation
                 Handles.DrawLine(dwps[i].Position, dwps[i].Position + Vector3.up);
             }
 
-            foreach (var wp in Waypoints)
+            foreach (var wp in _waypoints)
             {
                 wp.WaypointEntity.DrawGizmos();
             }
@@ -117,13 +98,35 @@ namespace Trismegistus.Navigation
 
         public void FindWaypoints()
         {
-            Waypoints = transform.GetComponentsInChildren<WaypointBehaviour>().ToList();
-            CalculateWaypoints();
-            UpdateColors();
+            _waypoints = transform.GetComponentsInChildren<WaypointBehaviour>().ToList();
+            //CalculateWaypoints();
+            //UpdateColors();
         }
 
+        public void SwitchToTheNextWaypoint()
+        {
+            if (IsCycled)
+            {
+                _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Count;
+            }
+            else if (_currentWaypointIndex < _waypoints.Count)
+            {
+                _currentWaypointIndex++;
+            }
+            
+            Debug.LogFormat($"Waypoint Changed! CurrentWaypointIndex: {_currentWaypointIndex}");
+            WaypointChanged.Invoke();
+        }
+        
+        public Vector3 SelectClosestWaypointPosition(Vector3 position)
+        {
+            return GetDestination(SelectClosestWaypointIndex(position));
+        }
+        
         public int SelectClosestWaypointIndex(Vector3 position)
         {
+            // return DynamicWaypoints.Select((x, i) => new {x, i}).OrderBy(a => Vector3.Distance(position, a.x.Position)).First().i; TODO test
+            
             float min = float.MaxValue;
             int nextIndex = 0;
 
@@ -139,20 +142,6 @@ namespace Trismegistus.Navigation
             }
 
             return nextIndex;
-        }
-
-        public void SwitchToTheNextWaypoint()
-        {
-            if (IsCycled)
-            {
-                currentWaypointIndex = (currentWaypointIndex + 1) % Waypoints.Count;
-            }
-            else if (currentWaypointIndex < Waypoints.Count)
-            {
-                currentWaypointIndex++;
-            }
-            
-            WaypointChanged.Invoke();
         }
 
         public static WaypointEntity[] CalculateWaypoints(List<WaypointBehaviour> list, int iterations,
@@ -225,12 +214,11 @@ namespace Trismegistus.Navigation
                         {
                             Ray ray = new Ray(position + Vector3.up * 1, Vector3.down);
                             RaycastHit[] hits = Physics.RaycastAll(ray);
-                            if (hits != null && hits.Length > 0)
-                            {
-                                var hit = hits?.OrderBy(x => x.distance).First();
 
-                                position.y = hit.Value.point.y;
-                            }
+                            var hit = hits?.OrderBy(x => x.distance)?
+                                .First();
+
+                            if (hit != null) position.y = hit.Value.point.y;
                         }
 
                         curve.Add(new WaypointEntity(position, true));
@@ -241,8 +229,8 @@ namespace Trismegistus.Navigation
             return curve.ToArray();
         }
 
-        #region Inspector
-        public void AddInspectorLine()
+        #region Inspector //TODO rework
+        /*public void AddInspectorLine()
         {
             TriInspector.AddInspectorLine(ref Waypoints, WaypointPrefab, transform, index: IndexToAddButton);
             CalculateWaypoints();
@@ -283,21 +271,20 @@ namespace Trismegistus.Navigation
             try
             {
                 DynamicWaypoints = CalculateWaypoints(Waypoints, Iterations, WaypointPrefab, transform, StickToColliders, IsCycled);
-                UpdateHierarchy();
-                UpdateColors();
             }
             catch (Exception e)
             {
                 Debug.LogWarning($"Exception{e}, reloading targets");
-                throw;
+                //FindWaypoints();
             }
             
+            UpdateHierarchy();
+            UpdateColors();
         }
 
         public void UpdateColors()
         {
-            if (DynamicWaypoints == null) return;
-            if (DynamicWaypoints.Length <= 1) return;
+            if (DynamicWaypoints.Length <= 0) return;
             for (var i = 0; i < DynamicWaypoints.Length; i++)
             {
                 var waypoint = DynamicWaypoints[i];
@@ -305,9 +292,20 @@ namespace Trismegistus.Navigation
                 
                 waypoint.LabelColor = gradient.Evaluate((float)i / (DynamicWaypoints.Length-1));
             }
-        }
+        }*/
         
         #endregion
 
+        private void Init()
+        {
+            FindWaypoints();
+            _currentWaypointIndex = 0;
+            WaypointChanged = new UnityEvent();
+
+            foreach (var waypoint in _waypoints)
+            {
+                waypoint.GetComponent<WaypointBehaviour>().PlayerReachedThePoint.AddListener(SwitchToTheNextWaypoint);
+            }
+        }
     }
 }

@@ -11,7 +11,9 @@ namespace Trismegistus.Navigation
     {
         public UnityEvent PlayerReachedThePoint;
 
-        public Vector3 Position { get { return transform.position; } set { transform.position = value; } }
+        public Vector3 Position { get => transform.position;
+            set => transform.position = value;
+        }
 
         public Vector3 EntityPosition;
 
@@ -41,29 +43,26 @@ namespace Trismegistus.Navigation
 
         void OnTriggerStay(Collider other)
         {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                if (_blocked) return;
-                if (!(Vector2.Distance(ProjectOnXZPlane(other.transform.position),
-                          ProjectOnXZPlane(transform.position)) < 0.1f)) return;
-                PlayerReachedThePoint.Invoke();
-                _player = other.transform;
-                StartCoroutine(WaitForPlayerToLeave());
-            }
+            if (!other.gameObject.CompareTag("Player")) return;
+            if (_blocked) return;
+            /*if (!(Vector2.Distance(other.transform.position.IgnoreYCoordinate(),
+                          transform.position.IgnoreYCoordinate()) < 0.5f)) return;*/
+            PlayerReachedThePoint.Invoke();
+            _player = other.transform;
+            StartCoroutine(WaitForPlayerToLeave());
         }
 
         void OnDrawGizmos()
         {
 #if UNITY_EDITOR
             var sign = Mathf.Sign(Position.y);
-            float distance = Position.y * sign;
-            Ray ray = new Ray(Position, -Vector3.up * sign);
-            RaycastHit[] raycastHits = Physics.RaycastAll(ray, Position.y * sign);
+            var distance = Position.y * sign;
+            var ray = new Ray(Position, -Vector3.up * sign);
+            var raycastHits = Physics.RaycastAll(ray, Position.y * sign);
 
             if (raycastHits.Length > 0)
             {
-                RaycastHit? hit = raycastHits.Where(x => x.collider != Collider)
-                    .OrderBy(x => x.distance)
+                var hit = raycastHits?.Where(x => x.collider != Collider)?.OrderBy(x => x.distance)?
                     .First();
                 distance = hit.Value.distance;
             }
@@ -82,6 +81,16 @@ namespace Trismegistus.Navigation
             Handles.DrawSolidDisc(Position - Vector3.up * sign * distance, Vector3.up, 0.5f);
 #endif
         }
+
+        //void OnCollisionEnter(Collision other)
+        //{
+        //    if (other.gameObject.CompareTag("Player"))
+        //    {
+        //        PlayerReachedThePoint.Invoke();
+        //        player = other.transform;
+        //        StartCoroutine(WaitForPlayerToLeave());
+        //    }
+        //}
 
         private IEnumerator WaitForPlayerToLeave()
         {

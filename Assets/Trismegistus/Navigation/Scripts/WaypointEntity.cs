@@ -1,7 +1,4 @@
-﻿#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace Trismegistus.Navigation
@@ -31,6 +28,8 @@ namespace Trismegistus.Navigation
             IsTemp = isTemp;
         }
 
+
+
 #if UNITY_EDITOR
         public void DrawGizmos()
         {
@@ -49,6 +48,7 @@ namespace Trismegistus.Navigation
                 {
                     Handles.Label(Position, Caption, style);
                 }
+
                 
                 
             }
@@ -62,10 +62,11 @@ namespace Trismegistus.Navigation
                     fontStyle = FontStyle.Bold
                 };
                 Handles.color = Color.Lerp(Color.white, Color.black, (LabelColor.r + LabelColor.g + LabelColor.b) / 3);
-                
+                //Handles.DrawSolidDisc(transform.position, editorCamNormal, editorDistance / 150f);
                 style.normal.textColor = LabelColor;
                 Handles.color = LabelColor;
-                
+                //Handles.Label(transform.position, "●", style);
+
                 Handles.DrawSolidDisc(Position, editorCamNormal, editorDistance / 200f);
             }
         }

@@ -4,12 +4,12 @@ namespace Trismegistus
 {
     public class NavPoint
     {
-        public Vector3 PointCenter { get; }
-        public Vector3 PointBackward { get; }
-        public Vector3 PointForward { get; }
-        public Vector3 Bisector { get; }
-        public Vector3 PerpendicularForward { get; }
-        public Vector3 PerpendicularBackward { get; }
+        public Vector3 PointCenter { get; private set; }
+        public Vector3 PointBackward { get; private set; }
+        public Vector3 PointForward { get; private set; }
+        public Vector3 Bisector { get; private set; }
+        public Vector3 PerpendicularForward { get; private set; }
+        public Vector3 PerpendicularBackward { get; private set; }
         public Vector3 AbsPerpendicularForward => PointCenter + PerpendicularForward;
         public Vector3 AbsPerpendicularBackward => PointCenter + PerpendicularBackward;
 
