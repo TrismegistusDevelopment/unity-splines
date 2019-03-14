@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,6 +10,16 @@ namespace Trismegistus.Navigation
     {
         private Tool _lastTool = Tool.None;
 
+        private enum Mode
+        {
+            None,
+            Add,
+            Move
+        }
+
+        private Mode currentMode = Mode.None;
+        private int indexFrom = 0;
+
         void OnEnable()
         {
             _lastTool = Tools.current;
@@ -18,11 +29,13 @@ namespace Trismegistus.Navigation
             var navManager = (NavigationManager)target;
             navManager.FindWaypoints();
             navManager.IndexToAddButton = -1;
+            navManager.CalculateWaypoints();
         }
 
         void OnDisable()
         {
             Tools.current = _lastTool;
+            currentMode = Mode.None;
         }
 
         [MenuItem("GameObject/Trismegistus/Navigator", false, 0)]
@@ -88,11 +101,11 @@ namespace Trismegistus.Navigation
                 if (GUILayout.Button("-", GUILayout.Width(30)))
                 {
                     navManager.Iterations--;
-                    //navManager.CalculateWaypoints();
+                    navManager.CalculateWaypoints();
                     EditorUtility.SetDirty(target);
                     foreach (var wp in navManager.Waypoints)
                     {
-                        EditorUtility.SetDirty(wp);
+                        //EditorUtility.SetDirty(wp);
                     }
                 }
 
@@ -102,30 +115,31 @@ namespace Trismegistus.Navigation
                 navManager.Iterations = EditorGUILayout.IntField(navManager.Iterations);
                 if (prevIterations != navManager.Iterations)
                 {
-                    //navManager.CalculateWaypoints();
+                    navManager.CalculateWaypoints();
                     EditorUtility.SetDirty(target);
                     foreach (var wp in navManager.Waypoints)
                     {
-                        EditorUtility.SetDirty(wp);
+                        //EditorUtility.SetDirty(wp);
                     }
                 }
                 if (GUILayout.Button("+", GUILayout.Width(30)))
                 {
                     navManager.Iterations++;
-                    //navManager.CalculateWaypoints();
+                    navManager.CalculateWaypoints();
                     EditorUtility.SetDirty(target);
                     foreach (var wp in navManager.Waypoints)
                     {
-                        EditorUtility.SetDirty(wp);
+                        //EditorUtility.SetDirty(wp);
                     }
                 }
                 if (GUILayout.Button("Reload", GUILayout.Width(50)))
                 {
                     //navManager.CalculateWaypoints();
                     EditorUtility.SetDirty(target);
+                    navManager.CalculateWaypoints();
                     foreach (var wp in navManager.Waypoints)
                     {
-                        EditorUtility.SetDirty(wp);
+                        //EditorUtility.SetDirty(wp);
                     }
                 }
             }
@@ -134,39 +148,57 @@ namespace Trismegistus.Navigation
             EditorGUILayout.BeginHorizontal(EditorStyles.boldLabel);
             {
                 if (navManager.WaypointPrefab == null) GUI.enabled = false;
-                if (GUILayout.Button("+", GUILayout.Width(30)))
+                if (GUILayout.Button(new GUIContent(currentMode == Mode.Add ? "x" : "+", "Hold shift to add to the end"), GUILayout.Width(30)))
                 {
-                    navManager.AddWaypoint();
-                    foreach (var wp in navManager.Waypoints)
+                    if (navManager.Waypoints.Count == 0 || Event.current.shift)
                     {
-                        EditorUtility.SetDirty(wp);
+                        navManager.AddWaypoint();
+                        //navManager.CalculateWaypoints();
+                        return;
                     }
+                    
+                    currentMode = currentMode == Mode.Add ? Mode.None : Mode.Add;
                 }
+
                 GUI.enabled = true;
                 if (navManager.WaypointPrefab == null) GUILayout.Label("You must add prefab!", EditorStyles.helpBox);
-                else
-                {
-                    var postfix = navManager.IndexToAddButton == -1 ? "to end of list" : $"after {navManager.IndexToAddButton+1} position";
-                    GUILayout.Label($"Insert waypoint {postfix}", EditorStyles.helpBox);
-                }
             }
             EditorGUILayout.EndHorizontal();
 
             var w = navManager.Waypoints;
             if (navManager.IndexToAddButton > w.Count - 1) navManager.IndexToAddButton = -1;
-            for (int i = 0; i < w.Count; i++)
+            for (int i = 0; i <= w.Count; i++)
             {
+                if (currentMode==Mode.Add)
+                {
+                    if (GUILayout.Button("Add"))
+                    {
+                        navManager.AddWaypoint(i);
+                        currentMode = Mode.None;
+                        //navManager.CalculateWaypoints();
+                        return;
+                    }
+                }
+                
+                if (currentMode==Mode.Move && indexFrom !=i && indexFrom !=i-1)
+                {
+                    if (GUILayout.Button("Move here"))
+                    {
+                        navManager.Relocate(indexFrom, i);
+                        currentMode = Mode.None;
+                        indexFrom = -1;
+                        return;
+                    }
+                }
+                if (i == w.Count) continue; 
                 EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
                 {  
                     EditorGUILayout.BeginVertical(GUILayout.Width(30));
                     {
                         GUI.backgroundColor = w[i].LabelColor;
-                        var prevIndex = navManager.IndexToAddButton;
-                        var thisIndex = GUILayout.Toggle(navManager.IndexToAddButton == i, $"{i + 1}", customGui);
-                        if (thisIndex) navManager.IndexToAddButton = i;
-                        if (!thisIndex && prevIndex == i) navManager.IndexToAddButton = -1;
+                        GUILayout.Label( $"{i + 1}", customGui);
                         GUI.backgroundColor = guiBackgroundColor;
-
+                        
                         /*if (TriInspectorEditor.DrawListButtons(navManager, i, w.Count))
                         {
                             foreach (var wp in navManager.Waypoints)
@@ -179,18 +211,45 @@ namespace Trismegistus.Navigation
                     EditorGUILayout.EndVertical();
                     EditorGUILayout.BeginVertical();
                     {
+                        if (GUILayout.Button(indexFrom == i ? "x" : "Move", GUILayout.Width(40)))
+                        {
+                            if (indexFrom == i)
+                            {
+                                currentMode = Mode.None;
+                                indexFrom = -1;
+                                return;
+                            }
+
+                            indexFrom = i;
+                            currentMode = Mode.Move;
+                            return;
+                        }
+                        if (GUILayout.Button(
+                            new GUIContent("Del", "Hold shift to delete without prompt"), 
+                            GUILayout.Width(40)))
+                        {
+                            if (Event.current.shift || EditorUtility.DisplayDialog("Delete item?",
+                                    "You will lose all it's data", "Delete", "Cancel"))
+                            {
+                                navManager.DeleteWaypoint(i);
+                                return;
+                            }
+                        }
+                    }
+                    EditorGUILayout.EndVertical();
+                    EditorGUILayout.BeginVertical();
+                    {
                         w[i].Caption = EditorGUILayout.TextField("Caption", w[i].Caption);
-                        var so = new SerializedObject(w[i]);
-                        so.Update();
-                        var onPlayerReached = so.FindProperty("PlayerReachedThePoint");
-                        EditorGUILayout.PropertyField(onPlayerReached, new GUIContent("Player Reached The Point"));
-                        so.ApplyModifiedProperties();
+                        //var so = new SerializedObject(w[i]);
+                        //so.Update();
+                        //var onPlayerReached = so.FindProperty("PlayerReachedThePoint");
+                        //EditorGUILayout.PropertyField(onPlayerReached, new GUIContent("Player Reached The Point"));
+                        //so.ApplyModifiedProperties();*/
                     }
                     EditorGUILayout.EndVertical();
                 }
                 EditorGUILayout.EndHorizontal();
             }
-
         }
 
         private void OnSceneGUI()
@@ -203,14 +262,12 @@ namespace Trismegistus.Navigation
                 Vector3 newTargetPosition = Handles.PositionHandle(waypoint.Position+Vector3.up, Quaternion.identity);
                 if (EditorGUI.EndChangeCheck())
                 {
-                    Undo.RecordObject(waypoint.transform, $"Change waypoint {waypoint.FullCaption} Position");
                     waypoint.Position = newTargetPosition - Vector3.up;
-                    //n.CalculateWaypoints();
-                    EditorUtility.SetDirty(waypoint);
+                    Undo.RecordObject(n.NavigationData, $"Change waypoint {waypoint.Caption} Position");
+                    EditorUtility.SetDirty(n);
+                    n.CalculateWaypoints();
                 }
             }
         }
-        
-        
     }
 }

@@ -45,3 +45,25 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   IsCycled: 1
   StickToColliders: 0
+  Iterations: 4
+  Waypoints:
+  - Position: {x: -10.078365, y: 21.00032, z: 5.20687}
+    IsTemp: 0
+    LabelColor: {r: 0, g: 1, b: 0.9308512, a: 1}
+    Caption: 
+  - Position: {x: 2.9319038, y: 6, z: -11.208733}
+    IsTemp: 0
+    LabelColor: {r: 0.62225974, g: 0.37774026, b: 0.35161996, a: 1}
+    Caption: 
+  - Position: {x: -12.167288, y: 13.50016, z: -11.094622}
+    IsTemp: 0
+    LabelColor: {r: 1, g: 0.024138162, b: 0, a: 1}
+    Caption: 
+  - Position: {x: 14.776619, y: 2, z: 3.0223389}
+    IsTemp: 0
+    LabelColor: {r: 1, g: 0.70805275, b: 0, a: 1}
+    Caption: 
+  - Position: {x: 6.434067, y: 3, z: 12.447937}
+    IsTemp: 0
+    LabelColor: {r: 1, g: 0.9396916, b: 0.12552841, a: 1}
+    Caption: 

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24cc69a96e88c65468731a3431589df6, type: 3}
-  m_Name: DemoNavigationData
+  m_Name: DemoNavigationData2
   m_EditorClassIdentifier: 
   WaypointPrefab: {fileID: 114965368960109712, guid: e9c9bd46100af1046a87483d3d6ce7e6,
     type: 3}
   GradientForWaypoints:
     serializedVersion: 2
-    key0: {r: 0, g: 1, b: 0.9308512, a: 1}
-    key1: {r: 1, g: 0, b: 0, a: 1}
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 0, g: 0, b: 0, a: 1}
     key2: {r: 1, g: 0.93103445, b: 0, a: 0}
     key3: {r: 1, g: 1, b: 1, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -25,7 +25,7 @@ MonoBehaviour:
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 386
-    ctime1: 23901
+    ctime1: 65535
     ctime2: 49922
     ctime3: 65535
     ctime4: 0
@@ -41,7 +41,33 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 4
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  IsCycled: 1
-  StickToColliders: 0
+  IsCycled: 0
+  StickToColliders: 1
+  Iterations: 20
+  Waypoints:
+  - Position: {x: -79.69418, y: 1, z: -228.85367}
+    IsTemp: 0
+    LabelColor: {r: 1, g: 1, b: 1, a: 1}
+    Caption: 
+  - Position: {x: 103.753784, y: 1, z: 15.941345}
+    IsTemp: 0
+    LabelColor: {r: 0.8047399, g: 0.8047399, b: 0.8047399, a: 1}
+    Caption: 
+  - Position: {x: -159.86562, y: 1, z: -103.81302}
+    IsTemp: 0
+    LabelColor: {r: 0.60355496, g: 0.60355496, b: 0.60355496, a: 1}
+    Caption: 
+  - Position: {x: 67.19589, y: 2, z: -118.7487}
+    IsTemp: 0
+    LabelColor: {r: 0.40236998, g: 0.40236998, b: 0.40236998, a: 1}
+    Caption: 
+  - Position: {x: 14.133987, y: 1, z: 84.25609}
+    IsTemp: 0
+    LabelColor: {r: 0.20118499, g: 0.20118499, b: 0.20118499, a: 1}
+    Caption: 
+  - Position: {x: -124.16141, y: 1, z: 39.389694}
+    IsTemp: 0
+    LabelColor: {r: 0, g: 0, b: 0, a: 1}
+    Caption: 

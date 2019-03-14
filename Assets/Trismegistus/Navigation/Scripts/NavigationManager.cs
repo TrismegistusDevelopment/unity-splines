@@ -11,7 +11,7 @@ namespace Trismegistus.Navigation
         Vector3 CurrentWaypointPosition { get; }
         bool AllTargetsWalked { get; }
         int WaypointsCount { get; }
-        List<WaypointBehaviour> Waypoints { get; }
+        List<WaypointEntity> Waypoints { get; }
 
         Vector3 GetDestination(int index);
         void SwitchToTheNextWaypoint();
@@ -64,15 +64,15 @@ namespace Trismegistus.Navigation
 
         public int WaypointsCount => _waypoints.Count;
 
-        public List<WaypointBehaviour> Waypoints => _waypoints;
+        public List<WaypointEntity> Waypoints => _waypoints;
         
         public UnityEvent WaypointChanged;
         
         public WaypointEntity[] DynamicWaypoints;
         
         public int IndexToAddButton;
-        
-        private List<WaypointBehaviour> _waypoints;
+
+        private List<WaypointEntity> _waypoints => NavigationData.Waypoints;
         private int _currentWaypointIndex;
         
         void Awake()
@@ -85,6 +85,11 @@ namespace Trismegistus.Navigation
 #if UNITY_EDITOR
         void OnDrawGizmos()
         {
+            foreach (var wp in _waypoints)
+            {
+                wp.DrawGizmos();
+            }
+            
             var dwps = DynamicWaypoints;
             if (dwps == null || dwps.Length == 0)
             {
@@ -93,7 +98,7 @@ namespace Trismegistus.Navigation
 
             if (dwps == null || dwps.Length == 0)
             {
-                return;
+                //return;
             }
 
             var length = IsCycled ? dwps.Length : dwps.Length - 1;
@@ -101,13 +106,8 @@ namespace Trismegistus.Navigation
             for (int i = 0; i < length; i++)
             {
                 Handles.color = dwps[i].LabelColor;
-                Handles.DrawLine(dwps[i].Position, dwps[(i+dwps.Length+1)%dwps.Length].Position);
+                Handles.DrawLine(dwps[i].Position, dwps[(i + dwps.Length + 1) % dwps.Length].Position);
                 Handles.DrawLine(dwps[i].Position, dwps[i].Position + Vector3.up);
-            }
-
-            foreach (var wp in _waypoints)
-            {
-                wp.WaypointEntity.DrawGizmos();
             }
         }
 #endif
@@ -121,7 +121,7 @@ namespace Trismegistus.Navigation
 
         public void FindWaypoints()
         {
-            _waypoints = transform.GetComponentsInChildren<WaypointBehaviour>().ToList();
+            //_waypoints = transform.GetComponentsInChildren<WaypointBehaviour>().ToList();
             //CalculateWaypoints();
             //UpdateColors();
         }
@@ -167,7 +167,7 @@ namespace Trismegistus.Navigation
             return nextIndex;
         }
 
-        public static WaypointEntity[] CalculateWaypoints(List<WaypointBehaviour> list, int iterations,
+        public static WaypointEntity[] CalculateWaypoints(List<WaypointEntity> list, int iterations,
             WaypointBehaviour prefab, Transform tr, bool stickToColliders, bool cycled)
         {
             var distances = list.Select((t, i) => (t.Position - list[(i + 1) % list.Count].Position).magnitude)
@@ -175,22 +175,22 @@ namespace Trismegistus.Navigation
 
             var p = new List<Vector3>();
             
-            foreach (var waypointBehaviour in list)
+            foreach (var waypointEntity in list)
             {
-                waypointBehaviour.EntityPosition = waypointBehaviour.Position;
+                //waypointEntity.Position = waypointEntity.Position;
                 
-                if (stickToColliders)
+                /*if (stickToColliders)
                 {
-                    Ray ray = new Ray(waypointBehaviour.Position + Vector3.up * 5, Vector3.down);
+                    Ray ray = new Ray(waypointEntity.Position + Vector3.up * 5, Vector3.down);
                     RaycastHit[] hits = Physics.RaycastAll(ray);
 
-                    var hit = hits?.Where(x => x.collider != waypointBehaviour.Collider)?.OrderBy(x => x.distance)?
+                    var hit = hits?.Where(x => x.collider != waypointEntity.Collider)?.OrderBy(x => x.distance)?
                         .First();
 
-                    if (hit != null) waypointBehaviour.EntityPosition = hit.Value.point;
-                }
+                    if (hit != null) waypointEntity.Position = hit.Value.point;
+                }*/
 
-                p.Add(waypointBehaviour.EntityPosition);
+                p.Add(waypointEntity.Position);
             }
 
             var curve = new List<WaypointEntity>();
@@ -220,8 +220,8 @@ namespace Trismegistus.Navigation
             for (var i = 0; i < points.Count; i++)
             {
                 var navPoint = points[i];
-                list[i].WaypointEntity = new WaypointEntity(list[i].EntityPosition, false, Color.black, list[i].FullCaption);
-                curve.Add(list[i].WaypointEntity);
+                //list[i] = new WaypointEntity(list[i].Position, false, Color.black, list[i].Caption);
+                curve.Add(list[i]);
 
                 var localIterations = Mathf.CeilToInt(distances[i] * iterations / 10);
 
@@ -252,73 +252,6 @@ namespace Trismegistus.Navigation
             return curve.ToArray();
         }
 
-        #region Inspector //TODO rework
-        /*public void AddInspectorLine()
-        {
-            TriInspector.AddInspectorLine(ref Waypoints, WaypointPrefab, transform, index: IndexToAddButton);
-            CalculateWaypoints();
-            UpdateColors();
-        }
-
-        public void DeleteInspectorLine(int index)
-        {
-            TriInspector.DeleteInspectorLine(index, ref Waypoints);
-            CalculateWaypoints();
-            UpdateColors();
-        }
-
-        public void MoveInspectorLine(int index, InspectorDirection direction)
-        {
-            TriInspector.MoveInspectorLine(index, direction, ref Waypoints);
-            CalculateWaypoints();
-            UpdateColors();
-        }
-
-        public void UpdateHierarchy()
-        {
-            TriInspector.UpdateHierarchy(Waypoints);
-            for (var i = 0; i < Waypoints.Count; i++)
-            {
-                Waypoints[i].Index = i;
-                Waypoints[i].gameObject.name = Waypoints[i].FullCaption;
-            }
-        }
-
-        public GameObject GetObject(int index)
-        {
-            return TriInspector.GetObject(Waypoints, index);
-        }
-
-        public void CalculateWaypoints()
-        {
-            try
-            {
-                DynamicWaypoints = CalculateWaypoints(Waypoints, Iterations, WaypointPrefab, transform, StickToColliders, IsCycled);
-            }
-            catch (Exception e)
-            {
-                Debug.LogWarning($"Exception{e}, reloading targets");
-                //FindWaypoints();
-            }
-            
-            UpdateHierarchy();
-            UpdateColors();
-        }
-
-        public void UpdateColors()
-        {
-            if (DynamicWaypoints.Length <= 0) return;
-            for (var i = 0; i < DynamicWaypoints.Length; i++)
-            {
-                var waypoint = DynamicWaypoints[i];
-                var gradient = GradientForWaypoints ?? new Gradient();
-                
-                waypoint.LabelColor = gradient.Evaluate((float)i / (DynamicWaypoints.Length-1));
-            }
-        }*/
-        
-        #endregion
-
         private void Init()
         {
             FindWaypoints();
@@ -327,13 +260,49 @@ namespace Trismegistus.Navigation
 
             foreach (var waypoint in _waypoints)
             {
-                waypoint.GetComponent<WaypointBehaviour>().PlayerReachedThePoint.AddListener(SwitchToTheNextWaypoint);
+               // waypoint.GetComponent<WaypointBehaviour>().PlayerReachedThePoint.AddListener(SwitchToTheNextWaypoint);
             }
         }
 
         public void AddWaypoint()
         {
-            Debug.Log("AddWaypoint: Not implemented", this);
+            NavigationData.AddWaypoint();
+            CalculateWaypoints();
+        }
+
+        public void AddWaypoint(int index)
+        {
+            NavigationData.AddWaypoint(index);
+            CalculateWaypoints();
+        }
+
+        public void Relocate(int from, int to)
+        {
+            NavigationData.Relocate(NavigationData.Waypoints, from, to);
+            CalculateWaypoints();
+        }
+
+        public void DeleteWaypoint(int i)
+        {
+            NavigationData.DeleteWaypoint(i);
+            CalculateWaypoints();
+        }
+
+        public void CalculateWaypoints()
+        {
+            DynamicWaypoints = CalculateWaypoints(_waypoints, Iterations, WaypointPrefab, transform, StickToColliders, IsCycled);
+            Colorize();
+        }
+        
+        public void Colorize()
+        {
+            var count = DynamicWaypoints.Length;
+
+            for (var index = 0; index < DynamicWaypoints.Length; index++)
+            {
+                var waypointEntity = DynamicWaypoints[index];
+                waypointEntity.LabelColor = GradientForWaypoints.Evaluate((float) index / (count - 1));
+            }
         }
     }
 }

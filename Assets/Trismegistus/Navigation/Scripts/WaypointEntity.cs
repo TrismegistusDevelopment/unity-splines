@@ -1,8 +1,10 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace Trismegistus.Navigation
 {
+    [Serializable]
     public class WaypointEntity
     {
         public Vector3 Position;
@@ -27,8 +29,6 @@ namespace Trismegistus.Navigation
             Position = position;
             IsTemp = isTemp;
         }
-
-
 
 #if UNITY_EDITOR
         public void DrawGizmos()
@@ -63,6 +63,22 @@ namespace Trismegistus.Navigation
                 Handles.color = LabelColor;
 
                 Handles.DrawSolidDisc(Position, editorCamNormal, editorDistance / 200f);
+                
+                var sign = Mathf.Sign(Position.y);
+                var distance = Position.y * sign;
+
+                Handles.color = LabelColor;
+
+                if (sign > 0) Handles.DrawLine(Position, Position - Vector3.up * distance);
+                else
+                {
+                    Handles.DrawDottedLine(Position, Position + Vector3.up * distance, 2);
+                }
+
+                var col = LabelColor;
+                col.a = 0.3f;
+                Handles.color = col;
+                Handles.DrawSolidDisc(Position - Vector3.up * sign * distance, Vector3.up, 0.5f);
             }
         }
 #endif
