@@ -9,9 +9,10 @@ namespace Trismegistus.Navigation
     public class NavigationData : ScriptableObject
     {
         public WaypointBehaviour WaypointPrefab;
-        public Gradient GradientForWaypoints;
+        public Gradient GradientForWaypoints = new Gradient();
         public bool IsCycled;
         public bool StickToColliders;
+        public int Iterations = 20;
         public List<WaypointBehaviour> Waypoints { get; private set; }
     }
 }

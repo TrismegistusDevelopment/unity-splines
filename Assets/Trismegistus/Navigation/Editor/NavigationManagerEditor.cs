@@ -51,6 +51,13 @@ namespace Trismegistus.Navigation
             if (navManager.NavigationData == null)
             {
                 GUILayout.Label("You must add navigation data!", EditorStyles.helpBox);
+                if (GUILayout.Button("Create navigation data"))
+                {
+                    var path = EditorUtility.SaveFilePanelInProject("Save NavigationData asset", "New NavigationData", "asset", "Enter name");
+                    var navData = ScriptableObject.CreateInstance<NavigationData>();
+                    AssetDatabase.CreateAsset(navData, path);
+                    navManager.NavigationData = navData;
+                }
                 return;
             }
             
@@ -129,7 +136,7 @@ namespace Trismegistus.Navigation
                 if (navManager.WaypointPrefab == null) GUI.enabled = false;
                 if (GUILayout.Button("+", GUILayout.Width(30)))
                 {
-                    //navManager.AddInspectorLine();
+                    navManager.AddWaypoint();
                     foreach (var wp in navManager.Waypoints)
                     {
                         EditorUtility.SetDirty(wp);

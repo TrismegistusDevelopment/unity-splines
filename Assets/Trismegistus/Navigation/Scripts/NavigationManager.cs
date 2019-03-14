@@ -48,6 +48,12 @@ namespace Trismegistus.Navigation
             get => NavigationData.GradientForWaypoints;
             set => NavigationData.GradientForWaypoints = value;
         }
+        
+        public int Iterations
+        {
+            get => NavigationData.Iterations;
+            set => NavigationData.Iterations = value;
+        }
 
         public Vector3 CurrentWaypointPosition =>
             _waypoints[_currentWaypointIndex >= _waypoints.Count
@@ -63,7 +69,7 @@ namespace Trismegistus.Navigation
         public UnityEvent WaypointChanged;
         
         public WaypointEntity[] DynamicWaypoints;
-        public int Iterations = 20;
+        
         public int IndexToAddButton;
         
         private List<WaypointBehaviour> _waypoints;
@@ -323,6 +329,11 @@ namespace Trismegistus.Navigation
             {
                 waypoint.GetComponent<WaypointBehaviour>().PlayerReachedThePoint.AddListener(SwitchToTheNextWaypoint);
             }
+        }
+
+        public void AddWaypoint()
+        {
+            Debug.Log("AddWaypoint: Not implemented", this);
         }
     }
 }
