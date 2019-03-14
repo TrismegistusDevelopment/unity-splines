@@ -48,9 +48,6 @@ namespace Trismegistus.Navigation
                 {
                     Handles.Label(Position, Caption, style);
                 }
-
-                
-                
             }
             else
             {
@@ -62,10 +59,8 @@ namespace Trismegistus.Navigation
                     fontStyle = FontStyle.Bold
                 };
                 Handles.color = Color.Lerp(Color.white, Color.black, (LabelColor.r + LabelColor.g + LabelColor.b) / 3);
-                //Handles.DrawSolidDisc(transform.position, editorCamNormal, editorDistance / 150f);
                 style.normal.textColor = LabelColor;
                 Handles.color = LabelColor;
-                //Handles.Label(transform.position, "●", style);
 
                 Handles.DrawSolidDisc(Position, editorCamNormal, editorDistance / 200f);
             }

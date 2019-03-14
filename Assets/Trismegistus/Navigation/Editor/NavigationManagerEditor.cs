@@ -7,11 +7,11 @@ namespace Trismegistus.Navigation
     [CustomEditor(typeof(NavigationManager), true)]
     public class NavigationManagerEditor : Editor
     {
-        private Tool LastTool = Tool.None;
+        private Tool _lastTool = Tool.None;
 
         void OnEnable()
         {
-            LastTool = Tools.current;
+            _lastTool = Tools.current;
             Tools.current = Tool.None;
 
 
@@ -22,7 +22,7 @@ namespace Trismegistus.Navigation
 
         void OnDisable()
         {
-            Tools.current = LastTool;
+            Tools.current = _lastTool;
         }
 
         [MenuItem("GameObject/Trismegistus/Navigator", false, 0)]
@@ -43,14 +43,28 @@ namespace Trismegistus.Navigation
 
             var guiBackgroundColor = GUI.backgroundColor;
             var navManager = (NavigationManager) target;
+
+            navManager.NavigationData = EditorGUILayout.ObjectField("Navigation Data",
+                navManager.NavigationData, typeof(NavigationData), false) as NavigationData;
+            serializedObject.Update();
+            
+            if (navManager.NavigationData == null)
+            {
+                GUILayout.Label("You must add navigation data!", EditorStyles.helpBox);
+                return;
+            }
+            
             navManager.WaypointPrefab =
-                (WaypointBehaviour) EditorGUILayout.ObjectField("Prefab", navManager.WaypointPrefab, typeof(WaypointBehaviour), false);
+                EditorGUILayout.ObjectField("Prefab", navManager.WaypointPrefab, typeof(WaypointBehaviour), false) as WaypointBehaviour;
             //navManager.CalculateWaypoints();
             serializedObject.Update();
             var gradient = serializedObject.FindProperty("GradientForWaypoints");
-            
-            EditorGUILayout.PropertyField(gradient, new GUIContent("Waypoint coloring gradient"));
-            serializedObject.ApplyModifiedProperties();
+
+
+            navManager.GradientForWaypoints =
+                EditorGUILayout.GradientField("Waypoint coloring gradient", navManager.GradientForWaypoints);
+            /*EditorGUILayout.PropertyField(gradient, new GUIContent("Waypoint coloring gradient"));
+            serializedObject.ApplyModifiedProperties();*/
             
             navManager.IsCycled = EditorGUILayout.Toggle("Closed spline", navManager.IsCycled);
             navManager.StickToColliders = EditorGUILayout.Toggle("Stick to colliders", navManager.StickToColliders);

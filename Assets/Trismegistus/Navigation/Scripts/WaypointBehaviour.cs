@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -25,15 +24,7 @@ namespace Trismegistus.Navigation
 
         public string Caption = "";
 
-        public string FullCaption
-        {
-            get
-            {
-                var separator = string.IsNullOrEmpty(Caption) ? "" : " ";
-                var text = $"{Index + 1}{separator}{Caption}";
-                return text;
-            }
-        }
+        public string FullCaption => $"{Index + 1}{(string.IsNullOrEmpty(Caption) ? "" : " ")}{Caption}";
 
         private bool _blocked;
         private Collider _collider;

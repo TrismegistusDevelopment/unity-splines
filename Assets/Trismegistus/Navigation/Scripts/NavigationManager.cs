@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -22,15 +21,33 @@ namespace Trismegistus.Navigation
     
     public class NavigationManager : MonoBehaviour, INavigationManager
     {
+        public NavigationData NavigationData;
+        
         public static NavigationManager Instance {get; private set; }
 
-        public bool IsCycled;
+        public bool IsCycled
+        {
+            get => NavigationData.IsCycled;
+            set => NavigationData.IsCycled = value;
+        }
 
-        public bool StickToColliders;
+        public bool StickToColliders
+        {
+            get => NavigationData.StickToColliders;
+            set => NavigationData.StickToColliders = value;
+        }
 
-        public WaypointBehaviour WaypointPrefab;
+        public WaypointBehaviour WaypointPrefab
+        {
+            get => NavigationData.WaypointPrefab;
+            set => NavigationData.WaypointPrefab = value;
+        }
 
-        public Gradient GradientForWaypoints;
+        public Gradient GradientForWaypoints
+        {
+            get => NavigationData.GradientForWaypoints;
+            set => NavigationData.GradientForWaypoints = value;
+        }
 
         public Vector3 CurrentWaypointPosition =>
             _waypoints[_currentWaypointIndex >= _waypoints.Count
