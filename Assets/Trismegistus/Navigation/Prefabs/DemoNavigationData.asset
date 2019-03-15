@@ -45,25 +45,25 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   IsCycled: 1
   StickToColliders: 0
-  Iterations: 4
+  Iterations: 7
   Waypoints:
-  - Position: {x: -10.078365, y: 21.00032, z: 5.20687}
+  - Position: {x: -40.954876, y: 6, z: 4.419792}
     IsTemp: 0
     LabelColor: {r: 0, g: 1, b: 0.9308512, a: 1}
     Caption: 
-  - Position: {x: 2.9319038, y: 6, z: -11.208733}
+  - Position: {x: -16.505451, y: 8.25008, z: -13.992041}
     IsTemp: 0
-    LabelColor: {r: 0.62225974, g: 0.37774026, b: 0.35161996, a: 1}
+    LabelColor: {r: 0.4445833, g: 0.5554167, b: 0.51701033, a: 1}
     Caption: 
-  - Position: {x: -12.167288, y: 13.50016, z: -11.094622}
+  - Position: {x: 1.283679, y: 8.423801, z: -13.311253}
     IsTemp: 0
-    LabelColor: {r: 1, g: 0.024138162, b: 0, a: 1}
+    LabelColor: {r: 0.7169914, g: 0.28300858, b: 0.26343888, a: 1}
     Caption: 
-  - Position: {x: 14.776619, y: 2, z: 3.0223389}
+  - Position: {x: 14.776619, y: 2, z: 0.5824108}
     IsTemp: 0
-    LabelColor: {r: 1, g: 0.70805275, b: 0, a: 1}
+    LabelColor: {r: 1, g: 0.026341993, b: 0, a: 1}
     Caption: 
-  - Position: {x: 6.434067, y: 3, z: 12.447937}
+  - Position: {x: -61.61371, y: 5.9111176, z: 33.200073}
     IsTemp: 0
-    LabelColor: {r: 1, g: 0.9396916, b: 0.12552841, a: 1}
+    LabelColor: {r: 1, g: 0.9477629, b: 0.24256279, a: 1}
     Caption: 

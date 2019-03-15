@@ -22,7 +22,7 @@ namespace Trismegistus
             Bisector = ((pointForward - pointCenter).normalized + (pointBackward - pointCenter).normalized).normalized * 10;
             var up = Vector3.Cross(pointForward - pointCenter, pointBackward - pointCenter).normalized;
             PerpendicularForward =
-                -Vector3.Cross(up, Bisector).normalized * (pointForward - PointCenter).magnitude * 0.5f;
+                - Vector3.Cross(up, Bisector).normalized * (pointForward - PointCenter).magnitude * 0.5f;
             PerpendicularBackward =
                 Vector3.Cross(up, Bisector).normalized * (pointBackward - PointCenter).magnitude * 0.5f;
         }

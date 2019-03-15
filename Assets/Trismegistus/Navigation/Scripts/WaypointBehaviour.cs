@@ -28,7 +28,7 @@ namespace Trismegistus.Navigation
 
         private bool _blocked;
         private Collider _collider;
-        public Collider Collider => _collider ?? (_collider = GetComponent<Collider>());
+        public Collider Collider => _collider ? _collider : _collider = GetComponent<Collider>();
 
         private Transform _player;
 
@@ -42,20 +42,21 @@ namespace Trismegistus.Navigation
             _player = other.transform;
             StartCoroutine(WaitForPlayerToLeave());
         }
-
+        RaycastHit[] raycastHits = new RaycastHit[5];
         void OnDrawGizmos()
         {
 #if UNITY_EDITOR
             var sign = Mathf.Sign(Position.y);
             var distance = Position.y * sign;
             var ray = new Ray(Position, -Vector3.up * sign);
-            var raycastHits = Physics.RaycastAll(ray, Position.y * sign);
+            var size = Physics.RaycastNonAlloc(ray, raycastHits, Position.y * sign);
 
             if (raycastHits.Length > 0)
             {
-                var hit = raycastHits?.Where(x => x.collider != Collider)?.OrderBy(x => x.distance)?
+                var hit = raycastHits.Where(x => x.collider != Collider)
+                    .OrderBy(x => x.distance)
                     .First();
-                distance = hit.Value.distance;
+                distance = hit.distance;
             }
 
             Handles.color = LabelColor;
