@@ -49,6 +49,7 @@ namespace Trismegistus.Navigation
 
         public override void OnInspectorGUI()
         {
+            EditorGUI.BeginChangeCheck();
             var customGui = new GUIStyle(EditorStyles.helpBox) {alignment = TextAnchor.MiddleCenter};
 
             var guiBackgroundColor = GUI.backgroundColor;
@@ -86,8 +87,16 @@ namespace Trismegistus.Navigation
             /*EditorGUILayout.PropertyField(gradient, new GUIContent("Waypoint coloring gradient"));
             serializedObject.ApplyModifiedProperties();*/
 
-            navManager.IsCycled = EditorGUILayout.Toggle("Closed spline", navManager.IsCycled);
+            //Drawing "Closed spline" Toggle
+            {
+                EditorGUI.BeginChangeCheck();
+                navManager.IsCycled = EditorGUILayout.Toggle("Closed spline", navManager.IsCycled);
+                
+            
             navManager.StickToColliders = EditorGUILayout.Toggle("Stick to colliders", navManager.StickToColliders);
+            if (EditorGUI.EndChangeCheck())
+                navManager.CalculateWaypoints();
+            }
 
             serializedObject.Update();
             var onClick = serializedObject.FindProperty("WaypointChanged");
@@ -236,6 +245,8 @@ namespace Trismegistus.Navigation
                 }
                 EditorGUILayout.EndHorizontal();
             }
+            if (EditorGUI.EndChangeCheck())
+                SceneView.RepaintAll();
         }
 
         private void OnSceneGUI()
@@ -246,10 +257,12 @@ namespace Trismegistus.Navigation
             {
                 EditorGUI.BeginChangeCheck();
                 var newTargetPosition = Handles.PositionHandle(waypoint.Position + Vector3.up, Quaternion.identity);
+                var newTargetRotation = Handles.RotationHandle(waypoint.Rotation, waypoint.Position);
                 if (!EditorGUI.EndChangeCheck()) continue;
 
                 waypoint.Position = newTargetPosition - Vector3.up;
-                Undo.RecordObject(n.NavigationData, $"Change waypoint {waypoint.Caption} Position");
+                waypoint.Rotation = newTargetRotation;
+                Undo.RecordObject(n.NavigationData, $"Change waypoint {waypoint.Caption} Position/Rotation");
                 EditorUtility.SetDirty(n);
                 n.CalculateWaypoints();
             }

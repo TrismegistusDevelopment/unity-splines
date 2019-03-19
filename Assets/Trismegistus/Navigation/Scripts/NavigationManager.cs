@@ -8,13 +8,10 @@ namespace Trismegistus.Navigation
 {
     public interface INavigationManager
     {
-        Vector3 CurrentWaypointPosition { get; }
-        bool AllTargetsWalked { get; }
         int WaypointsCount { get; }
         List<WaypointEntity> Waypoints { get; }
 
         Vector3 GetDestination(int index);
-        void SwitchToTheNextWaypoint();
         int SelectClosestWaypointIndex(Vector3 position);
         Vector3 SelectClosestWaypointPosition(Vector3 position);
     }
@@ -23,8 +20,6 @@ namespace Trismegistus.Navigation
     {
         public NavigationData NavigationData;
         
-        public static NavigationManager Instance {get; private set; }
-
         public bool IsCycled
         {
             get => NavigationData.IsCycled;
@@ -55,13 +50,7 @@ namespace Trismegistus.Navigation
             set => NavigationData.Iterations = value;
         }
 
-        public Vector3 CurrentWaypointPosition =>
-            _waypoints[_currentWaypointIndex >= _waypoints.Count
-                ? _waypoints.Count - 1
-                : _currentWaypointIndex].Position;
-
-        public bool AllTargetsWalked => _currentWaypointIndex == _waypoints.Count;
-
+        
         public int WaypointsCount => _waypoints.Count;
 
         public List<WaypointEntity> Waypoints => _waypoints;
@@ -71,11 +60,9 @@ namespace Trismegistus.Navigation
         public WaypointEntity[] DynamicWaypoints;
 
         private List<WaypointEntity> _waypoints => NavigationData.Waypoints;
-        private int _currentWaypointIndex;
         
         void Awake()
         {
-            Instance = this;
             Init();
         }
         
@@ -83,23 +70,24 @@ namespace Trismegistus.Navigation
 #if UNITY_EDITOR
         void OnDrawGizmos()
         {
+            if (_waypoints.Count ==0) return;
+            
             for (var index = 0; index < _waypoints.Count; index++)
             {
                 GizmosDrawer.DrawWaypointEntity(_waypoints[index], index);
             }
 
-            var dwps = DynamicWaypoints;
-            if (dwps == null || dwps.Length == 0)
+            if (DynamicWaypoints == null || DynamicWaypoints.Length == 0)
             {
-                //CalculateWaypoints();
+                CalculateWaypoints();
             }
 
-            if (dwps == null || dwps.Length == 0)
+            if (DynamicWaypoints == null || DynamicWaypoints.Length == 0)
             {
-                //return;
+                return;
             }
 
-            GizmosDrawer.DrawSpline(dwps, IsCycled);
+            GizmosDrawer.DrawSpline(DynamicWaypoints, IsCycled);
         }
 
         
@@ -112,21 +100,6 @@ namespace Trismegistus.Navigation
             return DynamicWaypoints[index].Position;
         }
 
-        public void SwitchToTheNextWaypoint()
-        {
-            if (IsCycled)
-            {
-                _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Count;
-            }
-            else if (_currentWaypointIndex < _waypoints.Count)
-            {
-                _currentWaypointIndex++;
-            }
-            
-            Debug.LogFormat($"Waypoint Changed! CurrentWaypointIndex: {_currentWaypointIndex}");
-            WaypointChanged.Invoke();
-        }
-        
         public Vector3 SelectClosestWaypointPosition(Vector3 position)
         {
             return GetDestination(SelectClosestWaypointIndex(position));
@@ -152,7 +125,7 @@ namespace Trismegistus.Navigation
 
             return nextIndex;
         }
-
+        private static RaycastHit[] Hits = new RaycastHit[5];
         public static WaypointEntity[] CalculateWaypoints(List<WaypointEntity> list, int iterations,
             WaypointBehaviour prefab, Transform tr, bool stickToColliders, bool cycled)
         {
@@ -182,13 +155,19 @@ namespace Trismegistus.Navigation
 
             var curve = new List<WaypointEntity>();
 
-
             var points = new List<NavPoint>();
+            
+            //Make closed curve with rounding on every point
             if (cycled)
             {
                 points = p.Select((t, i) =>
-                    new NavPoint(t, p[(p.Count + i - 1) % p.Count], p[(p.Count + i + 1) % p.Count])).ToList();
+                    new NavPoint(t, 
+                        p[(p.Count + i - 1) % p.Count], 
+                        p[(p.Count + i + 1) % p.Count])).
+                    ToList();
             }
+            
+            //Or make open curve withoud roundings on utmost points
             else
             {
                 for (int i = 0; i < p.Count; i++)
@@ -197,8 +176,8 @@ namespace Trismegistus.Navigation
                     if (p.Count == 1) points.Add(new NavPoint(pCenter, pCenter, pCenter));
                     else
                     {
-                        var pForward = i != p.Count - 1 ? p[i + 1] : p[i] + (p[i - 1] - p[i]);
-                        var pBackward = i != 0 ? p[i - 1] : p[i] + (p[i + 1] - p[i]);
+                        var pForward = i != p.Count - 1 ? p[i + 1] : Vector3.positiveInfinity;
+                        var pBackward = i != 0 ? p[i - 1] : Vector3.positiveInfinity;
                         points.Add(new NavPoint(pCenter, pBackward, pForward));
                     }
                 }
@@ -223,12 +202,15 @@ namespace Trismegistus.Navigation
                         if (stickToColliders)
                         {
                             Ray ray = new Ray(position + Vector3.up * 1, Vector3.down);
-                            RaycastHit[] hits = Physics.RaycastAll(ray);
+                            var hits = Physics.RaycastAll(ray);
+                            
+                            if (hits.Length > 0)
+                            {
+                                var hit = hits.OrderBy(x => x.distance)
+                                    .First();
 
-                            var hit = hits?.OrderBy(x => x.distance)?
-                                .First();
-
-                            if (hit != null) position.y = hit.Value.point.y;
+                                position.y = hit.point.y;
+                            }
                         }
 
                         curve.Add(new WaypointEntity(position, true));
@@ -241,7 +223,6 @@ namespace Trismegistus.Navigation
 
         private void Init()
         {
-            _currentWaypointIndex = 0;
             WaypointChanged = new UnityEvent();
         }
 
@@ -259,7 +240,7 @@ namespace Trismegistus.Navigation
 
         public void Relocate(int from, int to)
         {
-            NavigationData.Relocate(NavigationData.Waypoints, from, to);
+            NavigationData.Relocate(NavigationData.Waypoints, @from, to);
             CalculateWaypoints();
         }
 

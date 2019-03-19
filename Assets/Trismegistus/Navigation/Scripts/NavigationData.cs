@@ -18,7 +18,7 @@ namespace Trismegistus.Navigation
 
         [SerializeField]
         public List<WaypointEntity> Waypoints = new List<WaypointEntity>();
-        
+
         /// <summary>
         /// Move element within IList
         /// </summary>
@@ -28,9 +28,9 @@ namespace Trismegistus.Navigation
         /// <typeparam name="T">Type of IList</typeparam>
         /// <returns>Rearranged IList of type T</returns>
         /// <exception cref="ArgumentException">Both indexes must be within list.Count</exception>
-        public static T Relocate<T>(T list, int indexFrom, int indexTo) where T : IList
+        public static void Relocate<T>(T list, int indexFrom, int indexTo) where T : IList
         {
-            if (indexFrom == indexTo) return list;
+            if (indexFrom == indexTo) return;
             if (indexTo < 0 || 
                 indexFrom < 0 || 
                 indexTo > list.Count||
@@ -39,8 +39,6 @@ namespace Trismegistus.Navigation
             var item = list[indexFrom];
             list.RemoveAt(indexFrom);
             list.Insert(indexTo > indexFrom? indexTo - 1: indexTo, item);
-            
-            return list;
         }
 
         public void AddWaypoint()
