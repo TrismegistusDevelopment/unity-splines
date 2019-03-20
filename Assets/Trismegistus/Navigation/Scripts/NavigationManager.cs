@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -12,6 +13,8 @@ namespace Trismegistus.Navigation
         List<WaypointEntity> Waypoints { get; }
 
         Vector3 GetDestination(int index);
+        Vector3 GetDestination(float t);
+        Vector3 GetVelocity(float t);
         int SelectClosestWaypointIndex(Vector3 position);
         Vector3 SelectClosestWaypointPosition(Vector3 position);
     }
@@ -104,7 +107,7 @@ namespace Trismegistus.Navigation
         {
             return GetDestination(SelectClosestWaypointIndex(position));
         }
-        
+
         public int SelectClosestWaypointIndex(Vector3 position)
         {
             // return DynamicWaypoints.Select((x, i) => new {x, i}).OrderBy(a => Vector3.Distance(position, a.x.Position)).First().i; TODO test
@@ -155,49 +158,23 @@ namespace Trismegistus.Navigation
 
             var curve = new List<WaypointEntity>();
 
-            var points = new List<NavPoint>();
-            
-            //Make closed curve with rounding on every point
-            if (cycled)
-            {
-                points = p.Select((t, i) =>
-                    new NavPoint(t, 
-                        p[(p.Count + i - 1) % p.Count], 
-                        p[(p.Count + i + 1) % p.Count])).
-                    ToList();
-            }
-            
-            //Or make open curve withoud roundings on utmost points
-            else
-            {
-                for (int i = 0; i < p.Count; i++)
-                {
-                    var pCenter = p[i];
-                    if (p.Count == 1) points.Add(new NavPoint(pCenter, pCenter, pCenter));
-                    else
-                    {
-                        var pForward = i != p.Count - 1 ? p[i + 1] : Vector3.positiveInfinity;
-                        var pBackward = i != 0 ? p[i - 1] : Vector3.positiveInfinity;
-                        points.Add(new NavPoint(pCenter, pBackward, pForward));
-                    }
-                }
-            }
+            var points = CalculateNavPoints(cycled, p);
 
-            for (var i = 0; i < points.Count; i++)
+            for (var i = 0; i < points.Length; i++)
             {
                 var navPoint = points[i];
-                //list[i] = new WaypointEntity(list[i].Position, false, Color.black, list[i].Caption);
+                
                 curve.Add(list[i]);
 
                 var localIterations = Mathf.CeilToInt(distances[i] * iterations / 10);
 
-                if (i == points.Count-1 && !cycled) continue;
+                if (i == points.Length-1 && !cycled) continue;
                 {
                     for (var j = 1; j < localIterations; j++)
                     {
                         var position = NavPoint.GetPoint(navPoint.PointCenter,
-                            navPoint.AbsPerpendicularForward, points[(i + 1) % points.Count].AbsPerpendicularBackward,
-                            points[(i + 1) % points.Count].PointCenter, (float) j / localIterations);
+                            navPoint.AbsPerpendicularForward, points[(i + 1) % points.Length].AbsPerpendicularBackward,
+                            points[(i + 1) % points.Length].PointCenter, (float) j / localIterations);
 
                         if (stickToColliders)
                         {
@@ -213,7 +190,9 @@ namespace Trismegistus.Navigation
                             }
                         }
 
-                        curve.Add(new WaypointEntity(position, true));
+                        var waypointEntity = new WaypointEntity(position, true);
+                        waypointEntity.NavPoint = navPoint;
+                        curve.Add(waypointEntity);
                     }
                 }
             }
@@ -221,8 +200,49 @@ namespace Trismegistus.Navigation
             return curve.ToArray();
         }
 
+        private static NavPoint[] CalculateNavPoints(bool cycled, List<Vector3> p)
+        {
+            return CalculateNavPoints(cycled, p.ToArray());
+        }
+        private static NavPoint[] CalculateNavPoints(bool cycled, Vector3[] p)
+        {
+            var points = new List<NavPoint>();
+
+            //Make closed curve with rounding on every point
+            if (cycled)
+            {
+                points = p.Select((t, i) =>
+                    new NavPoint(t,
+                        p[(p.Length + i - 1) % p.Length],
+                        p[(p.Length + i + 1) % p.Length])).ToList();
+            }
+
+            //Or make open curve withoud roundings on utmost points
+            else
+            {
+                for (int i = 0; i < p.Length; i++)
+                {
+                    var pCenter = p[i];
+                    if (p.Length == 1) points.Add(new NavPoint(pCenter, pCenter, pCenter));
+                    else
+                    {
+                        var pForward = i != p.Length - 1 
+                            ? p[i + 1] 
+                            : Vector3.positiveInfinity;
+                        var pBackward = i != 0 
+                            ? p[i - 1] 
+                            : Vector3.positiveInfinity;
+                        points.Add(new NavPoint(pCenter, pBackward, pForward));
+                    }
+                }
+            }
+
+            return points.ToArray();
+        }
+
         private void Init()
         {
+            CalculateWaypoints();
             WaypointChanged = new UnityEvent();
         }
 
@@ -250,8 +270,59 @@ namespace Trismegistus.Navigation
             CalculateWaypoints();
         }
 
+        public Vector3 GetDestination(float t)
+        {
+            var wayPoints = _waypoints.ToArray();
+            var arrayShift = IsCycled ? 0 : 1;
+            int i;
+            if (t >= 1)
+            {
+                t = 1;
+                i = wayPoints.Length - 1;
+            }
+            else
+            {
+                t = Mathf.Clamp01(t) * (wayPoints.Length - arrayShift);
+                i = Mathf.FloorToInt(t);
+                t -= i;
+            }
+            
+            return NavPoint.GetPoint(wayPoints[i].NavPoint,
+                wayPoints[(i + 1) % wayPoints.Length].NavPoint, t);
+        }
+
+        public Vector3 GetVelocity(float t)
+        {
+            var wayPoints = _waypoints.ToArray();
+            var arrayShift = IsCycled ? 0 : 1;
+            int i;
+            /*if (t <= 0 && !IsCycled)
+            {
+                t = float.Epsilon;
+            }*/
+            if (t >= 1)
+            {
+                t = 1;
+                i = wayPoints.Length - 1;
+            }
+            else
+            {
+                t = Mathf.Clamp01(t) * (wayPoints.Length - arrayShift);
+                i = Mathf.FloorToInt(t);
+                t -= i;
+            }
+            return NavPoint.GetFirstDerivative(wayPoints[i].NavPoint,
+                wayPoints[(i + 1) % wayPoints.Length].NavPoint, t);
+        }
+
         public void CalculateWaypoints()
         {
+            var navPoints = CalculateNavPoints(IsCycled, NavigationData.Waypoints.Select(x => x.Position).ToArray());
+            for (var i = 0; i < NavigationData.Waypoints.Count; i++)
+            {
+                NavigationData.Waypoints[i].NavPoint = navPoints[i];
+            }
+
             DynamicWaypoints = CalculateWaypoints(_waypoints, Iterations, StickToColliders, IsCycled);
             Colorize();
 #if UNITY_EDITOR

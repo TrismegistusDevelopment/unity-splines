@@ -50,16 +50,17 @@ namespace Trismegistus.Navigation
         /// <exception cref="ArgumentException">Only one non-center can be Vector3.positiveInfinity</exception>
         public NavPoint(Vector3 pointCenter, Vector3 pointBackward, Vector3 pointForward)
         {
-            if (pointBackward == Vector3.positiveInfinity && pointForward == Vector3.positiveInfinity)
+            if (float.IsInfinity(pointBackward.sqrMagnitude) && float.IsInfinity(pointForward.sqrMagnitude))
                 throw new ArgumentException("Both points cannot be positiveInfinity");
             
             PointCenter = pointCenter;
-            
-            PointBackward = pointBackward == Vector3.positiveInfinity
-                ? pointCenter + (pointForward - pointCenter) 
+
+            PointBackward = float.IsInfinity(pointBackward.sqrMagnitude) 
+                ? pointCenter + (pointCenter - pointForward)
                 : pointBackward;
-            PointForward = pointForward == Vector3.positiveInfinity
-                ? pointCenter + (pointBackward - pointCenter) 
+            
+            PointForward = float.IsInfinity(pointForward.sqrMagnitude) 
+                ? pointCenter + (pointCenter - pointBackward)
                 : pointForward;
             
             Bisector = (
@@ -103,6 +104,30 @@ namespace Trismegistus.Navigation
                 3f * oneMinusT * t * t * p2 +
                 t * t * t * p3;
         }
+        
+        /// <summary>
+        /// Get velocity of 4-points bezier point
+        /// </summary>
+        /// <param name="p0">Start of curve</param>
+        /// <param name="p1">Start aux point</param>
+        /// <param name="p2">End aux point</param>
+        /// <param name="p3">End of curve</param>
+        /// <param name="t">Normalized position on curve</param>
+        /// <returns>Relative velocity (direction*speed)</returns>
+        public static Vector3 GetFirstDerivative (Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t) {
+            t = Mathf.Clamp01(t);
+            float oneMinusT = 1f - t;
+            return
+                3f * oneMinusT * oneMinusT * (p1 - p0) +
+                6f * oneMinusT * t * (p2 - p1) +
+                3f * t * t * (p3 - p2);
+        }
+        
+        public static Vector3 GetFirstDerivative (NavPoint firstPoint, NavPoint secondPoint, float t) =>
+            GetFirstDerivative(firstPoint.PointCenter, 
+                firstPoint.AbsPerpendicularForward,
+                secondPoint.AbsPerpendicularBackward, 
+                secondPoint.PointCenter, t);
 
         /// <summary>
         /// Get point on bezier by 2 navPoints 

@@ -20,12 +20,27 @@ namespace Trismegistus.Navigation.Follower
         public override void StartMoving()
         {
             if (_movingCoroutine!=null) StopCoroutine(_movingCoroutine);
-            _movingCoroutine = StartCoroutine(MovingEnumerator());
+            _movingCoroutine = StartCoroutine(MovingEnumerator2());
         }
 
         public override void StopMoving()
         {
             if (_movingCoroutine!=null) StopCoroutine(_movingCoroutine);
+        }
+
+        private IEnumerator MovingEnumerator2()
+        {
+            float t = 0;
+            while (true)
+            {
+                transform.position = Manager.GetDestination(t);
+
+                var velocity = Manager.GetVelocity(t);
+                transform.rotation = Quaternion.LookRotation(velocity);
+                t += Time.deltaTime * speed/velocity.magnitude;
+                if (t > 1) t =0;
+                yield return new WaitForEndOfFrame();
+            }
         }
 
         private IEnumerator MovingEnumerator()

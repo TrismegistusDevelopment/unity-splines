@@ -11,6 +11,7 @@ namespace Trismegistus.Navigation
         public bool IsTemp;
         public Color LabelColor;
         public string Caption;
+        public NavPoint NavPoint;
 
         public WaypointEntity()
         {
@@ -31,6 +32,16 @@ namespace Trismegistus.Navigation
             LabelColor = labelColor;
             Caption = caption;
             Rotation = rotation;
+        }
+        
+        public WaypointEntity(Vector3 position, bool isTemp, Color labelColor, string caption, Quaternion rotation, NavPoint navPoint)
+        {
+            Position = position;
+            IsTemp = isTemp;
+            LabelColor = labelColor;
+            Caption = caption;
+            Rotation = rotation;
+            NavPoint = navPoint;
         }
 
         public WaypointEntity(Vector3 position, bool isTemp)

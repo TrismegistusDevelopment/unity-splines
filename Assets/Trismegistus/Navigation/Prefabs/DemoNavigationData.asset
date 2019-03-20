@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cc69a96e88c65468731a3431589df6, type: 3}
   m_Name: DemoNavigationData
   m_EditorClassIdentifier: 
-  WaypointPrefab: {fileID: 114965368960109712, guid: e9c9bd46100af1046a87483d3d6ce7e6,
-    type: 3}
   GradientForWaypoints:
     serializedVersion: 2
     key0: {r: 0, g: 1, b: 0.9308512, a: 1}
@@ -45,7 +43,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   IsCycled: 1
   StickToColliders: 0
-  Iterations: 7
+  Iterations: 3
   Waypoints:
   - Position: {x: -37.114056, y: 14.027512, z: 16.066141}
     Rotation: {x: 0, y: 0, z: 0.1847382, w: 0.9827878}
@@ -55,20 +53,20 @@ MonoBehaviour:
   - Position: {x: -58.75665, y: 5.9111176, z: 27.484314}
     Rotation: {x: -0.24510133, y: -0.35688317, z: -0.5395626, w: 0.7221024}
     IsTemp: 0
-    LabelColor: {r: 0.39090762, g: 0.60909235, b: 0.5669744, a: 1}
+    LabelColor: {r: 0.37473506, g: 0.62526494, b: 0.5820286, a: 1}
     Caption: 1111
-  - Position: {x: -16.505451, y: 19.57198, z: -15.175066}
-    Rotation: {x: -0.5318392, y: -0.3349271, z: 0.1726142, w: 0.758403}
+  - Position: {x: -20.335114, y: 19.57198, z: -19.644583}
+    Rotation: {x: -0.5437567, y: -0.5380555, z: 0.13663846, w: 0.6294083}
     IsTemp: 0
-    LabelColor: {r: 1, g: 0.2811698, b: 0, a: 1}
+    LabelColor: {r: 1, g: 0.25553784, b: 0, a: 1}
     Caption: 
   - Position: {x: 1.283679, y: 8.423801, z: -13.311253}
-    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    Rotation: {x: -0.07759243, y: -0.10676204, z: 0.14365514, w: 0.98078763}
     IsTemp: 0
-    LabelColor: {r: 1, g: 0.5517294, b: 0, a: 1}
+    LabelColor: {r: 1, g: 0.5846396, b: 0, a: 1}
     Caption: 
   - Position: {x: 14.776619, y: 9.304245, z: 0.5824108}
     Rotation: {x: 0, y: 0, z: 0, w: 1}
     IsTemp: 0
-    LabelColor: {r: 1, g: 0.8042518, b: 0, a: 1}
+    LabelColor: {r: 1, g: 0.83146596, b: 0, a: 1}
     Caption: 
