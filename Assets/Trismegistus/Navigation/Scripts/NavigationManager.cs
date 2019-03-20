@@ -32,11 +32,11 @@ namespace Trismegistus.Navigation
             set => NavigationData.StickToColliders = value;
         }
 
-        public WaypointBehaviour WaypointPrefab
+        /*public WaypointBehaviour WaypointPrefab
         {
             get => NavigationData.WaypointPrefab;
             set => NavigationData.WaypointPrefab = value;
-        }
+        }*/
 
         public Gradient GradientForWaypoints
         {
@@ -127,7 +127,7 @@ namespace Trismegistus.Navigation
         }
         private static RaycastHit[] Hits = new RaycastHit[5];
         public static WaypointEntity[] CalculateWaypoints(List<WaypointEntity> list, int iterations,
-            WaypointBehaviour prefab, Transform tr, bool stickToColliders, bool cycled)
+            bool stickToColliders, bool cycled)
         {
             var distances = list.Select((t, i) => (t.Position - list[(i + 1) % list.Count].Position).magnitude)
                 .ToList();
@@ -252,7 +252,7 @@ namespace Trismegistus.Navigation
 
         public void CalculateWaypoints()
         {
-            DynamicWaypoints = CalculateWaypoints(_waypoints, Iterations, WaypointPrefab, transform, StickToColliders, IsCycled);
+            DynamicWaypoints = CalculateWaypoints(_waypoints, Iterations, StickToColliders, IsCycled);
             Colorize();
 #if UNITY_EDITOR
             SceneView.RepaintAll();

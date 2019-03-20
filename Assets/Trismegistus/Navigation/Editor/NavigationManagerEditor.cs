@@ -74,9 +74,9 @@ namespace Trismegistus.Navigation
                 return;
             }
 
-            navManager.WaypointPrefab =
+            /*navManager.WaypointPrefab =
                 EditorGUILayout.ObjectField("Prefab", navManager.WaypointPrefab, typeof(WaypointBehaviour), false) as
-                    WaypointBehaviour;
+                    WaypointBehaviour;*/
             //navManager.CalculateWaypoints();
             serializedObject.Update();
             var gradient = serializedObject.FindProperty("GradientForWaypoints");
@@ -141,7 +141,7 @@ namespace Trismegistus.Navigation
 
             EditorGUILayout.BeginHorizontal(EditorStyles.boldLabel);
             {
-                if (navManager.WaypointPrefab == null) GUI.enabled = false;
+                /*if (navManager.WaypointPrefab == null) GUI.enabled = false;*/
                 if (GUILayout.Button(
                     new GUIContent(_currentMode == Mode.Add ? "x" : "+", "Hold shift to add to the end"),
                     GUILayout.Width(30)))
@@ -156,7 +156,7 @@ namespace Trismegistus.Navigation
                 }
 
                 GUI.enabled = true;
-                if (navManager.WaypointPrefab == null) GUILayout.Label("You must add prefab!", EditorStyles.helpBox);
+                /*if (navManager.WaypointPrefab == null) GUILayout.Label("You must add prefab!", EditorStyles.helpBox);*/
             }
             EditorGUILayout.EndHorizontal();
 

@@ -8,7 +8,6 @@ Tool for making navigation bezier splines with points, events and bindings to co
 1. Create empty GameObject in scene
 1. Add `NavigationManager` script on it
 1. Create new `NavigationData` as suggested in component or directly in Project window and drag to corresponding field
-1. Add prefab with `WaypointBehaviour`
 ## Usage
 - **Waypoint coloring gradient** - colorize path and waypoints using unity build-in Gradient class
 - **Closed spline** - to make spline closed/open

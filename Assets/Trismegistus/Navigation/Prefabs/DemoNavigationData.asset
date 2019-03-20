@@ -47,23 +47,28 @@ MonoBehaviour:
   StickToColliders: 0
   Iterations: 7
   Waypoints:
-  - Position: {x: -40.954876, y: 6, z: 4.419792}
+  - Position: {x: -37.114056, y: 14.027512, z: 16.066141}
+    Rotation: {x: 0, y: 0, z: 0.1847382, w: 0.9827878}
     IsTemp: 0
     LabelColor: {r: 0, g: 1, b: 0.9308512, a: 1}
     Caption: 
-  - Position: {x: -16.505451, y: 8.25008, z: -13.992041}
+  - Position: {x: -58.75665, y: 5.9111176, z: 27.484314}
+    Rotation: {x: -0.24510133, y: -0.35688317, z: -0.5395626, w: 0.7221024}
     IsTemp: 0
-    LabelColor: {r: 0.4445833, g: 0.5554167, b: 0.51701033, a: 1}
+    LabelColor: {r: 0.39090762, g: 0.60909235, b: 0.5669744, a: 1}
+    Caption: 1111
+  - Position: {x: -16.505451, y: 19.57198, z: -15.175066}
+    Rotation: {x: -0.5318392, y: -0.3349271, z: 0.1726142, w: 0.758403}
+    IsTemp: 0
+    LabelColor: {r: 1, g: 0.2811698, b: 0, a: 1}
     Caption: 
   - Position: {x: 1.283679, y: 8.423801, z: -13.311253}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
     IsTemp: 0
-    LabelColor: {r: 0.7169914, g: 0.28300858, b: 0.26343888, a: 1}
+    LabelColor: {r: 1, g: 0.5517294, b: 0, a: 1}
     Caption: 
-  - Position: {x: 14.776619, y: 2, z: 0.5824108}
+  - Position: {x: 14.776619, y: 9.304245, z: 0.5824108}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
     IsTemp: 0
-    LabelColor: {r: 1, g: 0.026341993, b: 0, a: 1}
-    Caption: 
-  - Position: {x: -61.61371, y: 5.9111176, z: 33.200073}
-    IsTemp: 0
-    LabelColor: {r: 1, g: 0.9477629, b: 0.24256279, a: 1}
+    LabelColor: {r: 1, g: 0.8042518, b: 0, a: 1}
     Caption: 

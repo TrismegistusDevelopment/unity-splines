@@ -10,7 +10,7 @@ namespace Trismegistus.Navigation
     [CreateAssetMenu(fileName = "New NavigationData", menuName = "Trismegistus/Navigation Data", order = 51)]
     public class NavigationData : ScriptableObject
     {
-        public WaypointBehaviour WaypointPrefab;
+        //public WaypointBehaviour WaypointPrefab;
         public Gradient GradientForWaypoints = new Gradient();
         public bool IsCycled;
         public bool StickToColliders;
