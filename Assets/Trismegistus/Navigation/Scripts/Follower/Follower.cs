@@ -34,16 +34,24 @@ namespace Trismegistus.Navigation.Follower
             while (true)
             {
                 var destination = GetCurrentDestination();
-                while (Vector3.SqrMagnitude(transform.position - destination) > MinSquareDistance)
+                var tPosition = t.position;
+                var startSqrDist = Vector3.SqrMagnitude(tPosition - destination);
+                var currentSqrDist = Vector3.SqrMagnitude(tPosition - destination);
+
+                var startRotation = t.rotation;
+                var direction = (destination - transform.position).normalized;
+                var targetRotation = Quaternion.LookRotation(direction);
+                
+                while (currentSqrDist > MinSquareDistance)
                 {
-                    var direction = (destination - transform.position).normalized;
-                    
                     var cross = Vector3.Cross(direction, t.forward);
-                    t.Rotate(cross, Vector3.SignedAngle(t.forward, direction, cross) * 0.1f, Space.World);
+                    /*t.Rotate(cross, Vector3.SignedAngle(t.forward, direction, cross) * 0.1f, Space.World);*/
+                    t.rotation = Quaternion.Lerp(startRotation, targetRotation, Mathf.SmoothStep(0,1,(startSqrDist-currentSqrDist) / startSqrDist));
                     
                     t.Translate(direction * Time.deltaTime * speed, Space.World);
                     
                     yield return new WaitForEndOfFrame();
+                    currentSqrDist = Vector3.SqrMagnitude(t.position - destination);
                 }
 
                 CurrentIndex++;
