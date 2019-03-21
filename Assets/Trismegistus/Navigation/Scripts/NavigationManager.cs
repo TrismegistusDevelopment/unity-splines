@@ -49,6 +49,7 @@ namespace Trismegistus.Navigation
         
         private void Init()
         {
+            if (!NavigationData) return; 
             CalculateWaypoints();
             WaypointChanged = new UnityEvent();
         }
@@ -63,6 +64,8 @@ namespace Trismegistus.Navigation
 #if UNITY_EDITOR
         void OnDrawGizmos()
         {
+            if (!NavigationData) return;
+            
             if (_waypoints.Count ==0) return;
             
             for (var index = 0; index < _waypoints.Count; index++)

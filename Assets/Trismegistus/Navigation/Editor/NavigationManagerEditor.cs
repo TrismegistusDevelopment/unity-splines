@@ -27,6 +27,8 @@ void OnEnable()
 
             var navManager = (NavigationManager) target;
             
+            if (!navManager.NavigationData) return;
+            
             navManager.CalculateWaypoints();
         }
 
@@ -240,9 +242,12 @@ void OnEnable()
 
         private void OnSceneGUI()
         {
-            var n = target as NavigationManager;
-            if (n == null) return;
-            foreach (var waypoint in n.Waypoints)
+            var navManager = target as NavigationManager;
+            
+            if (!navManager) return;
+            if (!navManager.NavigationData) return;
+            
+            foreach (var waypoint in navManager.Waypoints)
             {
                 EditorGUI.BeginChangeCheck();
                 var newTargetPosition = Handles.PositionHandle(waypoint.Position + Vector3.up, Quaternion.identity);
@@ -251,9 +256,9 @@ void OnEnable()
 
                 waypoint.Position = newTargetPosition - Vector3.up;
                 waypoint.Rotation = newTargetRotation;
-                Undo.RecordObject(n.NavigationData, $"Change waypoint {waypoint.Caption} Position/Rotation");
-                EditorUtility.SetDirty(n);
-                n.CalculateWaypoints();
+                Undo.RecordObject(navManager.NavigationData, $"Change waypoint {waypoint.Caption} Position/Rotation");
+                EditorUtility.SetDirty(navManager);
+                navManager.CalculateWaypoints();
             }
         }
         
