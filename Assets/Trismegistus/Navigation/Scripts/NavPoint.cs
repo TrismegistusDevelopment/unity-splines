@@ -6,32 +6,38 @@ namespace Trismegistus.Navigation
     /// <summary>
     /// Point with calculated auxiliary points and directions for making a curve
     /// </summary>
+    [Serializable]
     public class NavPoint
     {
         /// <summary>
         /// Current point position
         /// </summary>
-        public Vector3 PointCenter { get; }
+        public Vector3 PointCenter;
+
         /// <summary>
         /// Position of previous point
         /// </summary>
-        public Vector3 PointBackward { get; }
+        public Vector3 PointBackward;
+
         /// <summary>
         /// Position of next point
         /// </summary>
-        public Vector3 PointForward { get; }
+        public Vector3 PointForward;
+
         /// <summary>
         /// Normalized direction of bisect for angle from points PointBackward-PointCenter-PointForward
         /// </summary>
-        public Vector3 Bisector { get; }
+        public Vector3 Bisector;
+
         /// <summary>
         /// Local point on a line, perpendicular to bisector from PointCenter, towards PointForward
         /// </summary>
-        public Vector3 PerpendicularForward { get; }
+        public Vector3 PerpendicularForward;
+
         /// <summary>
         /// Local point on a line, perpendicular to bisector from PointCenter, towards PointBackward
         /// </summary>
-        public Vector3 PerpendicularBackward { get; }
+        public Vector3 PerpendicularBackward;
         /// <summary>
         /// PerpendicularForward in World coordinates
         /// </summary>
@@ -64,27 +70,30 @@ namespace Trismegistus.Navigation
                 : pointForward;
             
             Bisector = (
-                           (pointForward - pointCenter).normalized 
+                           (PointForward - PointCenter).normalized 
                         + 
-                           (pointBackward - pointCenter).normalized
+                           (PointBackward - PointCenter).normalized
                            )
                        .normalized * 10;
             
             var up = Vector3.Cross(
-                pointForward - pointCenter, 
-                pointBackward - pointCenter)
+                    PointForward - PointCenter, 
+                    PointBackward - PointCenter)
                 .normalized;
-            
-            PerpendicularForward =
-                - Vector3.Cross(up, Bisector).normalized 
-                * (pointForward - PointCenter).magnitude 
-                * 0.5f;
-            PerpendicularBackward =
-                Vector3.Cross(up, Bisector).normalized 
-                * (pointBackward - PointCenter).magnitude 
-                * 0.5f;
+
+            PerpendicularForward = float.IsInfinity(pointForward.sqrMagnitude) || float.IsInfinity(pointBackward.sqrMagnitude)
+                ? (PointForward - PointCenter) * 0.5f
+                : -Vector3.Cross(up, Bisector).normalized
+                  * (PointForward - PointCenter).magnitude
+                  * 0.5f;
+            PerpendicularBackward = float.IsInfinity(pointBackward.sqrMagnitude) || float.IsInfinity(pointForward.sqrMagnitude)
+                ? (PointBackward - PointCenter) * 0.5f
+                : Vector3.Cross(up, Bisector).normalized
+                  * (PointBackward - PointCenter).magnitude
+                  * 0.5f;
         }
-        
+
+        #region Statics
         /// <summary>
         /// Get point on bezier by 4 points 
         /// </summary>
@@ -141,5 +150,7 @@ namespace Trismegistus.Navigation
                 firstPoint.AbsPerpendicularForward,
                 secondPoint.AbsPerpendicularBackward, 
                 secondPoint.PointCenter, t);
+        #endregion
     }
+    
 }

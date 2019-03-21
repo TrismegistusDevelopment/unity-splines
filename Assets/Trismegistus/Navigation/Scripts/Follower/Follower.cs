@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 namespace Trismegistus.Navigation.Follower
@@ -7,71 +8,81 @@ namespace Trismegistus.Navigation.Follower
     {
         [SerializeField] private NavigationManager manager;
         [SerializeField] [Range(0, 500)] private float speed = 1;
+        [SerializeField] private bool followRotation;
         
         private Coroutine _movingCoroutine;
-        private const float MinSquareDistance = 0.1f;
+        private float _f;
 
+        #region Monobehaviour
         void Start()
         {
             Manager = manager;
             StartMoving();
         }
+
+        void OnGUI()
+        {
+            if (GUI.Button(new Rect(10, 10, 100, 30), "Start"))
+            {
+                StartMoving();
+            }
+            
+            if (GUI.Button(new Rect(110, 10, 100, 30), "Stop"))
+            {
+                StopMoving();
+            }
+        }
         
+        #if UNITY_EDITOR
+        void OnDrawGizmos()
+        {
+            Handles.Label(transform.position, $"{_f}");
+        }
+        #endif
+        #endregion
+        
+        #region Implementations INavigationFollower 
         public override void StartMoving()
         {
             if (_movingCoroutine!=null) StopCoroutine(_movingCoroutine);
-            _movingCoroutine = StartCoroutine(MovingEnumerator2());
+            _movingCoroutine = StartCoroutine(MovingEnumerator(mode));
         }
 
         public override void StopMoving()
         {
             if (_movingCoroutine!=null) StopCoroutine(_movingCoroutine);
         }
+        #endregion
 
-        private IEnumerator MovingEnumerator2()
+        private IEnumerator MovingEnumerator(FollowerMode followerMode = FollowerMode.Loop)
         {
-            float t = 0;
+            if (followerMode == FollowerMode.None) yield break;
+            _f = 0;
+            var sign = 1;
             while (true)
             {
-                transform.position = Manager.GetDestination(t);
+                transform.position = Manager.GetDestination(_f);
 
-                var velocity = Manager.GetVelocity(t);
-                transform.rotation = Quaternion.LookRotation(velocity);
-                t += Time.deltaTime * speed/velocity.magnitude;
-                if (t > 1) t =0;
+                var velocity = Manager.GetVelocity(_f);
+                if (followRotation) transform.rotation = Quaternion.LookRotation(velocity);
+                _f += Time.deltaTime * speed / velocity.magnitude * sign;
+                if (_f > 1 || _f < 0)
+                {
+                    switch (followerMode)
+                    {
+                        case FollowerMode.Loop:
+                            _f = 0;
+                            break;
+                        case FollowerMode.Once:
+                            yield break;
+                        case FollowerMode.PingPong:
+                            sign *= -1;
+                            break;
+                    }
+                }
+
                 yield return new WaitForEndOfFrame();
             }
         }
-
-        private IEnumerator MovingEnumerator()
-        {
-            var t = transform;
-            while (true)
-            {
-                var destination = GetCurrentDestination();
-                var tPosition = t.position;
-                var startSqrDist = Vector3.SqrMagnitude(tPosition - destination);
-                var currentSqrDist = Vector3.SqrMagnitude(tPosition - destination);
-
-                var startRotation = t.rotation;
-                var direction = (destination - transform.position).normalized;
-                var targetRotation = Quaternion.LookRotation(direction);
-                
-                while (currentSqrDist > MinSquareDistance)
-                {
-                    var cross = Vector3.Cross(direction, t.forward);
-                    /*t.Rotate(cross, Vector3.SignedAngle(t.forward, direction, cross) * 0.1f, Space.World);*/
-                    t.rotation = Quaternion.Lerp(startRotation, targetRotation, Mathf.SmoothStep(0,1,(startSqrDist-currentSqrDist) / startSqrDist));
-                    
-                    t.Translate(direction * Time.deltaTime * speed, Space.World);
-                    
-                    yield return new WaitForEndOfFrame();
-                    currentSqrDist = Vector3.SqrMagnitude(t.position - destination);
-                }
-
-                CurrentIndex++;
-                yield return new WaitForEndOfFrame();
-            }
-        } 
     }
 }

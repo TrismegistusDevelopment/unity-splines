@@ -7,6 +7,7 @@ namespace Trismegistus.Navigation
     public class WaypointEntity
     {
         public Vector3 Position;
+        public Vector3 Velocity;
         public Quaternion Rotation = Quaternion.identity;
         public bool IsTemp;
         public Color LabelColor;

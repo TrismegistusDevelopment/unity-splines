@@ -19,7 +19,8 @@ namespace Trismegistus.Navigation
         private Mode _currentMode = Mode.None;
         private int _indexFrom = -1;
 
-        void OnEnable()
+        #region Editor
+void OnEnable()
         {
             _lastTool = Tools.current;
             Tools.current = Tool.None;
@@ -33,18 +34,6 @@ namespace Trismegistus.Navigation
         {
             Tools.current = _lastTool;
             _currentMode = Mode.None;
-        }
-
-        [MenuItem("GameObject/Trismegistus/Navigator", false, 0)]
-        public static void CreateNavigator()
-        {
-            var parent = Selection.activeTransform;
-            var navigatorGuid = AssetDatabase.FindAssets("Navigation t:Prefab").First();
-            var navigatorPath = AssetDatabase.GUIDToAssetPath(navigatorGuid);
-            Debug.Log($"Navigator prefab finded at {navigatorPath}");
-            var navigatorPrefab = AssetDatabase.LoadAssetAtPath(navigatorPath, typeof(GameObject));
-            var navigator = Instantiate(navigatorPrefab, parent);
-            navigator.name = navigatorPrefab.name;
         }
 
         public override void OnInspectorGUI()
@@ -266,6 +255,21 @@ namespace Trismegistus.Navigation
                 EditorUtility.SetDirty(n);
                 n.CalculateWaypoints();
             }
+        }
+        
+
+        #endregion
+        
+        [MenuItem("GameObject/Trismegistus/Navigator", false, 0)]
+        public static void CreateNavigator()
+        {
+            var parent = Selection.activeTransform;
+            var navigatorGuid = AssetDatabase.FindAssets("Navigation t:Prefab").First();
+            var navigatorPath = AssetDatabase.GUIDToAssetPath(navigatorGuid);
+            Debug.Log($"Navigator prefab finded at {navigatorPath}");
+            var navigatorPrefab = AssetDatabase.LoadAssetAtPath(navigatorPath, typeof(GameObject));
+            var navigator = Instantiate(navigatorPrefab, parent);
+            navigator.name = navigatorPrefab.name;
         }
     }
 }
