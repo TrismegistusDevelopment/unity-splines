@@ -70,9 +70,11 @@ namespace Trismegistus.Navigation
 
             for (int i = 0; i < length; i++)
             {
-                Handles.color = dwps[i].LabelColor;
-                Handles.DrawLine(dwps[i].Position, dwps[(i + dwps.Count + 1) % dwps.Count].Position);
-                Handles.DrawLine(dwps[i].Position, dwps[i].Position + Vector3.up);
+                var entity = dwps[i];
+                Handles.color = entity.LabelColor;
+                var position = entity.Position;
+                Handles.DrawLine(position, dwps[(i + dwps.Count + 1) % dwps.Count].Position);
+                Handles.DrawLine(position, position + Vector3.up);
             }
         }
     }
