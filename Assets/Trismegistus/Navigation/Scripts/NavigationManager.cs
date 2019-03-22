@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Trismegistus.Navigation.Iterator;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Trismegistus.Navigation
 {
-    public class NavigationManager : MonoBehaviour, INavigationManager
+    public class NavigationManager : MonoBehaviour, INavigationManager, INavigationIteratorCreator
     {
         public NavigationData NavigationData;
         
@@ -88,8 +89,9 @@ namespace Trismegistus.Navigation
 #endif
         #endregion
         
-        #region Implementations INavigationManager
-        public int WaypointsCount => _waypoints.Count;
+        #region Implementations 
+        #region INavigationManager
+        public int WaypointsCount => DynamicWaypoints.Length;
         public List<WaypointEntity> Waypoints => _waypoints;
         public Vector3 GetDestination(int index)
         {
@@ -159,6 +161,16 @@ namespace Trismegistus.Navigation
             return NavPoint.GetFirstDerivative(wayPoints[i].NavPoint,
                        wayPoints[(i + 1) % wayPoints.Length].NavPoint, t)*wayPoints.Length;
         }
+        #endregion
+        
+        public INavigationIterator GetNavigationIterator(GameObject targetGameObject, float stoppingDistance)
+        {
+            var navigationIterator = targetGameObject.AddComponent<NavigationIterator>();
+            navigationIterator.SetStoppingDistance(stoppingDistance);
+            navigationIterator.SetNavigationManager(this);
+            return navigationIterator;
+        }
+        
         #endregion
 
         #region Reordering
@@ -347,5 +359,7 @@ namespace Trismegistus.Navigation
                 waypointEntity.LabelColor = GradientForWaypoints.Evaluate((float) index / (count - 1));
             }
         }
+
+        
     }
 }
