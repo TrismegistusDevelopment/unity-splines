@@ -1,4 +1,9 @@
 # unity-navigation-splines
+[![GitHub](https://img.shields.io/github/license/hermesiss/unity-navigation-splines.svg)](https://github.com/Hermesiss/unity-navigation-splines/blob/develop/LICENSE)
+[![GitHub Release Date](https://img.shields.io/github/release-date/hermesiss/unity-navigation-splines.svg)](https://github.com/Hermesiss/unity-navigation-splines/releases/latest)
+[![BCH compliance](https://bettercodehub.com/edge/badge/Hermesiss/unity-navigation-splines?branch=develop)](https://bettercodehub.com/)
+[![CodeFactor](https://www.codefactor.io/repository/github/hermesiss/unity-navigation-splines/badge)](https://www.codefactor.io/repository/github/hermesiss/unity-navigation-splines)
+
 Tool for making navigation bezier splines with points, events and bindings to colliders
 ## Installation
 - Download *.unitypackage from last release (note minimal Unity version in description)
