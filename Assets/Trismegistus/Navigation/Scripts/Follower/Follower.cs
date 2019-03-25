@@ -80,7 +80,6 @@ namespace Trismegistus.Navigation.Follower
                             break;
                     }
                 }
-
                 yield return new WaitForEndOfFrame();
             }
         }

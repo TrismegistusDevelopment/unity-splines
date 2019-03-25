@@ -13,10 +13,11 @@ namespace Trismegistus.Navigation
             var labelColor = entity.LabelColor;
             var position = entity.Position;
             var caption = entity.Caption;
+            GUIStyle style;
             
             if (!isTemp)
             {
-                var style = new GUIStyle(EditorStyles.helpBox)
+                style = new GUIStyle(EditorStyles.helpBox)
                 {
                     alignment = TextAnchor.MiddleCenter,
                     fontStyle = FontStyle.Bold
@@ -30,37 +31,35 @@ namespace Trismegistus.Navigation
                     Handles.Label(position, $"{index+1} {caption}".Trim(' '), style);
                 }
             }
-            //else
+
+            var editorCamNormal = SceneView.currentDrawingSceneView.camera.transform.position - position;
+            var editorDistance = editorCamNormal.magnitude;
+            style = new GUIStyle
             {
-                var editorCamNormal = SceneView.currentDrawingSceneView.camera.transform.position - position;
-                var editorDistance = editorCamNormal.magnitude;
-                var style = new GUIStyle
-                {
-                    alignment = TextAnchor.UpperCenter,
-                    fontStyle = FontStyle.Bold
-                };
-                Handles.color = Color.Lerp(Color.white, Color.black, (labelColor.r + labelColor.g + labelColor.b) / 3);
-                style.normal.textColor = labelColor;
-                Handles.color = labelColor;
+                alignment = TextAnchor.UpperCenter,
+                fontStyle = FontStyle.Bold
+            };
+            Handles.color = Color.Lerp(Color.white, Color.black, (labelColor.r + labelColor.g + labelColor.b) / 3);
+            style.normal.textColor = labelColor;
+            Handles.color = labelColor;
 
-                Handles.DrawSolidDisc(position, editorCamNormal, editorDistance / 200f);
-                
-                var sign = Mathf.Sign(position.y);
-                var distance = position.y * sign;
+            Handles.DrawSolidDisc(position, editorCamNormal, editorDistance / 200f);
 
-                Handles.color = labelColor;
+            var sign = Mathf.Sign(position.y);
+            var distance = position.y * sign;
 
-                if (sign > 0) Handles.DrawLine(position, position - Vector3.up * distance);
-                else
-                {
-                    Handles.DrawDottedLine(position, position + Vector3.up * distance, 2);
-                }
+            Handles.color = labelColor;
 
-                var col = labelColor;
-                col.a = 0.3f;
-                Handles.color = col;
-                Handles.DrawSolidDisc(position - Vector3.up * sign * distance, Vector3.up, 0.5f);
+            if (sign > 0) Handles.DrawLine(position, position - Vector3.up * distance);
+            else
+            {
+                Handles.DrawDottedLine(position, position + Vector3.up * distance, 2);
             }
+
+            var col = labelColor;
+            col.a = 0.3f;
+            Handles.color = col;
+            Handles.DrawSolidDisc(position - Vector3.up * sign * distance, Vector3.up, 0.5f);
         }
         
         public static void DrawSpline(IReadOnlyList<WaypointEntity> dwps, bool isCycled)
@@ -68,7 +67,7 @@ namespace Trismegistus.Navigation
             var length = isCycled ? dwps.Count : dwps.Count - 1;
             if (length <= 0) return;
 
-            for (int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
                 var entity = dwps[i];
                 Handles.color = entity.LabelColor;

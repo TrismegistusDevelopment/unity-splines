@@ -77,7 +77,6 @@ namespace Trismegistus.Navigation.Iterator.Examples
 
             _sphere.transform.position = _destination;
             _sphere.transform.localScale = Vector3.one * stoppingDistance * 2;
-
         }
 
         private void React()

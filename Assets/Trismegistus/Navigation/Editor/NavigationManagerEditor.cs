@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEditorInternal;
 
 namespace Trismegistus.Navigation
 {
@@ -20,15 +21,16 @@ namespace Trismegistus.Navigation
         private int _indexFrom = -1;
 
         #region Editor
-void OnEnable()
+
+        void OnEnable()
         {
             _lastTool = Tools.current;
             Tools.current = Tool.None;
 
             var navManager = (NavigationManager) target;
-            
+
             if (!navManager.NavigationData) return;
-            
+
             navManager.CalculateWaypoints();
         }
 
@@ -57,7 +59,7 @@ void OnEnable()
                 {
                     var path = EditorUtility.SaveFilePanelInProject("Save NavigationData asset", "New NavigationData",
                         "asset", "Enter name");
-                    var navData = ScriptableObject.CreateInstance<NavigationData>();
+                    var navData = CreateInstance<NavigationData>();
                     AssetDatabase.CreateAsset(navData, path);
                     navManager.NavigationData = navData;
                 }
@@ -65,29 +67,27 @@ void OnEnable()
                 return;
             }
 
-            /*navManager.WaypointPrefab =
-                EditorGUILayout.ObjectField("Prefab", navManager.WaypointPrefab, typeof(WaypointBehaviour), false) as
-                    WaypointBehaviour;*/
-            //navManager.CalculateWaypoints();
             serializedObject.Update();
-            var gradient = serializedObject.FindProperty("GradientForWaypoints");
-
-
+            
             navManager.GradientForWaypoints =
                 EditorGUILayout.GradientField("Waypoint coloring gradient", navManager.GradientForWaypoints);
-            /*EditorGUILayout.PropertyField(gradient, new GUIContent("Waypoint coloring gradient"));
-            serializedObject.ApplyModifiedProperties();*/
-
-            //Drawing "Closed spline" Toggle
-            {
-                EditorGUI.BeginChangeCheck();
-                navManager.IsCycled = EditorGUILayout.Toggle("Closed spline", navManager.IsCycled);
-                
             
-            navManager.StickToColliders = EditorGUILayout.Toggle("Stick to colliders", navManager.StickToColliders);
-            if (EditorGUI.EndChangeCheck())
-                navManager.CalculateWaypoints();
+            EditorGUI.BeginChangeCheck();
+            {
+                navManager.IsCycled = EditorGUILayout.Toggle("Closed spline", navManager.IsCycled);
+
+                navManager.StickToColliders = EditorGUILayout.Toggle("Stick to colliders", navManager.StickToColliders);
+
+                if (navManager.StickToColliders)
+                {
+                    LayerMask tempMask = EditorGUILayout.MaskField("Raycast mask",
+                        InternalEditorUtility.LayerMaskToConcatenatedLayersMask(navManager.LayerMask),
+                        InternalEditorUtility.layers);
+
+                    navManager.LayerMask = InternalEditorUtility.ConcatenatedLayersMaskToLayerMask(tempMask);
+                }
             }
+            if (EditorGUI.EndChangeCheck()) navManager.CalculateWaypoints();
 
             serializedObject.Update();
             var onClick = serializedObject.FindProperty("WaypointChanged");
@@ -132,7 +132,6 @@ void OnEnable()
 
             EditorGUILayout.BeginHorizontal(EditorStyles.boldLabel);
             {
-                /*if (navManager.WaypointPrefab == null) GUI.enabled = false;*/
                 if (GUILayout.Button(
                     new GUIContent(_currentMode == Mode.Add ? "x" : "+", "Hold shift to add to the end"),
                     GUILayout.Width(30)))
@@ -147,7 +146,6 @@ void OnEnable()
                 }
 
                 GUI.enabled = true;
-                /*if (navManager.WaypointPrefab == null) GUILayout.Label("You must add prefab!", EditorStyles.helpBox);*/
             }
             EditorGUILayout.EndHorizontal();
 
@@ -261,8 +259,6 @@ void OnEnable()
                 navManager.CalculateWaypoints();
             }
         }
-        
-
         #endregion
         
         [MenuItem("GameObject/Trismegistus/Navigator", false, 0)]

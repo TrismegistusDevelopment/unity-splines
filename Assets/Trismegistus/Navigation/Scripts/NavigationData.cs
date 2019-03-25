@@ -15,6 +15,7 @@ namespace Trismegistus.Navigation
         public bool IsCycled;
         public bool StickToColliders;
         public int Iterations = 20;
+        public LayerMask LayerMask;
 
         [SerializeField]
         public List<WaypointEntity> Waypoints = new List<WaypointEntity>();
