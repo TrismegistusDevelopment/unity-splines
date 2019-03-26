@@ -4,6 +4,8 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/Hermesiss/unity-navigation-splines?branch=develop)](https://bettercodehub.com/)
 [![CodeFactor](https://www.codefactor.io/repository/github/hermesiss/unity-navigation-splines/badge)](https://www.codefactor.io/repository/github/hermesiss/unity-navigation-splines)
 
+[![image](https://user-images.githubusercontent.com/20972731/54977926-3697b700-4fb8-11e9-8ef2-3e6c35010790.png)]()
+
 Tool for making navigation bezier splines with points, events and bindings to colliders
 ## Installation
 - Download *.unitypackage from last release (note minimal Unity version in description)
@@ -14,6 +16,8 @@ Tool for making navigation bezier splines with points, events and bindings to co
 1. Add `NavigationManager` script on it
 1. Create new `NavigationData` as suggested in component or directly in Project window and drag to corresponding field
 ## Usage
+### NavigationManager
+![image](https://user-images.githubusercontent.com/20972731/54977968-50d19500-4fb8-11e9-9332-850ae47c7861.png)
 - **Waypoint coloring gradient** - colorize path and waypoints using unity build-in Gradient class
 - **Closed spline** - to make spline closed/open
 - **Stick to colliders** - to raycast down from every waypoint and change their position.y if colliders found. Expensive
@@ -24,3 +28,9 @@ Tool for making navigation bezier splines with points, events and bindings to co
   - **Del** - delete waypoint. Hold `shift` to quickly delete without prompt
   - **Caption** - to display in Scene View
   - **Basic** - if false, caption won't be displayed in Scene View
+### Follower
+![image](https://user-images.githubusercontent.com/20972731/54978050-8b3b3200-4fb8-11e9-98fe-00f91dfa178a.png)
+- **Mode** - `None` `Loop` `Once` `Ping Pong`
+- **Manager** - select `NavigationManager` with desired path
+- **Speed**
+- **Follow Rotation** - should rotation of Follower changes according to `WaypointEntity.Velocity`(First derivative)
