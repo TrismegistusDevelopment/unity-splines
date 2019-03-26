@@ -19,6 +19,9 @@ namespace Trismegistus.Navigation
 
         private Mode _currentMode = Mode.None;
         private int _indexFrom = -1;
+        
+        private GUIStyle _customGui;
+        private Color _guiBackgroundColor;
 
         #region Editor
 
@@ -26,7 +29,9 @@ namespace Trismegistus.Navigation
         {
             _lastTool = Tools.current;
             Tools.current = Tool.None;
-
+            _customGui = new GUIStyle(EditorStyles.helpBox)
+                {alignment = TextAnchor.MiddleCenter};
+            _guiBackgroundColor = GUI.backgroundColor;
             var navManager = (NavigationManager) target;
 
             if (!navManager.NavigationData) return;
@@ -43,58 +48,154 @@ namespace Trismegistus.Navigation
         public override void OnInspectorGUI()
         {
             EditorGUI.BeginChangeCheck();
-            var customGui = new GUIStyle(EditorStyles.helpBox) {alignment = TextAnchor.MiddleCenter};
 
-            var guiBackgroundColor = GUI.backgroundColor;
             var navManager = (NavigationManager) target;
 
-            navManager.NavigationData = EditorGUILayout.ObjectField("Navigation Data",
-                navManager.NavigationData, typeof(NavigationData), false) as NavigationData;
-            serializedObject.Update();
-
-            if (navManager.NavigationData == null)
-            {
-                GUILayout.Label("You must add navigation data!", EditorStyles.helpBox);
-                if (GUILayout.Button("Create navigation data"))
-                {
-                    var path = EditorUtility.SaveFilePanelInProject("Save NavigationData asset", "New NavigationData",
-                        "asset", "Enter name");
-                    var navData = CreateInstance<NavigationData>();
-                    AssetDatabase.CreateAsset(navData, path);
-                    navManager.NavigationData = navData;
-                }
-
-                return;
-            }
+            if (DrawNavData(navManager)) return;
 
             serializedObject.Update();
             
-            navManager.GradientForWaypoints =
-                EditorGUILayout.GradientField("Waypoint coloring gradient", navManager.GradientForWaypoints);
-            
-            EditorGUI.BeginChangeCheck();
+            DrawParams(navManager);
+
+            DrawSmoothing(navManager);
+
+            if (DrawAddButton(navManager)) return;
+
+            if (DrawWaypoints(navManager)) return;
+
+            if (EditorGUI.EndChangeCheck())
+                SceneView.RepaintAll();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="navManager"></param>
+        /// <returns>Need to break OnInspectorGUI</returns>
+        private bool DrawWaypoints(NavigationManager navManager)
+        {
+            var w = navManager.Waypoints;
+
+            for (int i = 0; i <= w.Count; i++)
             {
-                navManager.IsCycled = EditorGUILayout.Toggle("Closed spline", navManager.IsCycled);
-
-                navManager.StickToColliders = EditorGUILayout.Toggle("Stick to colliders", navManager.StickToColliders);
-
-                if (navManager.StickToColliders)
+                var showMoveButton = _indexFrom != i && _indexFrom != i - 1;
+                
+                if (_currentMode == Mode.Add)
                 {
-                    LayerMask tempMask = EditorGUILayout.MaskField("Raycast mask",
-                        InternalEditorUtility.LayerMaskToConcatenatedLayersMask(navManager.LayerMask),
-                        InternalEditorUtility.layers);
-
-                    navManager.LayerMask = InternalEditorUtility.ConcatenatedLayersMaskToLayerMask(tempMask);
+                    if (GUILayout.Button("Add"))
+                    {
+                        navManager.AddWaypoint(i);
+                        _currentMode = Mode.None;
+                        return true;
+                    }
                 }
+
+                if (_currentMode == Mode.Move && showMoveButton)
+                {
+                    if (GUILayout.Button("Move here"))
+                    {
+                        navManager.Relocate(_indexFrom, i);
+                        _currentMode = Mode.None;
+                        _indexFrom = -1;
+                        return true;
+                    }
+                }
+
+                if (i == w.Count) continue;
+                EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
+                {
+                    EditorGUILayout.BeginVertical(GUILayout.Width(30));
+                    {
+                        GUI.backgroundColor = w[i].LabelColor;
+                        GUILayout.Label($"{i + 1}", _customGui);
+                        GUI.backgroundColor = _guiBackgroundColor;
+                    }
+                    EditorGUILayout.EndVertical();
+                    EditorGUILayout.BeginVertical();
+                    {
+                        if (GUILayout.Button(_indexFrom == i ? "x" : "Move", GUILayout.Width(40)))
+                        {
+                            if (_indexFrom == i)
+                            {
+                                _currentMode = Mode.None;
+                                _indexFrom = -1;
+                                return true;
+                            }
+
+                            _indexFrom = i;
+                            _currentMode = Mode.Move;
+                            return true;
+                        }
+
+                        if (GUILayout.Button(
+                            new GUIContent("Del", "Hold shift to delete without prompt"),
+                            GUILayout.Width(40)))
+                        {
+                            if (Event.current.shift || EditorUtility.DisplayDialog("Delete item?",
+                                    "You will lose all it's data", "Delete", "Cancel"))
+                            {
+                                navManager.DeleteWaypoint(i);
+                                return true;
+                            }
+                        }
+                    }
+                    EditorGUILayout.EndVertical();
+                    EditorGUILayout.BeginVertical();
+                    {
+                        w[i].Caption = EditorGUILayout.TextField("Caption", w[i].Caption);
+
+                        //TODO add event displaying
+                        //var so = new SerializedObject(w[i]);
+                        //so.Update();
+                        //var onPlayerReached = so.FindProperty("PlayerReachedThePoint");
+                        //EditorGUILayout.PropertyField(onPlayerReached, new GUIContent("Player Reached The Point"));
+                        //so.ApplyModifiedProperties();*/
+
+                        EditorGUI.BeginChangeCheck();
+                        w[i].IsTemp = !EditorGUILayout.Toggle("Basic", !w[i].IsTemp);
+
+                        if (EditorGUI.EndChangeCheck())
+                            SceneView.RepaintAll();
+                    }
+                    EditorGUILayout.EndVertical();
+                }
+                EditorGUILayout.EndHorizontal();
             }
-            if (EditorGUI.EndChangeCheck()) navManager.CalculateWaypoints();
 
-            serializedObject.Update();
-            var onClick = serializedObject.FindProperty("WaypointChanged");
+            return false;
+        }
 
-            EditorGUILayout.PropertyField(onClick, new GUIContent("On Waypoint Changed"));
-            serializedObject.ApplyModifiedProperties();
 
+        /// <summary>
+        /// Draws "add waypoint" button
+        /// </summary>
+        /// <param name="navManager"></param>
+        /// <returns>Need to break OnInspectorGUI</returns>
+        private bool DrawAddButton(NavigationManager navManager)
+        {
+            EditorGUILayout.BeginHorizontal(EditorStyles.boldLabel);
+            {
+                if (GUILayout.Button(
+                    new GUIContent(_currentMode == Mode.Add ? "x" : "+", "Hold shift to add to the end"),
+                    GUILayout.Width(30)))
+                {
+                    if (navManager.Waypoints.Count == 0 || Event.current.shift)
+                    {
+                        navManager.AddWaypoint();
+                        return true;
+                    }
+
+                    _currentMode = _currentMode == Mode.Add ? Mode.None : Mode.Add;
+                }
+
+                GUI.enabled = true;
+            }
+            EditorGUILayout.EndHorizontal();
+            return false;
+        }
+
+        private void DrawSmoothing(NavigationManager navManager)
+        {
             EditorGUILayout.BeginHorizontal();
             {
                 GUI.enabled = navManager.Iterations > 0;
@@ -129,113 +230,63 @@ namespace Trismegistus.Navigation
                 }
             }
             EditorGUILayout.EndHorizontal();
+        }
 
-            EditorGUILayout.BeginHorizontal(EditorStyles.boldLabel);
+        /// <summary>
+        /// Draws gradient, closed and colliders params
+        /// </summary>
+        /// <param name="navManager"></param>
+        private static void DrawParams(NavigationManager navManager)
+        {
+            EditorGUI.BeginChangeCheck();
             {
-                if (GUILayout.Button(
-                    new GUIContent(_currentMode == Mode.Add ? "x" : "+", "Hold shift to add to the end"),
-                    GUILayout.Width(30)))
+                navManager.GradientForWaypoints =
+                    EditorGUILayout.GradientField("Waypoint coloring gradient", navManager.GradientForWaypoints);
+
+                navManager.IsCycled = EditorGUILayout.Toggle("Closed spline", navManager.IsCycled);
+
+                navManager.StickToColliders = EditorGUILayout.Toggle("Stick to colliders", navManager.StickToColliders);
+
+                if (navManager.StickToColliders)
                 {
-                    if (navManager.Waypoints.Count == 0 || Event.current.shift)
-                    {
-                        navManager.AddWaypoint();
-                        return;
-                    }
+                    LayerMask tempMask = EditorGUILayout.MaskField("Raycast mask",
+                        InternalEditorUtility.LayerMaskToConcatenatedLayersMask(navManager.LayerMask),
+                        InternalEditorUtility.layers);
 
-                    _currentMode = _currentMode == Mode.Add ? Mode.None : Mode.Add;
+                    navManager.LayerMask = InternalEditorUtility.ConcatenatedLayersMaskToLayerMask(tempMask);
                 }
-
-                GUI.enabled = true;
             }
-            EditorGUILayout.EndHorizontal();
+            if (EditorGUI.EndChangeCheck()) navManager.CalculateWaypoints();
+        }
 
-            var w = navManager.Waypoints;
-            
-            for (int i = 0; i <= w.Count; i++)
+        /// <summary>
+        /// Draws NavigationData field
+        /// </summary>
+        /// <param name="navManager"></param>
+        /// <returns>Need to break OnInspectorGUI</returns>
+        private bool DrawNavData(NavigationManager navManager)
+        {
+            navManager.NavigationData = EditorGUILayout.ObjectField("Navigation Data",
+                navManager.NavigationData, typeof(NavigationData), false) as NavigationData;
+            serializedObject.Update();
+
+            if (navManager.NavigationData == null)
             {
-                if (_currentMode == Mode.Add)
+                GUILayout.Label("You must add navigation data!", EditorStyles.helpBox);
+                if (GUILayout.Button("Create navigation data"))
                 {
-                    if (GUILayout.Button("Add"))
-                    {
-                        navManager.AddWaypoint(i);
-                        _currentMode = Mode.None;
-                        return;
-                    }
+                    var path = EditorUtility.SaveFilePanelInProject("Save NavigationData asset",
+                        "New NavigationData",
+                        "asset", "Enter name");
+                    var navData = CreateInstance<NavigationData>();
+                    AssetDatabase.CreateAsset(navData, path);
+                    navManager.NavigationData = navData;
                 }
 
-                if (_currentMode == Mode.Move && _indexFrom != i && _indexFrom != i - 1)
-                {
-                    if (GUILayout.Button("Move here"))
-                    {
-                        navManager.Relocate(_indexFrom, i);
-                        _currentMode = Mode.None;
-                        _indexFrom = -1;
-                        return;
-                    }
-                }
-
-                if (i == w.Count) continue;
-                EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
-                {
-                    EditorGUILayout.BeginVertical(GUILayout.Width(30));
-                    {
-                        GUI.backgroundColor = w[i].LabelColor;
-                        GUILayout.Label($"{i + 1}", customGui);
-                        GUI.backgroundColor = guiBackgroundColor;
-                    }
-                    EditorGUILayout.EndVertical();
-                    EditorGUILayout.BeginVertical();
-                    {
-                        if (GUILayout.Button(_indexFrom == i ? "x" : "Move", GUILayout.Width(40)))
-                        {
-                            if (_indexFrom == i)
-                            {
-                                _currentMode = Mode.None;
-                                _indexFrom = -1;
-                                return;
-                            }
-
-                            _indexFrom = i;
-                            _currentMode = Mode.Move;
-                            return;
-                        }
-
-                        if (GUILayout.Button(
-                            new GUIContent("Del", "Hold shift to delete without prompt"),
-                            GUILayout.Width(40)))
-                        {
-                            if (Event.current.shift || EditorUtility.DisplayDialog("Delete item?",
-                                    "You will lose all it's data", "Delete", "Cancel"))
-                            {
-                                navManager.DeleteWaypoint(i);
-                                return;
-                            }
-                        }
-                    }
-                    EditorGUILayout.EndVertical();
-                    EditorGUILayout.BeginVertical();
-                    {
-                        w[i].Caption = EditorGUILayout.TextField("Caption", w[i].Caption);
-
-                        //TODO add event displaying
-                        //var so = new SerializedObject(w[i]);
-                        //so.Update();
-                        //var onPlayerReached = so.FindProperty("PlayerReachedThePoint");
-                        //EditorGUILayout.PropertyField(onPlayerReached, new GUIContent("Player Reached The Point"));
-                        //so.ApplyModifiedProperties();*/
-
-                        EditorGUI.BeginChangeCheck();
-                        w[i].IsTemp = !EditorGUILayout.Toggle("Basic", !w[i].IsTemp);
-
-                        if (EditorGUI.EndChangeCheck())
-                            SceneView.RepaintAll();
-                    }
-                    EditorGUILayout.EndVertical();
-                }
-                EditorGUILayout.EndHorizontal();
+                return true;
             }
-            if (EditorGUI.EndChangeCheck())
-                SceneView.RepaintAll();
+
+            return false;
         }
 
         private void OnSceneGUI()
@@ -267,7 +318,7 @@ namespace Trismegistus.Navigation
             var parent = Selection.activeTransform;
             var navigatorGuid = AssetDatabase.FindAssets("Navigation t:Prefab").First();
             var navigatorPath = AssetDatabase.GUIDToAssetPath(navigatorGuid);
-            Debug.Log($"Navigator prefab finded at {navigatorPath}");
+            Debug.Log($"Navigator prefab found at {navigatorPath}");
             var navigatorPrefab = AssetDatabase.LoadAssetAtPath(navigatorPath, typeof(GameObject));
             var navigator = Instantiate(navigatorPrefab, parent);
             navigator.name = navigatorPrefab.name;
