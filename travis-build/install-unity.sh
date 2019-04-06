@@ -33,7 +33,11 @@ install() {
 	sudo installer -dumplog -package $UNITY_DOWNLOAD_CACHE/`basename "$PACKAGE_URL"` -target /
 }
 
+echo "Create Certificate Folder"
+mkdir ~/Library/Unity
+mkdir ~/Library/Unity/Certificates
 
+cp travis-build/CACerts.pem ~/Library/Unity/Certificates/
 
 echo "Contents of Unity Download Cache:"
 ls $UNITY_DOWNLOAD_CACHE
