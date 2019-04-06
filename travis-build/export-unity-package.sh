@@ -19,6 +19,7 @@ mkdir $UNITY_BUILD_DIR
   -projectPath "$PROJECT_PATH" \
   -exportPackage "Assets" "$EXPORT_PATH" \
   -username "$UNITY_USERNAME" \
+  -serial I3-GKE5-PKF4-XXXX-XXXX-XXXX \
   -password "$UNITY_PASSWORD" \
   -quit \
   | tee "$LOG_FILE"
@@ -29,7 +30,7 @@ if [ $? = 0 ] ; then
 	
 	echo "Packaging unity package into release..."
 	#Preprare release unity package by packing into ZIP
-	RELEASE_ZIP_FILE=$RELEASE_DIRECTORY/$PROJECT_NAME-v$TRAVIS_TAG.zip
+	RELEASE_ZIP_FILE=$RELEASE_DIRECTORY/$PROJECT_NAME-$TRAVIS_TAG.zip
 
 	mkdir -p $RELEASE_DIRECTORY
 
