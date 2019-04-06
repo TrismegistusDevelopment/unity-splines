@@ -18,6 +18,8 @@ mkdir $UNITY_BUILD_DIR
   -logFile \
   -projectPath "$PROJECT_PATH" \
   -exportPackage "Assets" "$EXPORT_PATH" \
+  -username "$UNITY_USERNAME" \
+  -password "$UNITY_PASSWORD" \
   -quit \
   | tee "$LOG_FILE"
   
