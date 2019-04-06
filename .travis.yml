@@ -4,7 +4,7 @@ rvm:
 - 2.2         #see before_install for getting RVM stable.
 
 env:
-- TRAVIS_TAG="v0.1.4" PROJECT_NAME="unity-navigation-splines" UNITY_PROJECT_PATH="" DEPLOY_UNITYPACKAGE="path set in deploy script"
+- TRAVIS_TAG="v0.1.5" PROJECT_NAME="unity-navigation-splines" UNITY_PROJECT_PATH="" DEPLOY_UNITYPACKAGE="path set in deploy script"
 
 
 cache:
@@ -27,7 +27,7 @@ after_success:
 - ./travis-build/export-unity-package.sh
 
 before_deploy:
-- DEPLOY_UNITYPACKAGE="$(ls -a release/*.zip | head -n 1)"
+- DEPLOY_UNITYPACKAGE="$(ls -a release/*.unitypackage | head -n 1)"
 
 deploy:
   provider: releases
