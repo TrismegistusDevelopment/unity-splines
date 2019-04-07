@@ -26,8 +26,8 @@ script:
 after_success:
 - ./travis-build/export-unity-package.sh
 
-before_deploy:
-- DEPLOY_UNITYPACKAGE="$(ls -a release/*.unitypackage | head -n 1)"
+#before_deploy:
+#- DEPLOY_UNITYPACKAGE="$(ls -a release/*.unitypackage | head -n 1)"
 
 deploy:
   provider: releases
