@@ -15,6 +15,7 @@ mkdir $UNITY_BUILD_DIR
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
+  -noUpm \
   -silent-crashes \
   -logFile \
   -projectPath "$PROJECT_PATH" \
@@ -29,6 +30,9 @@ else
   echo "Building Windows exe failed. Exited with $?."
   ERROR_CODE=1
 fi
+
+echo "Items in build path ($(pwd)/build/win/):"
+ls "$(pwd)/build/win/"
 
 #echo 'Build logs:'
 #cat $LOG_FILE

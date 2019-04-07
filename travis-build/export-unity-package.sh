@@ -14,6 +14,7 @@ mkdir $UNITY_BUILD_DIR
 /Applications/Unity/Unity.app/Contents/MacOS/Unity \
   -batchmode \
   -nographics \
+  -noUpm \
   -silent-crashes \
   -logFile \
   -projectPath "$PROJECT_PATH" \
@@ -54,7 +55,7 @@ else
 	ls
 	ERROR_CODE=1
 fi
-DEPLOY_UNITYPACKAGE=$EXPORT_PATH
+
 #echo 'Build logs:'
 #cat $LOG_FILE
 
