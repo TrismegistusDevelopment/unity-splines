@@ -7,10 +7,9 @@ env:
 services:
 - docker
 before_install:
-- openssl aes-256-cbc -K $encrypted_ffc5ec3b2401_key -iv $encrypted_ffc5ec3b2401_iv
-  -in ci/Unity_v2018.x.ulf.enc -out Unity_v2018.x.ulf -d
-- export UNITY_LICENSE_CONTENT=`cat Unity_v2018.x.ulf`
-- rm Unity_v2018.x.ulf
+#- openssl aes-256-cbc -K $encrypted_ffc5ec3b2401_key -iv $encrypted_ffc5ec3b2401_iv -in ci/Unity_v2018.x.ulf.enc -out Unity_v2018.x.ulf -d
+#- export UNITY_LICENSE_CONTENT=`cat Unity_v2018.x.ulf`
+#- rm Unity_v2018.x.ulf
 - docker pull $IMAGE_NAME
 jobs:
   include:
