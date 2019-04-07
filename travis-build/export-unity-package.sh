@@ -18,9 +18,6 @@ mkdir $UNITY_BUILD_DIR
   -logFile \
   -projectPath "$PROJECT_PATH" \
   -exportPackage "Assets" "$EXPORT_PATH" \
-  -username "$UNITY_USERNAME" \
-  -serial I3-GKE5-PKF4-XXXX-XXXX-XXXX \
-  -password "$UNITY_PASSWORD" \
   -quit \
   | tee "$LOG_FILE"
   
@@ -34,8 +31,14 @@ if [ $? = 0 ] ; then
 
 	mkdir -p $RELEASE_DIRECTORY
 
-	echo "Preparing release for version: $TRAVIS_TAG"
+	echo "Export path files: for $EXPORT_PATH"
+
+	EXPORT_FOLDER = dirname $EXPORT_PATH
+	ls "$EXPORT_FOLDER"
 	cp "$EXPORT_PATH" "$RELEASE_DIRECTORY/"`basename "$EXPORT_PATH"`
+:<<'MakingZip'
+	echo "Preparing release for version: $TRAVIS_TAG"
+	
 	cp "./README.md" "$RELEASE_DIRECTORY"
 	#cp "./LICENSE" "$RELEASE_DIRECTORY"
 
@@ -46,7 +49,7 @@ if [ $? = 0 ] ; then
 
 	echo "Release zip package ready. Zipinfo:"
 	zipinfo $RELEASE_ZIP_FILE
-	
+MakingZip	
 else
 	echo "Creating package failed. Exited with $?."
 	ls
