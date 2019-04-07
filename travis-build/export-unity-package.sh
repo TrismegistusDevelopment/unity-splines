@@ -31,10 +31,9 @@ if [ $? = 0 ] ; then
 
 	mkdir -p $RELEASE_DIRECTORY
 
-	echo "EXPORT_PATH is $EXPORT_PATH"
-	EXPORT_FOLDER=dirname "$EXPORT_PATH"
-	echo "Export path files $EXPORT_FOLDER"
-	ls "$EXPORT_FOLDER"
+	echo "EXPORT_PATH folder is $(pwd)"	
+	echo "Export path files:"
+	ls "$(pwd)"
 	cp "$EXPORT_PATH" "$RELEASE_DIRECTORY/"`basename "$EXPORT_PATH"`
 << ////
 	echo "Preparing release for version: $TRAVIS_TAG"
@@ -55,7 +54,7 @@ else
 	ls
 	ERROR_CODE=1
 fi
-
+DEPLOY_UNITYPACKAGE=$EXPORT_PATH
 #echo 'Build logs:'
 #cat $LOG_FILE
 
