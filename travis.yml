@@ -1,0 +1,24 @@
+sudo: required
+language: bash
+env:
+  global:
+  - IMAGE_NAME=gableroux/unity3d:latest
+  - BUILD_NAME=unity-navigation-splines
+services:
+- docker
+before_install:
+- openssl aes-256-cbc -K $encrypted_b02e81aacdf6_key -iv $encrypted_b02e81aacdf6_iv 
+  -in ci/Unity_v2018.x.ulf.enc -out Unity_v2018.x.ulf -d
+- export UNITY_LICENSE_CONTENT=`cat Unity_v2018.x.ulf`
+- rm Unity_v2018.x.ulf
+- docker pull $IMAGE_NAME
+jobs:
+  include:
+  - stage: build
+    env: BUILD_TARGET=StandaloneWindows64
+    script: "chmod +x ./ci/docker_build.sh &&./ci/docker_build.sh"
+    addons:
+      artifacts:
+        target_paths:
+        - "./Builds/"
+    stage: build-package    
