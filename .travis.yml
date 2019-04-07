@@ -15,7 +15,7 @@ jobs:
   include:
   - stage: build-package
     env: BUILD_TARGET=StandaloneWindows64
-    script: "chmod +x ./ci/docker_build.sh &&./ci/docker_build.sh"
+    script: "chmod -rwxrwxrwx ./ci/docker_build.sh &&./ci/docker_build.sh"
     addons:
       artifacts:
         target_paths:
