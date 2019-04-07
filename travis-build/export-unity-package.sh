@@ -31,11 +31,12 @@ if [ $? = 0 ] ; then
 
 	mkdir -p $RELEASE_DIRECTORY
 
-	EXPORT_FOLDER = dirname $EXPORT_PATH
-	echo "Export path files: for $EXPORT_FOLDER"
+	echo "EXPORT_PATH is $EXPORT_PATH"
+	EXPORT_FOLDER=dirname "$EXPORT_PATH"
+	echo "Export path files $EXPORT_FOLDER"
 	ls "$EXPORT_FOLDER"
 	cp "$EXPORT_PATH" "$RELEASE_DIRECTORY/"`basename "$EXPORT_PATH"`
-:'
+<< ////
 	echo "Preparing release for version: $TRAVIS_TAG"
 	
 	cp "./README.md" "$RELEASE_DIRECTORY"
@@ -48,7 +49,7 @@ if [ $? = 0 ] ; then
 
 	echo "Release zip package ready. Zipinfo:"
 	zipinfo $RELEASE_ZIP_FILE
-'
+////
 else
 	echo "Creating package failed. Exited with $?."
 	ls
