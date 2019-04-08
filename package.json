@@ -1,0 +1,12 @@
+{
+    "name": "com.trismegistus.unity-navigation-splines",
+    "displayName": "Unity Navigation Splines",
+    "version": "0.1.1",
+    "unity": "2018.3",
+    "description": "Unity Navigation Splines",
+    "keywords": [
+        "unity",
+		"editor"		
+    ],
+    "category": "Instrument"
+}
