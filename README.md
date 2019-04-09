@@ -8,9 +8,18 @@
 
 Tool for making navigation bezier splines with points, events and bindings to colliders
 ## Installation
-- Download *.unitypackage from last release (note minimal Unity version in description)
-- Double-click on downloaded file or in Unity `Assets - Import Package - Custom Package...` and select downloaded file
-- Import all files
+- Open file `manifest.json` in `your_repo/Packages`
+- Under `dependencies` add following line:
+```
+"com.trismegistus.unity-navigation-splines" : "https://github.com/Hermesiss/unity-navigation-splines.git#unity-package-manager"
+```
+- Reopen your project in Unity
+
+You _should_ commit `manifest.json` 
+## Update
+- Open file `manifest.json` in `your_repo/Packages`
+- Remove info about this package from `lock` section
+- Reopen your project
 ## Setting up
 1. Create empty GameObject in scene
 1. Add `NavigationManager` script on it
