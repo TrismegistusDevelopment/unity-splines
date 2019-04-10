@@ -1,5 +1,5 @@
 # unity-navigation-splines
-[![](https://img.shields.io/badge/Unity-2018.3.6f1-blue.svg)
+[![Unity Version](https://img.shields.io/badge/Unity-2018.3.6f1-blue.svg)](https://unity3d.com/get-unity/download)
 [![GitHub](https://img.shields.io/github/license/hermesiss/unity-navigation-splines.svg)](https://github.com/Hermesiss/unity-navigation-splines/blob/develop/LICENSE)
 [![GitHub Release Date](https://img.shields.io/github/release-date/hermesiss/unity-navigation-splines.svg)](https://github.com/Hermesiss/unity-navigation-splines/releases/latest)
 [![BCH compliance](https://bettercodehub.com/edge/badge/Hermesiss/unity-navigation-splines?branch=develop)](https://bettercodehub.com/)
