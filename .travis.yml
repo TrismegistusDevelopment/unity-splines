@@ -1,0 +1,27 @@
+language: generic
+
+env:
+  - MASTER_TARGET_BRANCH=upm DEVELOP_TARGET_BRANCH=upm-dev TARGET_BRANCH=not_defined TEST_RUN=false FOLDER_TO_EXPORT=Assets/Trismegistus
+
+sudo: required
+
+before_install:
+  - |
+      if [ "$TRAVIS_BRANCH" = "develop" ]; then
+        TARGET_BRANCH=$DEVELOP_TARGET_BRANCH
+      elif [ "$TRAVIS_BRANCH" = "master" ]; then
+        TARGET_BRANCH=$MASTER_TARGET_BRANCH
+      else 
+        TARGET_BRANCH=$DEVELOP_TARGET_BRANCH
+        TEST_RUN=true
+      fi 
+
+after_success:
+  - chmod 777 -R Ci
+  - Ci/move_to_packagebranch.sh
+
+branches:
+  only:
+    - master
+    - develop
+    - test/travis-branch
