@@ -1,33 +1,30 @@
-﻿using System.Linq;
+﻿#if UNITY_EDITOR
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEditorInternal;
 
-namespace Trismegistus.Navigation
-{
+namespace Trismegistus.Navigation {
     [CustomEditor(typeof(NavigationManager), true)]
-    public class NavigationManagerEditor : Editor
-    {
+    public class NavigationManagerEditor : Editor {
         private Tool _lastTool = Tool.None;
 
-        private enum Mode
-        {
+        private enum Mode {
             None,
             Add,
             Move
         }
 
         private Mode _currentMode = Mode.None;
-        private int _indexFrom = -1;
-        
+        private int  _indexFrom   = -1;
+
         private GUIStyle _customGui;
-        private Color _guiBackgroundColor;
+        private Color    _guiBackgroundColor;
 
         #region Editor
 
-        void OnEnable()
-        {
-            _lastTool = Tools.current;
+        void OnEnable() {
+            _lastTool     = Tools.current;
             Tools.current = Tool.None;
             _customGui = new GUIStyle(EditorStyles.helpBox)
                 {alignment = TextAnchor.MiddleCenter};
@@ -39,14 +36,12 @@ namespace Trismegistus.Navigation
             navManager.CalculateWaypoints();
         }
 
-        void OnDisable()
-        {
+        void OnDisable() {
             Tools.current = _lastTool;
-            _currentMode = Mode.None;
+            _currentMode  = Mode.None;
         }
 
-        public override void OnInspectorGUI()
-        {
+        public override void OnInspectorGUI() {
             EditorGUI.BeginChangeCheck();
 
             var navManager = (NavigationManager) target;
@@ -54,7 +49,7 @@ namespace Trismegistus.Navigation
             if (DrawNavData(navManager)) return;
 
             serializedObject.Update();
-            
+
             DrawParams(navManager);
 
             DrawSmoothing(navManager);
@@ -72,31 +67,25 @@ namespace Trismegistus.Navigation
         /// </summary>
         /// <param name="navManager"></param>
         /// <returns>Need to break OnInspectorGUI</returns>
-        private bool DrawWaypoints(NavigationManager navManager)
-        {
+        private bool DrawWaypoints(NavigationManager navManager) {
             var w = navManager.Waypoints;
 
-            for (int i = 0; i <= w.Count; i++)
-            {
+            for (int i = 0; i <= w.Count; i++) {
                 var showMoveButton = _indexFrom != i && _indexFrom != i - 1;
-                
-                if (_currentMode == Mode.Add)
-                {
-                    if (GUILayout.Button("Add"))
-                    {
+
+                if (_currentMode == Mode.Add) {
+                    if (GUILayout.Button("Add")) {
                         navManager.AddWaypoint(i);
                         _currentMode = Mode.None;
                         return true;
                     }
                 }
 
-                if (_currentMode == Mode.Move && showMoveButton)
-                {
-                    if (GUILayout.Button("Move here"))
-                    {
+                if (_currentMode == Mode.Move && showMoveButton) {
+                    if (GUILayout.Button("Move here")) {
                         navManager.Relocate(_indexFrom, i);
                         _currentMode = Mode.None;
-                        _indexFrom = -1;
+                        _indexFrom   = -1;
                         return true;
                     }
                 }
@@ -113,27 +102,23 @@ namespace Trismegistus.Navigation
                     EditorGUILayout.EndVertical();
                     EditorGUILayout.BeginVertical();
                     {
-                        if (GUILayout.Button(_indexFrom == i ? "x" : "Move", GUILayout.Width(40)))
-                        {
-                            if (_indexFrom == i)
-                            {
+                        if (GUILayout.Button(_indexFrom == i ? "x" : "Move", GUILayout.Width(40))) {
+                            if (_indexFrom == i) {
                                 _currentMode = Mode.None;
-                                _indexFrom = -1;
+                                _indexFrom   = -1;
                                 return true;
                             }
 
-                            _indexFrom = i;
+                            _indexFrom   = i;
                             _currentMode = Mode.Move;
                             return true;
                         }
 
                         if (GUILayout.Button(
                             new GUIContent("Del", "Hold shift to delete without prompt"),
-                            GUILayout.Width(40)))
-                        {
+                            GUILayout.Width(40))) {
                             if (Event.current.shift || EditorUtility.DisplayDialog("Delete item?",
-                                    "You will lose all it's data", "Delete", "Cancel"))
-                            {
+                                    "You will lose all it's data", "Delete", "Cancel")) {
                                 navManager.DeleteWaypoint(i);
                                 return true;
                             }
@@ -171,16 +156,13 @@ namespace Trismegistus.Navigation
         /// </summary>
         /// <param name="navManager"></param>
         /// <returns>Need to break OnInspectorGUI</returns>
-        private bool DrawAddButton(NavigationManager navManager)
-        {
+        private bool DrawAddButton(NavigationManager navManager) {
             EditorGUILayout.BeginHorizontal(EditorStyles.boldLabel);
             {
                 if (GUILayout.Button(
                     new GUIContent(_currentMode == Mode.Add ? "x" : "+", "Hold shift to add to the end"),
-                    GUILayout.Width(30)))
-                {
-                    if (navManager.Waypoints.Count == 0 || Event.current.shift)
-                    {
+                    GUILayout.Width(30))) {
+                    if (navManager.Waypoints.Count == 0 || Event.current.shift) {
                         navManager.AddWaypoint();
                         return true;
                     }
@@ -194,13 +176,11 @@ namespace Trismegistus.Navigation
             return false;
         }
 
-        private void DrawSmoothing(NavigationManager navManager)
-        {
+        private void DrawSmoothing(NavigationManager navManager) {
             EditorGUILayout.BeginHorizontal();
             {
                 GUI.enabled = navManager.Iterations > 0;
-                if (GUILayout.Button("-", GUILayout.Width(30)))
-                {
+                if (GUILayout.Button("-", GUILayout.Width(30))) {
                     navManager.Iterations--;
                     navManager.CalculateWaypoints();
                     EditorUtility.SetDirty(target);
@@ -210,21 +190,18 @@ namespace Trismegistus.Navigation
                 EditorGUILayout.LabelField("Smoothing per unit:");
                 var prevIterations = navManager.Iterations;
                 navManager.Iterations = EditorGUILayout.IntField(navManager.Iterations);
-                if (prevIterations != navManager.Iterations)
-                {
+                if (prevIterations != navManager.Iterations) {
                     navManager.CalculateWaypoints();
                     EditorUtility.SetDirty(target);
                 }
 
-                if (GUILayout.Button("+", GUILayout.Width(30)))
-                {
+                if (GUILayout.Button("+", GUILayout.Width(30))) {
                     navManager.Iterations++;
                     navManager.CalculateWaypoints();
                     EditorUtility.SetDirty(target);
                 }
 
-                if (GUILayout.Button("Reload", GUILayout.Width(50)))
-                {
+                if (GUILayout.Button("Reload", GUILayout.Width(50))) {
                     EditorUtility.SetDirty(target);
                     navManager.CalculateWaypoints();
                 }
@@ -236,8 +213,7 @@ namespace Trismegistus.Navigation
         /// Draws gradient, closed and colliders params
         /// </summary>
         /// <param name="navManager"></param>
-        private static void DrawParams(NavigationManager navManager)
-        {
+        private static void DrawParams(NavigationManager navManager) {
             EditorGUI.BeginChangeCheck();
             {
                 navManager.GradientForWaypoints =
@@ -247,8 +223,7 @@ namespace Trismegistus.Navigation
 
                 navManager.StickToColliders = EditorGUILayout.Toggle("Stick to colliders", navManager.StickToColliders);
 
-                if (navManager.StickToColliders)
-                {
+                if (navManager.StickToColliders) {
                     LayerMask tempMask = EditorGUILayout.MaskField("Raycast mask",
                         InternalEditorUtility.LayerMaskToConcatenatedLayersMask(navManager.LayerMask),
                         InternalEditorUtility.layers);
@@ -264,17 +239,14 @@ namespace Trismegistus.Navigation
         /// </summary>
         /// <param name="navManager"></param>
         /// <returns>Need to break OnInspectorGUI</returns>
-        private bool DrawNavData(NavigationManager navManager)
-        {
+        private bool DrawNavData(NavigationManager navManager) {
             navManager.NavigationData = EditorGUILayout.ObjectField("Navigation Data",
                 navManager.NavigationData, typeof(NavigationData), false) as NavigationData;
             serializedObject.Update();
 
-            if (navManager.NavigationData == null)
-            {
+            if (navManager.NavigationData == null) {
                 GUILayout.Label("You must add navigation data!", EditorStyles.helpBox);
-                if (GUILayout.Button("Create navigation data"))
-                {
+                if (GUILayout.Button("Create navigation data")) {
                     var path = EditorUtility.SaveFilePanelInProject("Save NavigationData asset",
                         "New NavigationData",
                         "asset", "Enter name");
@@ -289,15 +261,13 @@ namespace Trismegistus.Navigation
             return false;
         }
 
-        private void OnSceneGUI()
-        {
+        private void OnSceneGUI() {
             var navManager = target as NavigationManager;
-            
+
             if (!navManager) return;
             if (!navManager.NavigationData) return;
-            
-            foreach (var waypoint in navManager.Waypoints)
-            {
+
+            foreach (var waypoint in navManager.Waypoints) {
                 EditorGUI.BeginChangeCheck();
                 var newTargetPosition = Handles.PositionHandle(waypoint.Position + Vector3.up, Quaternion.identity);
                 var newTargetRotation = Handles.RotationHandle(waypoint.Rotation, waypoint.Position);
@@ -310,18 +280,19 @@ namespace Trismegistus.Navigation
                 navManager.CalculateWaypoints();
             }
         }
+
         #endregion
-        
+
         [MenuItem("GameObject/Trismegistus/Navigator", false, 0)]
-        public static void CreateNavigator()
-        {
-            var parent = Selection.activeTransform;
+        public static void CreateNavigator() {
+            var parent        = Selection.activeTransform;
             var navigatorGuid = AssetDatabase.FindAssets("Navigation t:Prefab").First();
             var navigatorPath = AssetDatabase.GUIDToAssetPath(navigatorGuid);
             Debug.Log($"Navigator prefab found at {navigatorPath}");
             var navigatorPrefab = AssetDatabase.LoadAssetAtPath(navigatorPath, typeof(GameObject));
-            var navigator = Instantiate(navigatorPrefab, parent);
+            var navigator       = Instantiate(navigatorPrefab, parent);
             navigator.name = navigatorPrefab.name;
         }
     }
 }
+#endif
