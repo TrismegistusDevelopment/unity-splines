@@ -149,7 +149,6 @@ namespace Trismegistus.Navigation {
             return false;
         }
 
-
         /// <summary>
         /// Draws "add waypoint" button
         /// </summary>
