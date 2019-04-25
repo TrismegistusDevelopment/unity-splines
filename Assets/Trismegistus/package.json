@@ -1,0 +1,12 @@
+{
+    "name": "trismegistus.splines",
+    "displayName": "Tri Splines",
+    "version": "0.1.1",
+    "unity": "2018.3",
+    "description": "Splines",
+    "keywords": [
+        "unity",
+		"editor"		
+    ],
+    "category": "Instrument"
+}
