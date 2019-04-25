@@ -1,5 +1,4 @@
-﻿#if UNITY_EDITOR
-using System.Linq;
+﻿using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEditorInternal;
@@ -295,4 +294,3 @@ namespace Trismegistus.Navigation {
         }
     }
 }
-#endif
