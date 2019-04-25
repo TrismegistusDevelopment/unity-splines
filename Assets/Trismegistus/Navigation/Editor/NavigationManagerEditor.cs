@@ -57,8 +57,10 @@ namespace Trismegistus.Navigation {
 
             if (DrawWaypoints(navManager)) return;
 
-            if (EditorGUI.EndChangeCheck())
+            if (EditorGUI.EndChangeCheck()) {
+                EditorUtility.SetDirty(navManager.NavigationData);
                 SceneView.RepaintAll();
+            }
         }
 
         /// <summary>
@@ -229,7 +231,10 @@ namespace Trismegistus.Navigation {
                     navManager.LayerMask = InternalEditorUtility.ConcatenatedLayersMaskToLayerMask(tempMask);
                 }
             }
-            if (EditorGUI.EndChangeCheck()) navManager.CalculateWaypoints();
+            if (EditorGUI.EndChangeCheck()) {
+                navManager.CalculateWaypoints();
+                EditorUtility.SetDirty(navManager.NavigationData);
+            }
         }
 
         /// <summary>

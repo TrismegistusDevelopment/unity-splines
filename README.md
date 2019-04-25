@@ -2,9 +2,10 @@
 
 [![Unity Version](https://img.shields.io/badge/Unity-2018.3.6f1-blue.svg)](https://unity3d.com/get-unity/download)
 [![GitHub](https://img.shields.io/github/license/hermesiss/unity-navigation-splines.svg)](https://github.com/Hermesiss/unity-navigation-splines/blob/develop/LICENSE)
-[![GitHub Release Date](https://img.shields.io/github/release-date/hermesiss/unity-navigation-splines.svg)](https://github.com/Hermesiss/unity-navigation-splines/releases/latest)
-[![BCH compliance](https://bettercodehub.com/edge/badge/Hermesiss/unity-navigation-splines?branch=develop)](https://bettercodehub.com/)
 [![CodeFactor](https://www.codefactor.io/repository/github/hermesiss/unity-navigation-splines/badge)](https://www.codefactor.io/repository/github/hermesiss/unity-navigation-splines)
+
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/hermesiss/unity-navigation-splines/upm.svg?label=upm)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/hermesiss/unity-navigation-splines/upm-dev.svg?label=upm-dev)
 
 [![image](https://user-images.githubusercontent.com/20972731/54977926-3697b700-4fb8-11e9-8ef2-3e6c35010790.png)]()
 
@@ -15,7 +16,7 @@ Tool for making navigation bezier splines with points, events and bindings to co
 - Open file `manifest.json` in `your_repo/Packages`
 - Under `dependencies` add following line:
 
-```
+```json
 "trismegistus.splines" : "https://github.com/Hermesiss/unity-navigation-splines.git#upm"
 ```
 
