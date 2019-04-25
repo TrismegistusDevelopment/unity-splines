@@ -1,5 +1,4 @@
-﻿#if UNITY_EDITOR
-using System.Linq;
+﻿using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEditorInternal;
@@ -150,7 +149,6 @@ namespace Trismegistus.Navigation {
             return false;
         }
 
-
         /// <summary>
         /// Draws "add waypoint" button
         /// </summary>
@@ -295,4 +293,3 @@ namespace Trismegistus.Navigation {
         }
     }
 }
-#endif
