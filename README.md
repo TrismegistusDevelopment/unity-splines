@@ -1,11 +1,11 @@
-# unity-splines
+# Unity Splines
 
 [![Unity Version](https://img.shields.io/badge/Unity-2018.3.6f1-blue.svg)](https://unity3d.com/get-unity/download)
-[![GitHub](https://img.shields.io/github/license/hermesiss/unity-splines.svg)](https://github.com/Hermesiss/unity-splines/blob/develop/LICENSE)
-[![CodeFactor](https://www.codefactor.io/repository/github/hermesiss/unity-splines/badge)](https://www.codefactor.io/repository/github/hermesiss/unity-splines)
+[![GitHub](https://img.shields.io/github/license/TrismegistusDevelopment/unity-splines.svg)](https://github.com/Hermesiss/unity-splines/blob/develop/LICENSE)
+[![CodeFactor](https://www.codefactor.io/repository/github/TrismegistusDevelopment/unity-splines/badge)](https://www.codefactor.io/repository/github/TrismegistusDevelopment/unity-splines)
 
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/hermesiss/unity-splines/upm.svg?label=upm)
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/hermesiss/unity-splines/upm-dev.svg?label=upm-dev)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/TrismegistusDevelopment/unity-splines/upm.svg?label=upm)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/TrismegistusDevelopment/unity-splines/upm-dev.svg?label=upm-dev)
 
 [![image](https://user-images.githubusercontent.com/20972731/54977926-3697b700-4fb8-11e9-8ef2-3e6c35010790.png)]()
 
@@ -17,7 +17,7 @@ Tool for making navigation bezier splines with points, events and bindings to co
 - Under `dependencies` add following line:
 
 ```json
-"trismegistus.splines" : "https://github.com/Hermesiss/unity-splines.git#upm"
+"trismegistus.splines" : "https://github.com/TrismegistusDevelopment/unity-splines.git#upm"
 ```
 
 - Reopen your project in Unity
