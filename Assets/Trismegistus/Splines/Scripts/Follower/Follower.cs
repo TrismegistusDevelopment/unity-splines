@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 
@@ -61,9 +62,11 @@ namespace Trismegistus.Splines.Follower
             var sign = 1;
             while (true)
             {
-                transform.position = Manager.GetDestination(_f);
+                var pointParams = Manager.GetParams(_f);
+                transform.position = pointParams.Destination;
 
-                var velocity = Manager.GetVelocity(_f);
+                var velocity = pointParams.Velocity;
+                
                 if (followRotation) transform.rotation = Quaternion.LookRotation(velocity);
                 _f += Time.deltaTime * speed / velocity.magnitude * sign;
                 if (_f > 1 || _f < 0)

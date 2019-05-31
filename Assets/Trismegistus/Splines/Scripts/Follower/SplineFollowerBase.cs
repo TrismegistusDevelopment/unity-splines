@@ -24,7 +24,7 @@ namespace Trismegistus.Splines.Follower
 
         public void RecalculateNextPoint() => CurrentIndex = Manager.SelectClosestWaypointIndex(transform.position);
 
-        public Vector3 GetCurrentDestination() => Manager?.GetDestination(CurrentIndex) ?? 
+        public Vector3 GetCurrentDestination() => Manager?.GetParams(CurrentIndex).Destination ?? 
                                                   throw new NullReferenceException("Manager is null");
         #endregion
     }

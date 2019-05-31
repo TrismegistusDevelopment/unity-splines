@@ -69,7 +69,7 @@ namespace Trismegistus.Splines.Editor {
         /// <param name="navManager"></param>
         /// <returns>Need to break OnInspectorGUI</returns>
         private bool DrawWaypoints(SplineManager navManager) {
-            var w = navManager.Waypoints;
+            var w = navManager.Entities;
 
             for (int i = 0; i <= w.Count; i++) {
                 var showMoveButton = _indexFrom != i && _indexFrom != i - 1;
@@ -120,7 +120,7 @@ namespace Trismegistus.Splines.Editor {
                             GUILayout.Width(40))) {
                             if (Event.current.shift || EditorUtility.DisplayDialog("Delete item?",
                                     "You will lose all it's data", "Delete", "Cancel")) {
-                                navManager.DeleteWaypoint(i);
+                                navManager.Delete(i);
                                 return true;
                             }
                         }
@@ -162,7 +162,7 @@ namespace Trismegistus.Splines.Editor {
                 if (GUILayout.Button(
                     new GUIContent(_currentMode == Mode.Add ? "x" : "+", "Hold shift to add to the end"),
                     GUILayout.Width(30))) {
-                    if (navManager.Waypoints.Count == 0 || Event.current.shift) {
+                    if (navManager.Entities.Count == 0 || Event.current.shift) {
                         navManager.AddPoint();
                         return true;
                     }
@@ -270,7 +270,7 @@ namespace Trismegistus.Splines.Editor {
             if (!navManager) return;
             if (!navManager.splineData) return;
 
-            foreach (var waypoint in navManager.Waypoints) {
+            foreach (var waypoint in navManager.Entities) {
                 EditorGUI.BeginChangeCheck();
                 var newTargetPosition = Handles.PositionHandle(waypoint.Position + Vector3.up, Quaternion.identity);
                 var newTargetRotation = Handles.RotationHandle(waypoint.Rotation, waypoint.Position);

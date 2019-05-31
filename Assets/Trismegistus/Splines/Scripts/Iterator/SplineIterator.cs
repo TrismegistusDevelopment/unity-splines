@@ -11,9 +11,9 @@ namespace Trismegistus.Splines.Iterator
         {
             _index++;
             
-            if (_index >= _manager.WaypointsCount) return false;
+            if (_index >= _manager.Count) return false;
             
-            Current = _manager.GetDestination(_index);
+            Current = _manager.GetParams(_index).Destination;
             return true;
         }
 
