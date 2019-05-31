@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Trismegistus.Navigation
+namespace Trismegistus.Splines
 {
-    public interface INavigationManager
+    public interface ISplineManager
     {
         int WaypointsCount { get; }
         List<WaypointEntity> Waypoints { get; }

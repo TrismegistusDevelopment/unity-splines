@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Trismegistus.Navigation.Follower
+namespace Trismegistus.Splines.Follower
 {
     public enum FollowerMode
     {
@@ -10,9 +10,9 @@ namespace Trismegistus.Navigation.Follower
         Once,
         PingPong
     }
-    public abstract class NavigationFollowerBase : MonoBehaviour, INavigationFollower
+    public abstract class SplineFollowerBase : MonoBehaviour, ISplineFollower
     {
-        protected INavigationManager Manager;
+        protected ISplineManager Manager;
         protected int CurrentIndex;
         [SerializeField] protected FollowerMode mode;
         #region Implementations INavigationFollower 
@@ -20,7 +20,7 @@ namespace Trismegistus.Navigation.Follower
 
         public abstract void StopMoving();
         
-        public void SetManager(INavigationManager manager) => Manager = manager;
+        public void SetManager(ISplineManager manager) => Manager = manager;
 
         public void RecalculateNextPoint() => CurrentIndex = Manager.SelectClosestWaypointIndex(transform.position);
 

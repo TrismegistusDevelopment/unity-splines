@@ -2,11 +2,11 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
-namespace Trismegistus.Navigation.Follower
+namespace Trismegistus.Splines.Follower
 {
-    public class Follower : NavigationFollowerBase
+    public class Follower : SplineFollowerBase
     {
-        [SerializeField] private NavigationManager manager;
+        [SerializeField] private SplineManager manager;
         [SerializeField] [Range(0, 500)] private float speed = 1;
         [SerializeField] private bool followRotation;
         

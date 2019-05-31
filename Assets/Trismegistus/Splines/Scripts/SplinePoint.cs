@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Trismegistus.Navigation
+namespace Trismegistus.Splines
 {
     /// <summary>
     /// Point with calculated auxiliary points and directions for making a curve
     /// </summary>
     [Serializable]
-    public class NavPoint
+    public class SplinePoint
     {
         /// <summary>
         /// Current point position
@@ -54,7 +54,7 @@ namespace Trismegistus.Navigation
         /// <param name="pointBackward">Prev point position. If there is none, pass Vector3.positiveInfinity</param>
         /// <param name="pointForward">Next point position. If there is none, pass Vector3.positiveInfinity</param>
         /// <exception cref="ArgumentException">Only one non-center can be Vector3.positiveInfinity</exception>
-        public NavPoint(Vector3 pointCenter, Vector3 pointBackward, Vector3 pointForward)
+        public SplinePoint(Vector3 pointCenter, Vector3 pointBackward, Vector3 pointForward)
         {
             if (float.IsInfinity(pointBackward.sqrMagnitude) && float.IsInfinity(pointForward.sqrMagnitude))
                 throw new ArgumentException("Both points cannot be positiveInfinity");
@@ -132,7 +132,7 @@ namespace Trismegistus.Navigation
                 3f * t * t * (p3 - p2);
         }
         
-        public static Vector3 GetFirstDerivative (NavPoint firstPoint, NavPoint secondPoint, float t) =>
+        public static Vector3 GetFirstDerivative (SplinePoint firstPoint, SplinePoint secondPoint, float t) =>
             GetFirstDerivative(firstPoint.PointCenter, 
                 firstPoint.AbsPerpendicularForward,
                 secondPoint.AbsPerpendicularBackward, 
@@ -145,7 +145,7 @@ namespace Trismegistus.Navigation
         /// <param name="secondPoint"></param>
         /// <param name="t">Normalized position on curve</param>
         /// <returns>Absolute position of calculated point</returns>
-        public static Vector3 GetPoint(NavPoint firstPoint, NavPoint secondPoint, float t) =>
+        public static Vector3 GetPoint(SplinePoint firstPoint, SplinePoint secondPoint, float t) =>
             GetPoint(firstPoint.PointCenter, 
                 firstPoint.AbsPerpendicularForward,
                 secondPoint.AbsPerpendicularBackward, 
