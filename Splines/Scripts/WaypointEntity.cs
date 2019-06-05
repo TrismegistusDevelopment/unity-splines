@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Trismegistus.Navigation
+namespace Trismegistus.Splines
 {
     [Serializable]
     public class WaypointEntity
@@ -12,7 +12,7 @@ namespace Trismegistus.Navigation
         public bool IsTemp;
         public Color LabelColor;
         public string Caption;
-        public NavPoint NavPoint;
+        public SplinePoint splinePoint;
 
         public WaypointEntity()
         {
@@ -35,14 +35,14 @@ namespace Trismegistus.Navigation
             Rotation = rotation;
         }
         
-        public WaypointEntity(Vector3 position, bool isTemp, Color labelColor, string caption, Quaternion rotation, NavPoint navPoint)
+        public WaypointEntity(Vector3 position, bool isTemp, Color labelColor, string caption, Quaternion rotation, SplinePoint splinePoint)
         {
             Position = position;
             IsTemp = isTemp;
             LabelColor = labelColor;
             Caption = caption;
             Rotation = rotation;
-            NavPoint = navPoint;
+            this.splinePoint = splinePoint;
         }
 
         public WaypointEntity(Vector3 position, bool isTemp)

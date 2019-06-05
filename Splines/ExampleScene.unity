@@ -1,0 +1,3685 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 11
+  m_GIWorkflowMode: 0
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 1
+  m_LightmapEditorSettings:
+    serializedVersion: 10
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 500
+    m_PVRBounces: 2
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVRFilteringMode: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
+  m_LightingDataAsset: {fileID: 0}
+  m_UseShadowmask: 1
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1001 &57463334
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1059233961059762, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+      propertyPath: m_Name
+      value: SplineManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162900860989228, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162900860989228, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162900860989228, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162900860989228, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162900860989228, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162900860989228, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162900860989228, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162900860989228, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162900860989228, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162900860989228, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162900860989228, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].Velocity.x
+      value: -361.6081
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].Velocity.y
+      value: -27.94926
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].Velocity.z
+      value: 255.58617
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PointCenter.x
+      value: -2.520914
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PointCenter.y
+      value: 0.447999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PointCenter.z
+      value: 35.974693
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PointBackward.x
+      value: 6.2751255
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PointBackward.y
+      value: -1.2789898
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PointBackward.z
+      value: 29.02581
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PointForward.x
+      value: -12.993739
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PointForward.y
+      value: -3.0906181
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PointForward.z
+      value: 42.547127
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.Bisector.x
+      value: -0.8795905
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.Bisector.y
+      value: -9.691074
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.Bisector.z
+      value: -2.3042152
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PerpendicularForward.x
+      value: -5.2406974
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PerpendicularForward.y
+      value: -0.40506175
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PerpendicularForward.z
+      value: 3.7041469
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PerpendicularBackward.x
+      value: 4.6217947
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PerpendicularBackward.y
+      value: 0.3572258
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[0].splinePoint.PerpendicularBackward.z
+      value: -3.2667038
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].Position.x
+      value: -12.993739
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].Position.y
+      value: -3.0906181
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].Position.z
+      value: 42.547127
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].Velocity.x
+      value: -349.4834
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].Velocity.y
+      value: 36.92055
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].Velocity.z
+      value: 202.82227
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].LabelColor.r
+      value: 0.11026425
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].LabelColor.g
+      value: 0.11658597
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].LabelColor.b
+      value: 0.88973576
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PointCenter.x
+      value: -12.993739
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PointCenter.y
+      value: -3.0906181
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PointCenter.z
+      value: 42.547127
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PointBackward.x
+      value: -2.520914
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PointBackward.y
+      value: 0.447999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PointBackward.z
+      value: 35.974693
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PointForward.x
+      value: -22.294674
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PointForward.y
+      value: 2.1397848
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PointForward.z
+      value: 47.492653
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.Bisector.x
+      value: 0.3237392
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.Bisector.y
+      value: 9.91662
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.Bisector.z
+      value: -1.2473272
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PerpendicularForward.x
+      value: -5.064977
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PerpendicularForward.y
+      value: 0.53508055
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PerpendicularForward.z
+      value: 2.9394522
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PerpendicularBackward.x
+      value: 5.5385594
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PerpendicularBackward.y
+      value: -0.5851113
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[1].splinePoint.PerpendicularBackward.z
+      value: -3.214295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].Position.x
+      value: -22.294674
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].Position.y
+      value: 2.1397848
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].Position.z
+      value: 47.492653
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].Velocity.x
+      value: -276.30045
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].Velocity.y
+      value: 68.61498
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].Velocity.z
+      value: 113.33473
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].LabelColor.r
+      value: 0.23694354
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].LabelColor.g
+      value: 0.09998663
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].LabelColor.b
+      value: 0.76305646
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PointCenter.x
+      value: -22.294674
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PointCenter.y
+      value: 2.1397848
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PointCenter.z
+      value: 47.492653
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PointBackward.x
+      value: -12.993739
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PointBackward.y
+      value: -3.0906181
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PointBackward.z
+      value: 42.547127
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PointForward.x
+      value: -30.778717
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PointForward.y
+      value: 2.0410233
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PointForward.z
+      value: 50.119022
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.Bisector.x
+      value: -3.2852669
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.Bisector.y
+      value: -9.109717
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.Bisector.z
+      value: -2.4940078
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PerpendicularForward.x
+      value: -4.0043545
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PerpendicularForward.y
+      value: 0.9944201
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PerpendicularForward.z
+      value: 1.6425321
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PerpendicularBackward.x
+      value: 5.302465
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PerpendicularBackward.y
+      value: -1.3167859
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[2].splinePoint.PerpendicularBackward.z
+      value: -2.1749995
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].Position.x
+      value: -30.778717
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].Position.y
+      value: 2.0410233
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].Position.z
+      value: 50.119022
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].Velocity.x
+      value: -322.9295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].Velocity.y
+      value: -111.42147
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].Velocity.z
+      value: 47.248775
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].LabelColor.r
+      value: 0.3636228
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].LabelColor.g
+      value: 0.083387285
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].LabelColor.b
+      value: 0.6363772
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PointCenter.x
+      value: -30.778717
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PointCenter.y
+      value: 2.0410233
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PointCenter.z
+      value: 50.119022
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PointBackward.x
+      value: -22.294674
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PointBackward.y
+      value: 2.1397848
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PointBackward.z
+      value: 47.492653
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PointForward.x
+      value: -38.800865
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PointForward.y
+      value: -3.910243
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PointForward.z
+      value: 49.73397
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.Bisector.x
+      value: 2.2121916
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.Bisector.y
+      value: -8.465012
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.Bisector.z
+      value: -4.842499
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PerpendicularForward.x
+      value: -4.680136
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PerpendicularForward.y
+      value: -1.614804
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PerpendicularForward.z
+      value: 0.6847653
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PerpendicularBackward.x
+      value: 4.1584578
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PerpendicularBackward.y
+      value: 1.4348073
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[3].splinePoint.PerpendicularBackward.z
+      value: -0.6084369
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].Position.x
+      value: -38.800865
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].Position.y
+      value: -3.910243
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].Position.z
+      value: 49.73397
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].Velocity.x
+      value: -321.27994
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].Velocity.y
+      value: -37.933792
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].Velocity.z
+      value: -91.15368
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].LabelColor.r
+      value: 0.49030215
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].LabelColor.g
+      value: 0.066787936
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].LabelColor.b
+      value: 0.50969785
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PointCenter.x
+      value: -38.800865
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PointCenter.y
+      value: -3.910243
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PointCenter.z
+      value: 49.73397
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PointBackward.x
+      value: -30.778717
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PointBackward.y
+      value: 2.0410233
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PointBackward.z
+      value: 50.119022
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PointForward.x
+      value: -46.716106
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PointForward.y
+      value: 0.032244682
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PointForward.z
+      value: 45.64526
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.Bisector.x
+      value: -0.092786916
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.Bisector.y
+      value: 9.343856
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.Bisector.z
+      value: -3.5614247
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PerpendicularForward.x
+      value: -4.656231
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PerpendicularForward.y
+      value: -0.5497652
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PerpendicularForward.z
+      value: -1.3210696
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PerpendicularBackward.x
+      value: 4.7775154
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PerpendicularBackward.y
+      value: 0.56408536
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[4].splinePoint.PerpendicularBackward.z
+      value: 1.3554806
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].Position.x
+      value: -46.716106
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].Position.y
+      value: 0.032244682
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].Position.z
+      value: 45.64526
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].Velocity.x
+      value: -458.25604
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].Velocity.y
+      value: 472.11487
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].Velocity.z
+      value: -313.92416
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].LabelColor.r
+      value: 0.61698145
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].LabelColor.g
+      value: 0.050188594
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].LabelColor.b
+      value: 0.38301855
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PointCenter.x
+      value: -46.716106
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PointCenter.y
+      value: 0.032244682
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PointCenter.z
+      value: 45.64526
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PointBackward.x
+      value: -38.800865
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PointBackward.y
+      value: -3.910243
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PointBackward.z
+      value: 49.73397
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PointForward.x
+      value: -54.87945
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PointForward.y
+      value: 17.578327
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PointForward.z
+      value: 37.160637
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.Bisector.x
+      value: 7.0715046
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.Bisector.y
+      value: 7.064213
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.Bisector.z
+      value: 0.3012173
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PerpendicularForward.x
+      value: -6.6413937
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PerpendicularForward.y
+      value: 6.842244
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PerpendicularForward.z
+      value: -4.549626
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PerpendicularBackward.x
+      value: 3.0620446
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PerpendicularBackward.y
+      value: -3.1546478
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[5].splinePoint.PerpendicularBackward.z
+      value: 2.0976257
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].Position.x
+      value: -54.87945
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].Position.y
+      value: 17.578327
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].Position.z
+      value: 37.160637
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].Velocity.x
+      value: -484.56244
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].Velocity.y
+      value: -37.12398
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].Velocity.z
+      value: -641.3234
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].LabelColor.r
+      value: 0.7436607
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].LabelColor.g
+      value: 0.03358926
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].LabelColor.b
+      value: 0.2563393
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PointCenter.x
+      value: -54.87945
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PointCenter.y
+      value: 17.578327
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PointCenter.z
+      value: 37.160637
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PointBackward.x
+      value: -46.716106
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PointBackward.y
+      value: 0.032244682
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PointBackward.z
+      value: 45.64526
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PointForward.x
+      value: -60.317745
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PointForward.y
+      value: -2.895753
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PointForward.z
+      value: 27.402607
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.Bisector.x
+      value: 0.8930055
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.Bisector.y
+      value: -9.959563
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.Bisector.z
+      value: -0.09820045
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PerpendicularForward.x
+      value: -7.022644
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PerpendicularForward.y
+      value: -0.5380288
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PerpendicularForward.z
+      value: -9.294542
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PerpendicularBackward.x
+      value: 6.36233
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PerpendicularBackward.y
+      value: 0.48743984
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[6].splinePoint.PerpendicularBackward.z
+      value: 8.420609
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].Position.x
+      value: -60.317745
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].Position.y
+      value: -2.895753
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].Position.z
+      value: 27.402607
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].Velocity.x
+      value: -36.626507
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].Velocity.y
+      value: -160.32503
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].Velocity.z
+      value: -217.28996
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].LabelColor.r
+      value: 0.87034
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].LabelColor.g
+      value: 0.016989917
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].LabelColor.b
+      value: 0.12966001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PointCenter.x
+      value: -60.317745
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PointCenter.y
+      value: -2.895753
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PointCenter.z
+      value: 27.402607
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PointBackward.x
+      value: -54.87945
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PointBackward.y
+      value: 17.578327
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PointBackward.z
+      value: 37.160637
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PointForward.x
+      value: -60.347446
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PointForward.y
+      value: -4.1538515
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PointForward.z
+      value: 19.604721
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.Bisector.x
+      value: 2.428265
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.Bisector.y
+      value: 7.605838
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.Bisector.z
+      value: -6.0211926
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PerpendicularForward.x
+      value: -0.53081745
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PerpendicularForward.y
+      value: -2.3235514
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PerpendicularForward.z
+      value: -3.1491306
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PerpendicularBackward.x
+      value: 1.5673915
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PerpendicularBackward.y
+      value: 6.860955
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[7].splinePoint.PerpendicularBackward.z
+      value: 9.298716
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].Position.x
+      value: -60.347446
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].Position.y
+      value: -4.1538515
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].Position.z
+      value: 19.604721
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].Velocity.x
+      value: 69.88414
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].Velocity.y
+      value: -24.18793
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].Velocity.z
+      value: -273.4752
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].LabelColor.r
+      value: 0.99701935
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].LabelColor.g
+      value: 0.00039057434
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].LabelColor.b
+      value: 0.0029806495
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PointCenter.x
+      value: -60.347446
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PointCenter.y
+      value: -4.1538515
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PointCenter.z
+      value: 19.604721
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PointBackward.x
+      value: -60.317745
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PointBackward.y
+      value: -2.895753
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PointBackward.z
+      value: 27.402607
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PointForward.x
+      value: -56.404396
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PointForward.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PointForward.z
+      value: 12.401989
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.Bisector.x
+      value: 9.314726
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.Bisector.y
+      value: 2.9575226
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.Bisector.z
+      value: 2.1187134
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PerpendicularForward.x
+      value: 1.012814
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PerpendicularForward.y
+      value: -0.35054958
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PerpendicularForward.z
+      value: -3.9634085
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PerpendicularBackward.x
+      value: -0.97423995
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PerpendicularBackward.y
+      value: 0.33719856
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[8].splinePoint.PerpendicularBackward.z
+      value: 3.812458
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].Position.x
+      value: -56.404396
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].Position.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].Position.z
+      value: 12.401989
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].Velocity.x
+      value: 197.69434
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].Velocity.y
+      value: -1.0001149
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].Velocity.z
+      value: -294.19113
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].LabelColor.g
+      value: 0.10407626
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].LabelColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PointCenter.x
+      value: -56.404396
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PointCenter.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PointCenter.z
+      value: 12.401989
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PointBackward.x
+      value: -60.347446
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PointBackward.y
+      value: -4.1538515
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PointBackward.z
+      value: 19.604721
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PointForward.x
+      value: -49.924454
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PointForward.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PointForward.z
+      value: 4.429431
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.Bisector.x
+      value: 8.296549
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.Bisector.y
+      value: 0.30972815
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.Bisector.z
+      value: 5.574167
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PerpendicularForward.x
+      value: 2.8651347
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PerpendicularForward.y
+      value: -0.014494329
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PerpendicularForward.z
+      value: -4.26364
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PerpendicularBackward.x
+      value: -2.2900078
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PerpendicularBackward.y
+      value: 0.01158484
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[9].splinePoint.PerpendicularBackward.z
+      value: 3.4077868
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].Position.x
+      value: -49.924454
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].Position.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].Position.z
+      value: 4.429431
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].Velocity.x
+      value: 295.55682
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].Velocity.y
+      value: 120.135956
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].Velocity.z
+      value: -377.5123
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].LabelColor.g
+      value: 0.21066034
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].LabelColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PointCenter.x
+      value: -49.924454
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PointCenter.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PointCenter.z
+      value: 4.429431
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PointBackward.x
+      value: -56.404396
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PointBackward.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PointBackward.z
+      value: 12.401989
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PointForward.x
+      value: -42.343456
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PointForward.y
+      value: 2.5544271
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PointForward.z
+      value: -5.6779394
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.Bisector.x
+      value: -2.0839033
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.Bisector.y
+      value: 9.67287
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.Bisector.z
+      value: 1.4467008
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PerpendicularForward.x
+      value: 4.2834334
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PerpendicularForward.y
+      value: 1.7411007
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PerpendicularForward.z
+      value: -5.471193
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PerpendicularBackward.x
+      value: -3.0717041
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PerpendicularBackward.y
+      value: -1.2485653
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[10].splinePoint.PerpendicularBackward.z
+      value: 3.9234617
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].Position.x
+      value: -42.343456
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].Position.y
+      value: 2.5544271
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].Position.z
+      value: -5.6779394
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].Velocity.x
+      value: 178.60577
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].Velocity.y
+      value: -57.90367
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].Velocity.z
+      value: -236.12195
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].LabelColor.g
+      value: 0.3172444
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].LabelColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PointCenter.x
+      value: -42.343456
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PointCenter.y
+      value: 2.5544271
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PointCenter.z
+      value: -5.6779394
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PointBackward.x
+      value: -49.924454
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PointBackward.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PointBackward.z
+      value: 4.429431
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PointForward.x
+      value: -38.94623
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PointForward.y
+      value: -4.1695127
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PointForward.z
+      value: -10.117244
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.Bisector.x
+      value: -1.112699
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.Bisector.y
+      value: -9.813905
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.Bisector.z
+      value: 1.5649825
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PerpendicularForward.x
+      value: 2.5884895
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PerpendicularForward.y
+      value: -0.8391837
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PerpendicularForward.z
+      value: -3.4220572
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PerpendicularBackward.x
+      value: -4.2410555
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PerpendicularBackward.y
+      value: 1.3749427
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[11].splinePoint.PerpendicularBackward.z
+      value: 5.6067967
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].Position.x
+      value: -38.94623
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].Position.y
+      value: -4.1695127
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].Position.z
+      value: -10.117244
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].Velocity.x
+      value: 229.02602
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].Velocity.y
+      value: -0.9825125
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].Velocity.z
+      value: -195.78235
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].LabelColor.g
+      value: 0.42382848
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].LabelColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PointCenter.x
+      value: -38.94623
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PointCenter.y
+      value: -4.1695127
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PointCenter.z
+      value: -10.117244
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PointBackward.x
+      value: -42.343456
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PointBackward.y
+      value: 2.5544271
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PointBackward.z
+      value: -5.6779394
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PointForward.x
+      value: -34.005287
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PointForward.y
+      value: 2.510477
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PointForward.z
+      value: -12.807671
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.Bisector.x
+      value: 1.1383767
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.Bisector.y
+      value: 9.851903
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.Bisector.z
+      value: 1.2822328
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PerpendicularForward.x
+      value: 3.319219
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PerpendicularForward.y
+      value: -0.014239134
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PerpendicularForward.z
+      value: -2.837425
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PerpendicularBackward.x
+      value: -3.323271
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PerpendicularBackward.y
+      value: 0.0142565165
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[12].splinePoint.PerpendicularBackward.z
+      value: 2.8408887
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].Position.x
+      value: -34.005287
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].Position.y
+      value: 2.510477
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].Position.z
+      value: -12.807671
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].Velocity.x
+      value: 390.4534
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].Velocity.y
+      value: 70.70576
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].Velocity.z
+      value: -196.44841
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].LabelColor.g
+      value: 0.53041255
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].LabelColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PointCenter.x
+      value: -34.005287
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PointCenter.y
+      value: 2.510477
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PointCenter.z
+      value: -12.807671
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PointBackward.x
+      value: -38.94623
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PointBackward.y
+      value: -4.1695127
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PointBackward.z
+      value: -10.117244
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PointForward.x
+      value: -24.11501
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PointForward.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PointForward.z
+      value: -17.483252
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.Bisector.x
+      value: 1.5698446
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.Bisector.y
+      value: -9.866601
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.Bisector.z
+      value: -0.4310268
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PerpendicularForward.x
+      value: 5.658744
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PerpendicularForward.y
+      value: 1.0247213
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PerpendicularForward.z
+      value: -2.8470783
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PerpendicularBackward.x
+      value: -3.8507762
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PerpendicularBackward.y
+      value: -0.697323
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[13].splinePoint.PerpendicularBackward.z
+      value: 1.9374373
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].Position.x
+      value: -24.11501
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].Position.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].Position.z
+      value: -17.483252
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].Velocity.x
+      value: 251.98224
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].Velocity.y
+      value: -60.874943
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].Velocity.z
+      value: -108.741516
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].LabelColor.g
+      value: 0.6369967
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].LabelColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PointCenter.x
+      value: -24.11501
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PointCenter.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PointCenter.z
+      value: -17.483252
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PointBackward.x
+      value: -34.005287
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PointBackward.y
+      value: 2.510477
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PointBackward.z
+      value: -12.807671
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PointForward.x
+      value: -16.591192
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PointForward.y
+      value: -3.2741423
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PointForward.z
+      value: -20.471401
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.Bisector.x
+      value: 2.33327
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.Bisector.y
+      value: 9.723913
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.Bisector.z
+      value: -0.036785245
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PerpendicularForward.x
+      value: 3.651917
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PerpendicularForward.y
+      value: -0.88224566
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PerpendicularForward.z
+      value: -1.5759648
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PerpendicularBackward.x
+      value: -5.75195
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PerpendicularBackward.y
+      value: 1.3895805
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[14].splinePoint.PerpendicularBackward.z
+      value: 2.4822223
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].Position.x
+      value: -16.591192
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].Position.y
+      value: -3.2741423
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].Position.z
+      value: -20.471401
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].Velocity.x
+      value: 248.79485
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].Velocity.y
+      value: 35.555027
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].Velocity.z
+      value: -49.641525
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].LabelColor.g
+      value: 0.74358076
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].LabelColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PointCenter.x
+      value: -16.591192
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PointCenter.y
+      value: -3.2741423
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PointCenter.z
+      value: -20.471401
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PointBackward.x
+      value: -24.11501
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PointBackward.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PointBackward.z
+      value: -17.483252
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PointForward.x
+      value: -9.261461
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PointForward.y
+      value: -2.0905428
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PointForward.z
+      value: -20.578846
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.Bisector.x
+      value: 1.7662847
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.Bisector.y
+      value: 1.2682897
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.Bisector.z
+      value: 9.760721
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PerpendicularForward.x
+      value: 3.6057222
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PerpendicularForward.y
+      value: 0.5152904
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PerpendicularForward.z
+      value: -0.71944165
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PerpendicularBackward.x
+      value: -3.9567058
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PerpendicularBackward.y
+      value: -0.56544906
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[15].splinePoint.PerpendicularBackward.z
+      value: 0.78947264
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].Position.x
+      value: -9.261461
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].Position.y
+      value: -2.0905428
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].Position.z
+      value: -20.578846
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].Velocity.x
+      value: 346.8931
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].Velocity.y
+      value: 78.46952
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].Velocity.z
+      value: 67.29345
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].LabelColor.g
+      value: 0.85016495
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].LabelColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PointCenter.x
+      value: -9.261461
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PointCenter.y
+      value: -2.0905428
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PointCenter.z
+      value: -20.578846
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PointBackward.x
+      value: -16.591192
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PointBackward.y
+      value: -3.2741423
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PointBackward.z
+      value: -20.471401
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PointForward.x
+      value: 0.046566963
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PointForward.y
+      value: 0.68534946
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PointForward.z
+      value: -16.612316
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.Bisector.x
+      value: -2.3881044
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.Bisector.y
+      value: 2.5133357
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.Bisector.z
+      value: 9.37977
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PerpendicularForward.x
+      value: 5.0274363
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PerpendicularForward.y
+      value: 1.1372395
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PerpendicularForward.z
+      value: 0.9752667
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PerpendicularBackward.x
+      value: -3.558106
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PerpendicularBackward.y
+      value: -0.8048672
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[16].splinePoint.PerpendicularBackward.z
+      value: -0.690233
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].Position.x
+      value: 0.046566963
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].Position.y
+      value: 0.68534946
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].Position.z
+      value: -16.612316
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].Velocity.x
+      value: 346.89755
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].Velocity.y
+      value: -22.588558
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].Velocity.z
+      value: 206.24536
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].LabelColor.g
+      value: 0.934209
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].LabelColor.b
+      value: 0.046030853
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PointCenter.x
+      value: 0.046566963
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PointCenter.y
+      value: 0.68534946
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PointCenter.z
+      value: -16.612316
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PointBackward.x
+      value: -9.261461
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PointBackward.y
+      value: -2.0905428
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PointBackward.z
+      value: -20.578846
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PointForward.x
+      value: 8.545581
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PointForward.y
+      value: -3.644742
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PointForward.z
+      value: -9.808875
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.Bisector.x
+      value: -2.361124
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.Bisector.y
+      value: -9.256238
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.Bisector.z
+      value: 2.9575598
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PerpendicularForward.x
+      value: 5.0275006
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PerpendicularForward.y
+      value: -0.3273704
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PerpendicularForward.z
+      value: 2.9890635
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PerpendicularBackward.x
+      value: -4.502105
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PerpendicularBackward.y
+      value: 0.29315877
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[17].splinePoint.PerpendicularBackward.z
+      value: -2.6766932
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].Position.x
+      value: 8.545581
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].Position.y
+      value: -3.644742
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].Position.z
+      value: -9.808875
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].Velocity.x
+      value: 158.38284
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].Velocity.y
+      value: -65.73437
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].Velocity.z
+      value: 230.08463
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].LabelColor.g
+      value: 0.9473672
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].LabelColor.b
+      value: 0.23682489
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PointCenter.x
+      value: 8.545581
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PointCenter.y
+      value: -3.644742
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PointCenter.z
+      value: -9.808875
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PointBackward.x
+      value: 0.046566963
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PointBackward.y
+      value: 0.68534946
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PointBackward.z
+      value: -16.612316
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PointForward.x
+      value: 11.240296
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PointForward.y
+      value: -4.193282
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PointForward.z
+      value: -1.9589949
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.Bisector.x
+      value: -6.4682503
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.Bisector.y
+      value: 4.8924313
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.Bisector.z
+      value: 5.8502865
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PerpendicularForward.x
+      value: 2.2954037
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PerpendicularForward.y
+      value: -0.95267224
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PerpendicularForward.z
+      value: 3.33456
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PerpendicularBackward.x
+      value: -3.2333057
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PerpendicularBackward.y
+      value: 1.3419341
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[18].splinePoint.PerpendicularBackward.z
+      value: -4.6970606
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].Position.x
+      value: 11.240296
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].Position.y
+      value: -4.193282
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].Position.z
+      value: -1.9589949
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].Velocity.x
+      value: 63.438812
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].Velocity.y
+      value: -12.582358
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].Velocity.z
+      value: 396.38184
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].LabelColor.g
+      value: 0.9605254
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].LabelColor.b
+      value: 0.42761865
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PointCenter.x
+      value: 11.240296
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PointCenter.y
+      value: -4.193282
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PointCenter.z
+      value: -1.9589949
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PointBackward.x
+      value: 8.545581
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PointBackward.y
+      value: -3.644742
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PointBackward.z
+      value: -9.808875
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PointForward.x
+      value: 11.090097
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PointForward.y
+      value: -4.1437936
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PointForward.z
+      value: 9.681189
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.Bisector.x
+      value: -9.661951
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.Bisector.y
+      value: 2.0133991
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.Bisector.z
+      value: 1.6102557
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PerpendicularForward.x
+      value: 0.91940314
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PerpendicularForward.y
+      value: -0.18235302
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PerpendicularForward.z
+      value: 5.744664
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PerpendicularBackward.x
+      value: -0.65690994
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PerpendicularBackward.y
+      value: 0.13029051
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[19].splinePoint.PerpendicularBackward.z
+      value: -4.10454
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].Position.x
+      value: 11.090097
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].Position.y
+      value: -4.1437936
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].Position.z
+      value: 9.681189
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].Velocity.x
+      value: -21.586914
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].Velocity.y
+      value: 12.784194
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].Velocity.z
+      value: 406.7241
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].LabelColor.g
+      value: 0.9736836
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].LabelColor.b
+      value: 0.61841244
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PointCenter.x
+      value: 11.090097
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PointCenter.y
+      value: -4.1437936
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PointCenter.z
+      value: 9.681189
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PointBackward.x
+      value: 11.240296
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PointBackward.y
+      value: -4.193282
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PointBackward.z
+      value: -1.9589949
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PointForward.x
+      value: 9.992541
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PointForward.y
+      value: -3.4537587
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PointForward.z
+      value: 21.421333
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.Bisector.x
+      value: -8.265354
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.Bisector.y
+      value: 5.595198
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.Bisector.z
+      value: -0.61455256
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PerpendicularForward.x
+      value: -0.3128534
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PerpendicularForward.y
+      value: 0.18527812
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PerpendicularForward.z
+      value: 5.8945518
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PerpendicularBackward.x
+      value: 0.30834386
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PerpendicularBackward.y
+      value: -0.18260749
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[20].splinePoint.PerpendicularBackward.z
+      value: -5.8095865
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].Position.x
+      value: 9.992541
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].Position.y
+      value: -3.4537587
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].Position.z
+      value: 21.421333
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].Velocity.x
+      value: -79.76704
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].Velocity.y
+      value: 47.290134
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].Velocity.z
+      value: 286.89444
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].LabelColor.g
+      value: 0.9868418
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].LabelColor.b
+      value: 0.80920625
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PointCenter.x
+      value: 9.992541
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PointCenter.y
+      value: -3.4537587
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PointCenter.z
+      value: 21.421333
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PointBackward.x
+      value: 11.090097
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PointBackward.y
+      value: -4.1437936
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PointBackward.z
+      value: 9.681189
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PointForward.x
+      value: 6.2751255
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PointForward.y
+      value: -1.2789898
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PointForward.z
+      value: 29.02581
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.Bisector.x
+      value: -8.256748
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.Bisector.y
+      value: 4.729569
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.Bisector.z
+      value: -3.0752718
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PerpendicularForward.x
+      value: -1.1560444
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PerpendicularForward.y
+      value: 0.6853643
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PerpendicularForward.z
+      value: 4.157891
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PerpendicularBackward.x
+      value: 1.5624243
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PerpendicularBackward.y
+      value: -0.92628783
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[21].splinePoint.PerpendicularBackward.z
+      value: -5.6194983
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].Position.x
+      value: 6.2751255
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].Position.y
+      value: -1.2789898
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].Position.z
+      value: 29.02581
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].Velocity.x
+      value: -241.0012
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].Velocity.y
+      value: 80.49711
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].Velocity.z
+      value: 297.57724
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].LabelColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].LabelColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].LabelColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PointCenter.x
+      value: 6.2751255
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PointCenter.y
+      value: -1.2789898
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PointCenter.z
+      value: 29.02581
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PointBackward.x
+      value: 9.992541
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PointBackward.y
+      value: -3.4537587
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PointBackward.z
+      value: 21.421333
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PointForward.x
+      value: -2.520914
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PointForward.y
+      value: 0.447999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PointForward.z
+      value: 35.974693
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.Bisector.x
+      value: -7.8647747
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.Bisector.y
+      value: -2.1692142
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.Bisector.z
+      value: -5.782719
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PerpendicularForward.x
+      value: -3.4927711
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PerpendicularForward.y
+      value: 1.1666248
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PerpendicularForward.z
+      value: 4.3127117
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PerpendicularBackward.x
+      value: 2.691308
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PerpendicularBackward.y
+      value: -0.89892715
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+        type: 3}
+      propertyPath: DynamicWaypoints.Array.data[22].splinePoint.PerpendicularBackward.z
+      value: -3.3231022
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d56626619dae9fe4c98669b21efaf4fb, type: 3}
+--- !u!114 &57463335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114800934300750208, guid: d56626619dae9fe4c98669b21efaf4fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 57463334}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad76bb092d4c3345be5e2898a37beaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &441451255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 22c99df50b51a634b810beb4e322c88c,
+    type: 3}
+  m_PrefabInstance: {fileID: 867387160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &441451256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441451255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d328ab7aaace4cb4ab898fbd8acaeabf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  manager: {fileID: 57463335}
+  speed: 8
+  followRotation: 1
+--- !u!114 &441451257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441451255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d8bfe605d4495dbb4290d2467a53ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 57463335}
+  material: {fileID: 2100000, guid: 90d8e1bac66e3bf4b8e760f0ffe11d92, type: 2}
+  stoppingDistance: 5
+--- !u!4 &441451259 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 22c99df50b51a634b810beb4e322c88c,
+    type: 3}
+  m_PrefabInstance: {fileID: 867387160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &867387160
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+      propertyPath: m_Name
+      value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -33.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22c99df50b51a634b810beb4e322c88c, type: 3}
+--- !u!1 &891133094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 891133096}
+  - component: {fileID: 891133095}
+  m_Layer: 0
+  m_Name: SplineManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &891133095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891133094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad76bb092d4c3345be5e2898a37beaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splineData: {fileID: 0}
+  DynamicWaypoints: []
+--- !u!4 &891133096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891133094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1351214061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1351214064}
+  - component: {fileID: 1351214063}
+  - component: {fileID: 1351214062}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1351214062
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351214061}
+  m_Enabled: 1
+--- !u!20 &1351214063
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351214061}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_GateFitMode: 2
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1351214064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351214061}
+  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.69, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 441451259}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1472827904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1472827906}
+  - component: {fileID: 1472827905}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1472827905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472827904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d328ab7aaace4cb4ab898fbd8acaeabf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  manager: {fileID: 57463335}
+  speed: 8
+  followRotation: 1
+--- !u!4 &1472827906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472827904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.798592, y: 3.2889614, z: 27.98742}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1975811695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1975811697}
+  - component: {fileID: 1975811696}
+  m_Layer: 0
+  m_Name: Directional Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &1975811696
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975811695}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 1
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &1975811697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975811695}
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1979329784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1979329787}
+  - component: {fileID: 1979329786}
+  - component: {fileID: 1979329785}
+  m_Layer: 0
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!154 &1979329785
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979329784}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: 10cca468fef29ba4381d6bf5693d2a5e, type: 2}
+  m_EnableTreeColliders: 1
+--- !u!218 &1979329786
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979329784}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_TerrainData: {fileID: 15600000, guid: 10cca468fef29ba4381d6bf5693d2a5e, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_CastShadows: 1
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 0
+  m_DrawTreesAndFoliage: 1
+  m_ReflectionProbeUsage: 1
+  m_MaterialType: 0
+  m_LegacySpecular:
+    serializedVersion: 2
+    rgba: 4286545791
+  m_LegacyShininess: 0.078125
+  m_MaterialTemplate: {fileID: 0}
+  m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
+  m_ScaleInLightmap: 0.0512
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_AllowAutoConnect: 1
+--- !u!4 &1979329787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979329784}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -75, y: -4.2, z: -37.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

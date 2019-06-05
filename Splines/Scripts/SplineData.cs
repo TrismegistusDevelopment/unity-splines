@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Trismegistus.Navigation
+namespace Trismegistus.Splines
 {
     [Serializable]
-    [CreateAssetMenu(fileName = "New NavigationData", menuName = "Trismegistus/Navigation Data", order = 51)]
-    public class NavigationData : ScriptableObject
+    [CreateAssetMenu(fileName = "New SplineData", menuName = "Trismegistus/Spline Data", order = 51)]
+    public class SplineData : ScriptableObject
     {
         //public WaypointBehaviour WaypointPrefab;
         public Gradient GradientForWaypoints = new Gradient();
@@ -42,26 +42,37 @@ namespace Trismegistus.Navigation
             list.Insert(indexTo > indexFrom? indexTo - 1: indexTo, item);
         }
 
-        public void AddWaypoint()
+        public void AddPoint(Vector3? position = null)
         {
-            AddWaypoint(Waypoints.Count);
+            AddPoint(Waypoints.Count, position);
         }
 
-        public void AddWaypoint(int index)
+        public void AddPoint(int index, Vector3? position = null)
         {
             index = Mathf.Clamp(index, 0, Waypoints.Count);
+            
             Vector3 pos;
-            if (Waypoints.Count == 0) pos = Vector3.zero;
+            if (position != null)
+            {
+                pos = position.Value;
+            }
             else
             {
-                if (!IsCycled && index == Waypoints.Count)
-                    pos = Waypoints.Last().Position;
+                if (Waypoints.Count == 0)
+                {
+                    pos = Vector3.zero;
+                }
                 else
-                    pos = Vector3.Lerp(Waypoints[(index - 1 + Waypoints.Count) % Waypoints.Count].Position,
-                        Waypoints[(index + Waypoints.Count)% Waypoints.Count].Position,
-                        0.5f);
-            } 
-            
+                {
+                    if (!IsCycled && index == Waypoints.Count)
+                        pos = Waypoints.Last().Position;
+                    else
+                        pos = Vector3.Lerp(Waypoints[(index - 1 + Waypoints.Count) % Waypoints.Count].Position,
+                            Waypoints[(index + Waypoints.Count) % Waypoints.Count].Position,
+                            0.5f);
+                }
+            }
+
             if (index == Waypoints.Count)
             {
                 Waypoints.Add(new WaypointEntity(pos, false));

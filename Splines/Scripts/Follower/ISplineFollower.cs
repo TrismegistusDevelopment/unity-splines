@@ -1,10 +1,10 @@
 using UnityEngine;
 
-namespace Trismegistus.Navigation.Follower
+namespace Trismegistus.Splines.Follower
 {
-    public interface INavigationFollower
+    public interface ISplineFollower
     {
-        void SetManager(INavigationManager manager);
+        void SetManager(ISplineManager manager);
         void StartMoving();
         void StopMoving();
         Vector3 GetCurrentDestination();
