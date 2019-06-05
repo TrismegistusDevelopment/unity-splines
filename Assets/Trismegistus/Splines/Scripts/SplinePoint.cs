@@ -38,10 +38,12 @@ namespace Trismegistus.Splines
         /// Local point on a line, perpendicular to bisector from PointCenter, towards PointBackward
         /// </summary>
         public Vector3 PerpendicularBackward;
+
         /// <summary>
         /// PerpendicularForward in World coordinates
         /// </summary>
         public Vector3 AbsPerpendicularForward => PointCenter + PerpendicularForward;
+
         /// <summary>
         /// PerpendicularBackward in World coordinates
         /// </summary>
@@ -58,42 +60,52 @@ namespace Trismegistus.Splines
         {
             if (float.IsInfinity(pointBackward.sqrMagnitude) && float.IsInfinity(pointForward.sqrMagnitude))
                 throw new ArgumentException("Both points cannot be positiveInfinity");
-            
+
             PointCenter = pointCenter;
 
-            PointBackward = float.IsInfinity(pointBackward.sqrMagnitude) 
+            PointBackward = float.IsInfinity(pointBackward.sqrMagnitude)
                 ? pointCenter + (pointCenter - pointForward)
                 : pointBackward;
-            
-            PointForward = float.IsInfinity(pointForward.sqrMagnitude) 
+
+            PointForward = float.IsInfinity(pointForward.sqrMagnitude)
                 ? pointCenter + (pointCenter - pointBackward)
                 : pointForward;
-            
-            Bisector = (
-                           (PointForward - PointCenter).normalized 
-                        + 
-                           (PointBackward - PointCenter).normalized
-                           )
-                       .normalized * 10;
-            
-            var up = Vector3.Cross(
-                    PointForward - PointCenter, 
-                    PointBackward - PointCenter)
-                .normalized;
 
-            PerpendicularForward = float.IsInfinity(pointForward.sqrMagnitude) || float.IsInfinity(pointBackward.sqrMagnitude)
-                ? (PointForward - PointCenter) * 0.5f
-                : -Vector3.Cross(up, Bisector).normalized
-                  * (PointForward - PointCenter).magnitude
-                  * 0.5f;
-            PerpendicularBackward = float.IsInfinity(pointBackward.sqrMagnitude) || float.IsInfinity(pointForward.sqrMagnitude)
-                ? (PointBackward - PointCenter) * 0.5f
-                : Vector3.Cross(up, Bisector).normalized
-                  * (PointBackward - PointCenter).magnitude
-                  * 0.5f;
+            var backwardVector = PointBackward - PointCenter;
+            var forwardVector = PointForward - PointCenter;
+
+            // Calculation normals
+            var mainNormal = Vector3.Cross(backwardVector, forwardVector).normalized;
+            var backwardNormal = Vector3.Cross(mainNormal, backwardVector).normalized;
+            var forwardNormal = Vector3.Cross(forwardVector, mainNormal).normalized;
+
+            // The lengths of the corresponding shoulder
+            var lengthShoulderBackward = 0.5f * backwardVector.magnitude;
+            var lengthShoulderForward = 0.5f * forwardVector.magnitude;
+
+            // Rotation (clockwise) angles relative to its shoulder
+            var angleRotationShoulderBackward =  0.0f;
+            var angleRotationShoulderForward =  0.0f;
+            
+            // Calculation of radian for shoulders
+            var angle = (180f - Mathf.Abs(Vector3.Angle(backwardVector, forwardVector))) / 2;
+            var radianShoulderBackward = Mathf.Deg2Rad * (angle - angleRotationShoulderBackward);
+            var radianShoulderForward = Mathf.Deg2Rad * (angle + angleRotationShoulderForward);
+
+            PerpendicularBackward = lengthShoulderBackward *
+                                    (Mathf.Sin(radianShoulderBackward) * -backwardNormal +
+                                     Mathf.Cos(radianShoulderBackward) * backwardVector.normalized)
+                                    .normalized;
+            PerpendicularForward = lengthShoulderForward *
+                                   (Mathf.Sin(radianShoulderForward) * -forwardNormal +
+                                    Mathf.Cos(radianShoulderForward) * forwardVector.normalized)
+                                   .normalized;
+
+            Bisector = ((PointForward - PointCenter).normalized + (PointBackward - PointCenter).normalized).normalized;
         }
 
         #region Statics
+
         /// <summary>
         /// Get point on bezier by 4 points 
         /// </summary>
@@ -113,7 +125,7 @@ namespace Trismegistus.Splines
                 3f * oneMinusT * t * t * p2 +
                 t * t * t * p3;
         }
-        
+
         /// <summary>
         /// Get velocity of 4-points bezier point
         /// </summary>
@@ -123,7 +135,8 @@ namespace Trismegistus.Splines
         /// <param name="p3">End of curve</param>
         /// <param name="t">Normalized position on curve</param>
         /// <returns>Relative velocity (direction*speed)</returns>
-        public static Vector3 GetFirstDerivative (Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t) {
+        public static Vector3 GetFirstDerivative(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)
+        {
             t = Mathf.Clamp01(t);
             float oneMinusT = 1f - t;
             return
@@ -131,11 +144,11 @@ namespace Trismegistus.Splines
                 6f * oneMinusT * t * (p2 - p1) +
                 3f * t * t * (p3 - p2);
         }
-        
-        public static Vector3 GetFirstDerivative (SplinePoint firstPoint, SplinePoint secondPoint, float t) =>
-            GetFirstDerivative(firstPoint.PointCenter, 
+
+        public static Vector3 GetFirstDerivative(SplinePoint firstPoint, SplinePoint secondPoint, float t) =>
+            GetFirstDerivative(firstPoint.PointCenter,
                 firstPoint.AbsPerpendicularForward,
-                secondPoint.AbsPerpendicularBackward, 
+                secondPoint.AbsPerpendicularBackward,
                 secondPoint.PointCenter, t);
 
         /// <summary>
@@ -146,11 +159,11 @@ namespace Trismegistus.Splines
         /// <param name="t">Normalized position on curve</param>
         /// <returns>Absolute position of calculated point</returns>
         public static Vector3 GetPoint(SplinePoint firstPoint, SplinePoint secondPoint, float t) =>
-            GetPoint(firstPoint.PointCenter, 
+            GetPoint(firstPoint.PointCenter,
                 firstPoint.AbsPerpendicularForward,
-                secondPoint.AbsPerpendicularBackward, 
+                secondPoint.AbsPerpendicularBackward,
                 secondPoint.PointCenter, t);
+
         #endregion
     }
-    
 }
