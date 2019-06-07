@@ -50,24 +50,24 @@ MonoBehaviour:
   Waypoints:
   - Position: {x: -2.520914, y: 0.447999, z: 35.974693}
     Velocity: {x: 25.887247, y: -6.0179605, z: -28.677706}
-    Rotation: {x: -0.017824028, y: 0.08666943, z: 0.14382061, w: 0.9856401}
+    Rotation: {x: 0.02501595, y: 0.13333817, z: 0.21559598, w: 0.9670127}
     IsTemp: 0
     LabelColor: {r: 0, g: 0.13103437, b: 1, a: 1}
     Caption: 
-    NavPoint:
+    splinePoint:
       PointCenter: {x: -2.520914, y: 0.447999, z: 35.974693}
-      PointBackward: {x: 0.046566963, y: 0.68534946, z: -16.612316}
+      PointBackward: {x: 11.090097, y: -4.1437936, z: 9.681189}
       PointForward: {x: -54.87945, y: 17.578327, z: 37.160637}
-      Bisector: {x: -6.597035, y: 2.308128, z: -7.1520395}
-      PerpendicularForward: {x: -18.845646, y: 5.7797675, z: 19.248472}
-      PerpendicularBackward: {x: 18.006971, y: -5.5225544, z: -18.39187}
+      Bisector: {x: -4.9502864, y: 1.5734171, z: -8.545117}
+      PerpendicularForward: {x: -22.354204, y: 7.387348, z: 14.310288}
+      PerpendicularBackward: {x: 12.154939, y: -4.0168176, z: -7.781117}
   - Position: {x: -54.87945, y: 17.578327, z: 37.160637}
     Velocity: {x: 25.283516, y: -0.41575885, z: 27.698828}
     Rotation: {x: -0.24745981, y: -0.3655198, z: -0.5401061, w: 0.7165503}
     IsTemp: 0
     LabelColor: {r: 0.70101625, g: 0.03917715, b: 0.29898375, a: 1}
     Caption: 1111
-    NavPoint:
+    splinePoint:
       PointCenter: {x: -54.87945, y: 17.578327, z: 37.160637}
       PointBackward: {x: -2.520914, y: 0.447999, z: 35.974693}
       PointForward: {x: -42.343456, y: 2.5544271, z: -5.6779394}
@@ -80,7 +80,7 @@ MonoBehaviour:
     IsTemp: 0
     LabelColor: {r: 1, g: 0.32885268, b: 0, a: 1}
     Caption: 
-    NavPoint:
+    splinePoint:
       PointCenter: {x: -42.343456, y: 2.5544271, z: -5.6779394}
       PointBackward: {x: -54.87945, y: 17.578327, z: 37.160637}
       PointForward: {x: -34.005287, y: 2.510477, z: -12.807671}
@@ -93,7 +93,7 @@ MonoBehaviour:
     IsTemp: 0
     LabelColor: {r: 1, g: 0.46815068, b: 0, a: 1}
     Caption: 
-    NavPoint:
+    splinePoint:
       PointCenter: {x: -34.005287, y: 2.510477, z: -12.807671}
       PointBackward: {x: -42.343456, y: 2.5544271, z: -5.6779394}
       PointForward: {x: 0.046566963, y: 0.68534946, z: -16.612316}
@@ -106,10 +106,23 @@ MonoBehaviour:
     IsTemp: 0
     LabelColor: {r: 1, g: 0.8860447, b: 0, a: 1}
     Caption: 
-    NavPoint:
+    splinePoint:
       PointCenter: {x: 0.046566963, y: 0.68534946, z: -16.612316}
       PointBackward: {x: -34.005287, y: 2.510477, z: -12.807671}
+      PointForward: {x: 11.090097, y: -4.1437936, z: 9.681189}
+      Bisector: {x: -5.113251, y: -0.9526782, z: 8.540906}
+      PerpendicularForward: {x: 12.387625, y: -1.9844903, z: 7.19484}
+      PerpendicularBackward: {x: -14.695072, y: 2.3541422, z: -8.535026}
+  - Position: {x: 11.090097, y: -4.1437936, z: 9.681189}
+    Velocity: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 0
+    LabelColor: {r: 0, g: 0, b: 0, a: 0}
+    Caption: 
+    splinePoint:
+      PointCenter: {x: 11.090097, y: -4.1437936, z: 9.681189}
+      PointBackward: {x: 0.046566963, y: 0.68534946, z: -16.612316}
       PointForward: {x: -2.520914, y: 0.447999, z: 35.974693}
-      Bisector: {x: -6.838871, y: 0.31977418, z: 7.288867}
-      PerpendicularForward: {x: 19.153164, y: -1.1711315, z: 18.022076}
-      PerpendicularBackward: {x: -12.482186, y: 0.7632307, z: -11.745053}
+      Bisector: {x: -9.332772, y: 3.5743544, z: -0.35119578}
+      PerpendicularForward: {x: -0.6072112, y: -0.114779554, z: 14.968008}
+      PerpendicularBackward: {x: 0.58619523, y: 0.110806964, z: -14.449956}

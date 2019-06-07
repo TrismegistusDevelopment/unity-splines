@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Trismegistus.Navigation
+namespace Trismegistus.Splines
 {
     public static class GizmosDrawer
     {

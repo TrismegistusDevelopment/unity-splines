@@ -1,55 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Trismegistus.Navigation.Iterator;
+using Trismegistus.Splines.Iterator;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace Trismegistus.Navigation
+namespace Trismegistus.Splines
 {
-    public class NavigationManager : MonoBehaviour, INavigationManager, INavigationIteratorCreator
+    public struct PointParams
     {
-        public NavigationData NavigationData;
-        
+        public Vector3 Destination;
+        public Vector3 Velocity;
+
+        public PointParams(Vector3 destination, Vector3 velocity)
+        {
+            Destination = destination;
+            Velocity = velocity;
+        }
+    }
+    public class SplineManager : MonoBehaviour, ISplineManager, ISplineIteratorCreator
+    {
+        public SplineData splineData;
+
         public bool IsCycled
         {
-            get => NavigationData.IsCycled;
-            set => NavigationData.IsCycled = value;
+            get => splineData.IsCycled;
+            set => splineData.IsCycled = value;
         }
 
         public bool StickToColliders
         {
-            get => NavigationData.StickToColliders;
-            set => NavigationData.StickToColliders = value;
+            get => splineData.StickToColliders;
+            set => splineData.StickToColliders = value;
         }
 
         public Gradient GradientForWaypoints
         {
-            get => NavigationData.GradientForWaypoints;
-            set => NavigationData.GradientForWaypoints = value;
+            get => splineData.GradientForWaypoints;
+            set => splineData.GradientForWaypoints = value;
         }
         
         public int Iterations
         {
-            get => NavigationData.Iterations;
-            set => NavigationData.Iterations = value;
+            get => splineData.Iterations;
+            set => splineData.Iterations = value;
         }
 
         public LayerMask LayerMask
         {
-            get => NavigationData.LayerMask;
-            set => NavigationData.LayerMask = value;
+            get => splineData.LayerMask;
+            set => splineData.LayerMask = value;
         }
 
         public WaypointEntity[] DynamicWaypoints;
 
-        private List<WaypointEntity> _waypoints => NavigationData.Waypoints;
+        private List<WaypointEntity> _waypoints => splineData.Waypoints;
         private static readonly RaycastHit[] Hits = new RaycastHit[5];
         
         private void Init()
         {
-            if (!NavigationData) return; 
+            if (!splineData) return; 
             CalculateWaypoints();
         }
         
@@ -63,7 +72,7 @@ namespace Trismegistus.Navigation
 #if UNITY_EDITOR
         void OnDrawGizmos()
         {
-            if (!NavigationData) return;
+            if (!splineData) return;
             
             if (_waypoints.Count ==0) return;
             
@@ -89,18 +98,13 @@ namespace Trismegistus.Navigation
         
         #region Implementations 
         #region INavigationManager
-        public int WaypointsCount => DynamicWaypoints.Length;
-        public List<WaypointEntity> Waypoints => _waypoints;
-        public Vector3 GetDestination(int index)
-        {
-            if (!IsCycled && index > DynamicWaypoints.Length - 1) index = DynamicWaypoints.Length - 1;
-            index %= DynamicWaypoints.Length;
-            return DynamicWaypoints[index].Position;
-        }
+        public int Count => DynamicWaypoints.Length;
+        public List<WaypointEntity> Entities => _waypoints;
+        
 
         public Vector3 SelectClosestWaypointPosition(Vector3 position)
         {
-            return GetDestination(SelectClosestWaypointIndex(position));
+            return GetParams(SelectClosestWaypointIndex(position)).Destination;
         }
 
         public int SelectClosestWaypointIndex(Vector3 position)
@@ -123,31 +127,8 @@ namespace Trismegistus.Navigation
 
             return nextIndex;
         }
-        
-        public Vector3 GetDestination(float t)
-        {
-            var newT = t;
-            var wayPoints = StickToColliders? DynamicWaypoints : _waypoints.ToArray();
-            var arrayShift = IsCycled ? 0 : 1;
 
-            newT = Mathf.Clamp01(newT) * (wayPoints.Length - arrayShift);
-            var mult = newT;
-            var i = Mathf.FloorToInt(newT);
-            newT -= i;
-            var pos = NavPoint.GetPoint(wayPoints[i].NavPoint,
-                wayPoints[(i + 1) % wayPoints.Length].NavPoint, newT);
-            return pos;
-        }
-
-        public Vector3 GetVelocity(int index)
-        {
-            var i = index;
-            var wayPoints = DynamicWaypoints;
-            return NavPoint.GetFirstDerivative(wayPoints[i].NavPoint,
-                       wayPoints[(i + 1) % wayPoints.Length].NavPoint, 0f)*wayPoints.Length;
-        }
-
-        public Vector3 GetVelocity(float t)
+        public PointParams GetParams(float t)
         {
             var wayPoints = StickToColliders? DynamicWaypoints : _waypoints.ToArray();
             var arrayShift = IsCycled ? 0 : 1;
@@ -156,14 +137,34 @@ namespace Trismegistus.Navigation
             var i = Mathf.FloorToInt(t);
             t -= i;
             
-            return NavPoint.GetFirstDerivative(wayPoints[i].NavPoint,
-                       wayPoints[(i + 1) % wayPoints.Length].NavPoint, t)*wayPoints.Length;
+            var pos = SplinePoint.GetPoint(wayPoints[i].splinePoint,
+                wayPoints[(i + 1) % wayPoints.Length].splinePoint, t);
+            var destination = pos;
+            
+            var velocity = SplinePoint.GetFirstDerivative(wayPoints[i].splinePoint,
+                       wayPoints[(i + 1) % wayPoints.Length].splinePoint, t)*wayPoints.Length;
+            
+            return new PointParams(destination, velocity);
+        }
+        
+        public PointParams GetParams(int entity)
+        {
+            if (!IsCycled && entity > DynamicWaypoints.Length - 1) entity = DynamicWaypoints.Length - 1;
+            entity %= DynamicWaypoints.Length;
+            var destination = DynamicWaypoints[entity].Position;
+            
+            var i = entity;
+            var wayPoints = DynamicWaypoints;
+            var velocity =  SplinePoint.GetFirstDerivative(wayPoints[i].splinePoint,
+                       wayPoints[(i + 1) % wayPoints.Length].splinePoint, 0f)*wayPoints.Length;
+            
+            return new PointParams(destination, velocity);
         }
         #endregion
         
-        public INavigationIterator GetNavigationIterator(GameObject targetGameObject, float stoppingDistance)
+        public ISplineIterator GetNavigationIterator(GameObject targetGameObject, float stoppingDistance)
         {
-            var navigationIterator = targetGameObject.AddComponent<NavigationIterator>();
+            var navigationIterator = targetGameObject.AddComponent<SplineIterator>();
             navigationIterator.SetStoppingDistance(stoppingDistance);
             navigationIterator.SetNavigationManager(this);
             return navigationIterator;
@@ -173,27 +174,24 @@ namespace Trismegistus.Navigation
 
         #region Reordering
 
-        public void AddWaypoint()
+        public void AddPoint(int? index = null, Vector3? position = null)
         {
-            NavigationData.AddWaypoint();
-            CalculateWaypoints();
-        }
-
-        public void AddWaypoint(int index)
-        {
-            NavigationData.AddWaypoint(index);
+            if (index == null)
+                splineData.AddPoint(position);
+            else
+                splineData.AddPoint(index.Value, position);
             CalculateWaypoints();
         }
 
         public void Relocate(int from, int to)
         {
-            NavigationData.Relocate(NavigationData.Waypoints, @from, to);
+            SplineData.Relocate(splineData.Waypoints, @from, to);
             CalculateWaypoints();
         }
 
-        public void DeleteWaypoint(int i)
+        public void Delete(int i)
         {
-            NavigationData.DeleteWaypoint(i);
+            splineData.DeleteWaypoint(i);
             CalculateWaypoints();
         }
 
@@ -202,17 +200,17 @@ namespace Trismegistus.Navigation
         #region Calculations
         public void CalculateWaypoints()
         {
-            var navPoints = CalculateNavPoints(IsCycled, NavigationData.Waypoints.Select(x => x.Position).ToArray());
-            for (var i = 0; i < NavigationData.Waypoints.Count; i++)
+            var navPoints = CalculateNavPoints(IsCycled, splineData.Waypoints.Select(x => x.Position).ToArray());
+            for (var i = 0; i < splineData.Waypoints.Count; i++)
             {
-                NavigationData.Waypoints[i].NavPoint = navPoints[i];
+                splineData.Waypoints[i].splinePoint = navPoints[i];
             }
 
             DynamicWaypoints = CalculateWaypoints(_waypoints, Iterations, StickToColliders, IsCycled, LayerMask);
             var dynNavPoints = CalculateNavPoints(IsCycled, DynamicWaypoints.Select(x => x.Position).ToArray());
             for (var i = 0; i < DynamicWaypoints.Length; i++)
             {
-                DynamicWaypoints[i].NavPoint = dynNavPoints[i];
+                DynamicWaypoints[i].splinePoint = dynNavPoints[i];
             }
             CalculateVelocities();
             Colorize();
@@ -252,7 +250,7 @@ namespace Trismegistus.Navigation
                 {
                     for (var j = 0; j <= localIterations-arrayShift; j++)
                     {
-                        var position = NavPoint.GetPoint(navPoint.PointCenter,
+                        var position = SplinePoint.GetPoint(navPoint.PointCenter,
                             navPoint.AbsPerpendicularForward, baseNavPoints[(i + 1) % baseNavPoints.Length].AbsPerpendicularBackward,
                             baseNavPoints[(i + 1) % baseNavPoints.Length].PointCenter, (float) j / localIterations);
 
@@ -261,7 +259,7 @@ namespace Trismegistus.Navigation
                             position = AdjustYToCollider(position, layerMask);
                         }
 
-                        var waypointEntity = new WaypointEntity(position, true) {NavPoint = navPoint};
+                        var waypointEntity = new WaypointEntity(position, true) {splinePoint = navPoint};
                         curve.Add(waypointEntity);
                     }
                 }
@@ -275,17 +273,17 @@ namespace Trismegistus.Navigation
             for (int i = 0; i < DynamicWaypoints.Length; i++)
             {
                 var ent = DynamicWaypoints[i];
-                ent.Velocity = GetVelocity(i);
+                ent.Velocity = GetParams(i).Velocity;
             }
         }
         
-        private static NavPoint[] CalculateNavPoints(bool cycled, List<Vector3> p)
+        private static SplinePoint[] CalculateNavPoints(bool cycled, List<Vector3> p)
         {
             return CalculateNavPoints(cycled, p.ToArray());
         }
-        private static NavPoint[] CalculateNavPoints(bool cycled, Vector3[] p)
+        private static SplinePoint[] CalculateNavPoints(bool cycled, Vector3[] p)
         {
-            var points = new List<NavPoint>();
+            var points = new List<SplinePoint>();
 
             //Make closed curve with rounding on every point
             if (cycled)
@@ -296,7 +294,7 @@ namespace Trismegistus.Navigation
                         p[(p.Length + i + 1) % p.Length])).ToList();*/
                 for (int i = 0; i < p.Length; i++)
                 {
-                    points.Add(new NavPoint(p[i], 
+                    points.Add(new SplinePoint(p[i], 
                         p[(p.Length + i - 1) % p.Length],
                         p[(i + 1) % p.Length]));
                 }
@@ -308,7 +306,7 @@ namespace Trismegistus.Navigation
                 for (int i = 0; i < p.Length; i++)
                 {
                     var pCenter = p[i];
-                    if (p.Length == 1) points.Add(new NavPoint(pCenter, pCenter, pCenter));
+                    if (p.Length == 1) points.Add(new SplinePoint(pCenter, pCenter, pCenter));
                     else
                     {
                         var pForward = i != p.Length - 1 
@@ -317,7 +315,7 @@ namespace Trismegistus.Navigation
                         var pBackward = i != 0 
                             ? p[i - 1] 
                             : Vector3.positiveInfinity;
-                        points.Add(new NavPoint(pCenter, pBackward, pForward));
+                        points.Add(new SplinePoint(pCenter, pBackward, pForward));
                     }
                 }
             }
@@ -350,6 +348,11 @@ namespace Trismegistus.Navigation
                 var waypointEntity = DynamicWaypoints[index];
                 waypointEntity.LabelColor = GradientForWaypoints.Evaluate((float) index / (count - 1));
             }
+        }
+
+        public void Delete(WaypointEntity entity)
+        {
+            _waypoints.Remove(entity);
         }
     }
 }

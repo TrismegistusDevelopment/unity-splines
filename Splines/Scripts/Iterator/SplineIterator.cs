@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Trismegistus.Navigation.Iterator
+namespace Trismegistus.Splines.Iterator
 {
-    public class NavigationIterator : MonoBehaviour, INavigationIterator, IEnumerator<Vector3>
+    public class SplineIterator : MonoBehaviour, ISplineIterator, IEnumerator<Vector3>
     {
         public bool MoveNext()
         {
             _index++;
             
-            if (_index >= _manager.WaypointsCount) return false;
+            if (_index >= _manager.Count) return false;
             
-            Current = _manager.GetDestination(_index);
+            Current = _manager.GetParams(_index).Destination;
             return true;
         }
 
@@ -37,10 +37,10 @@ namespace Trismegistus.Navigation.Iterator
         public Vector3 Destination => Current;
         public void SetStoppingDistance(float distance) => StoppingDistance = distance;
 
-        public void SetNavigationManager(INavigationManager manager) => _manager = manager;
+        public void SetNavigationManager(ISplineManager manager) => _manager = manager;
 
         private int _index = -1;
-        private INavigationManager _manager;
+        private ISplineManager _manager;
         private Coroutine _checkDistanceCoroutine;
 
         void Start()
