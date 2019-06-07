@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Trismegistus.Navigation
+namespace Trismegistus.Splines
 {
     public class WaypointBehaviour : MonoBehaviour
     {

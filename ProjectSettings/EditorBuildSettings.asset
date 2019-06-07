@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Trismegistus/Navigation/ExampleScene.unity
+    path: Assets/Trismegistus/Splines/ExampleScene.unity
     guid: d4cc950cfa130ee4ca879f9d1c6415b6
   m_configObjects: {}

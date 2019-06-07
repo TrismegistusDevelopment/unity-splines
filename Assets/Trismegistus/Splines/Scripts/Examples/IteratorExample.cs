@@ -1,16 +1,16 @@
 using UnityEngine;
 
 //TESTasdsad
-namespace Trismegistus.Navigation.Iterator.Examples
+namespace Trismegistus.Splines.Iterator.Examples
 {
     public class IteratorExample : MonoBehaviour
     {
-        [SerializeField] private NavigationManager manager;
+        [SerializeField] private SplineManager manager;
         [SerializeField] private Material material;
         [SerializeField] [Range(0, 100)] private float stoppingDistance = 5;
         
-        private INavigationIteratorCreator Creator => manager;
-        private INavigationIterator _iterator;
+        private ISplineIteratorCreator Creator => manager;
+        private ISplineIterator _iterator;
         private Vector3 _destination = Vector3.zero;
         private LineRenderer _lineRenderer;
         private GameObject _sphere;
