@@ -1,12 +1,15 @@
 {
     "name": "trismegistus.splines",
     "displayName": "Tri Splines",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "unity": "2018.3",
     "description": "Splines",
     "keywords": [
         "unity",
 		"editor"		
     ],
-    "category": "Instrument"
+    "category": "Instrument",
+    "dependencies": {
+        "trismegistus.core": "https://github.com/TrismegistusDevelopment/unity-extras.git#upm"
+      }
 }
