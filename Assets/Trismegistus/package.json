@@ -10,6 +10,6 @@
     ],
     "category": "Instrument",
     "dependencies": {
-        "trismegistus.core": "https://github.com/TrismegistusDevelopment/unity-extras.git#upm"
+        "trismegistus.core": "https://github.com/TrismegistusDevelopment/unity-extras.git#5f7d95424f55ffc732e0c3c180de26e22d71d3c3"
       }
 }
