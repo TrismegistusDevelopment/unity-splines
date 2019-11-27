@@ -1,0 +1,1386 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1059233961059762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4162900860989228}
+  - component: {fileID: 114800934300750208}
+  m_Layer: 0
+  m_Name: SplineManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4162900860989228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059233961059762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114800934300750208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059233961059762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad76bb092d4c3345be5e2898a37beaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splineData: {fileID: 11400000, guid: d66b0dcd630b03b41ba9f92ea64f6c9c, type: 2}
+  DynamicWaypoints:
+  - Position: {x: -2.520914, y: 0.447999, z: 35.974693}
+    Velocity: {x: -314.6089, y: -165.83147, z: 321.576}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0, g: 0.13103437, b: 1, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -2.520914, y: 0.447999, z: 35.974693}
+      PointBackward: {x: -0.5793965, y: 1.2866988, z: 33.94008}
+      PointForward: {x: -4.5319886, y: -0.80733633, z: 37.97732}
+      Bisector: {x: 1.05124, y: -9.220106, z: -3.726196}
+      PerpendicularForward: {x: -1.0181516, y: -0.5366714, z: 1.0406982}
+      PerpendicularBackward: {x: 0.962825, y: 0.50750846, z: -0.9841463}
+  - Position: {x: -4.5319886, y: -0.80733633, z: 37.97732}
+    Velocity: {x: -311.11084, y: -40.91301, z: 301.20734}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.010907931, g: 0.12960505, b: 0.98909205, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -4.5319886, y: -0.80733633, z: 37.97732}
+      PointBackward: {x: -2.520914, y: 0.447999, z: 35.974693}
+      PointForward: {x: -6.527269, y: -0.1708436, z: 39.858673}
+      Bisector: {x: -0.95756024, y: 9.947459, z: 0.36211997}
+      PerpendicularForward: {x: -1.0068312, y: -0.13240457, z: 0.97478086}
+      PerpendicularBackward: {x: 1.109859, y: 0.14595337, z: -1.0745289}
+  - Position: {x: -6.527269, y: -0.1708436, z: 39.858673}
+    Velocity: {x: -300.03625, y: 44.920925, z: 274.36975}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.038230915, g: 0.12602481, b: 0.9617691, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -6.527269, y: -0.1708436, z: 39.858673}
+      PointBackward: {x: -4.5319886, y: -0.80733633, z: 37.97732}
+      PointForward: {x: -8.507372, y: -0.19202566, z: 41.61601}
+      Bisector: {x: -1.6499596, y: -9.861115, z: -0.18980668}
+      PerpendicularForward: {x: -0.97099096, y: 0.14537516, z: 0.8879267}
+      PerpendicularBackward: {x: 1.0325054, y: -0.154585, z: -0.9441788}
+  - Position: {x: -8.507372, y: -0.19202566, z: 41.61601}
+    Velocity: {x: -304.62836, y: -45.343487, z: 261.51086}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.0655539, g: 0.12244456, b: 0.9344461, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -8.507372, y: -0.19202566, z: 41.61601}
+      PointBackward: {x: -6.527269, y: -0.1708436, z: 39.858673}
+      PointForward: {x: -10.472914, y: -0.7547951, z: 43.246555}
+      Bisector: {x: -0.17576888, y: -9.814993, z: -1.9065727}
+      PerpendicularForward: {x: -0.9858523, y: -0.14674267, z: 0.84631467}
+      PerpendicularBackward: {x: 0.998083, y: 0.1485632, z: -0.85681427}
+  - Position: {x: -10.472914, y: -0.7547951, z: 43.246555}
+    Velocity: {x: -311.61533, y: -138.111, z: 249.3274}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.09287689, g: 0.11886431, b: 0.9071231, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -10.472914, y: -0.7547951, z: 43.246555}
+      PointBackward: {x: -8.507372, y: -0.19202566, z: 41.61601}
+      PointForward: {x: -12.42451, y: -1.9420867, z: 44.74754}
+      Bisector: {x: 1.6045899, y: -9.346829, z: -3.1720777}
+      PerpendicularForward: {x: -1.0084639, y: -0.4469612, z: 0.8068841}
+      PerpendicularBackward: {x: 0.9648265, y: 0.42762068, z: -0.7719694}
+  - Position: {x: -12.42451, y: -1.9420867, z: 44.74754}
+    Velocity: {x: -292.89337, y: -168.0573, z: 215.83463}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.120199874, g: 0.115284055, b: 0.87980014, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -12.42451, y: -1.9420867, z: 44.74754}
+      PointBackward: {x: -10.472914, y: -0.7547951, z: 43.246555}
+      PointForward: {x: -14.362777, y: -2.9901733, z: 46.11622}
+      Bisector: {x: -6.6659555, y: 6.0813518, z: -4.310707}
+      PerpendicularForward: {x: -0.94787544, y: -0.5438746, z: 0.698494}
+      PerpendicularBackward: {x: 0.998819, y: 0.57310516, z: -0.7360345}
+  - Position: {x: -14.362777, y: -2.9901733, z: 46.11622}
+    Velocity: {x: -284.82666, y: -98.89221, z: 191.29324}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.14752285, g: 0.11170381, b: 0.85247713, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -14.362777, y: -2.9901733, z: 46.11622}
+      PointBackward: {x: -12.42451, y: -1.9420867, z: 44.74754}
+      PointForward: {x: -16.288332, y: -3.3245125, z: 47.349823}
+      Bisector: {x: -3.1444395, y: 9.490114, z: 0.22415218}
+      PerpendicularForward: {x: -0.92176884, y: -0.3200396, z: 0.6190705}
+      PerpendicularBackward: {x: 1.0345736, y: 0.35920554, z: -0.6948314}
+  - Position: {x: -16.288332, y: -3.3245125, z: 47.349823}
+    Velocity: {x: -290.3429, y: -31.075455, z: 175.94012}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.17484584, g: 0.108123556, b: 0.8251542, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -16.288332, y: -3.3245125, z: 47.349823}
+      PointBackward: {x: -14.362777, y: -2.9901733, z: 46.11622}
+      PointForward: {x: -18.201792, y: -3.4068651, z: 48.445587}
+      Bisector: {x: -2.868301, y: 9.052513, z: -3.1344633}
+      PerpendicularForward: {x: -0.93962055, y: -0.10056787, z: 0.5693869}
+      PerpendicularBackward: {x: 0.98415995, y: 0.10533493, z: -0.59637666}
+  - Position: {x: -18.201792, y: -3.4068651, z: 48.445587}
+    Velocity: {x: -336.51358, y: 110.317085, z: 181.80437}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.20216882, g: 0.10454331, b: 0.7978312, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -18.201792, y: -3.4068651, z: 48.445587}
+      PointBackward: {x: -16.288332, y: -3.3245125, z: 47.349823}
+      PointForward: {x: -20.10377, y: -1.9547291, z: 49.400745}
+      Bisector: {x: 2.0559864, y: 9.578448, z: -2.0065541}
+      PerpendicularForward: {x: -1.0890399, y: 0.3570131, z: 0.58836216}
+      PerpendicularBackward: {x: 0.93265, y: -0.3057448, z: -0.5038713}
+  - Position: {x: -20.10377, y: -1.9547291, z: 49.400745}
+    Velocity: {x: -283.0718, y: 199.71696, z: 131.4945}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.22949181, g: 0.100963056, b: 0.77050817, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -20.10377, y: -1.9547291, z: 49.400745}
+      PointBackward: {x: -18.201792, y: -3.4068651, z: 48.445587}
+      PointForward: {x: -21.994879, y: -0.7230892, z: 50.21254}
+      Bisector: {x: -6.452879, y: -6.4231734, z: -4.1356025}
+      PerpendicularForward: {x: -0.91608995, y: 0.64633316, z: 0.42555043}
+      PerpendicularBackward: {x: 0.984138, y: -0.6943434, z: -0.4571607}
+  - Position: {x: -21.994879, y: -0.7230892, z: 50.21254}
+    Velocity: {x: -274.1234, y: 127.311516, z: 106.62541}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.2568148, g: 0.097382806, b: 0.74318516, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -21.994879, y: -0.7230892, z: 50.21254}
+      PointBackward: {x: -20.10377, y: -1.9547291, z: 49.400745}
+      PointForward: {x: -23.875744, y: -0.15517902, z: 50.878212}
+      Bisector: {x: -4.411986, y: -8.950061, z: -0.6563466}
+      PerpendicularForward: {x: -0.8871308, y: 0.41201138, z: 0.34506425}
+      PerpendicularBackward: {x: 1.0256653, y: -0.4763511, z: -0.39894953}
+  - Position: {x: -23.875744, y: -0.15517902, z: 50.878212}
+    Velocity: {x: -286.5827, y: 87.5002, z: 90.18079}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.2841378, g: 0.09380256, b: 0.7158622, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -23.875744, y: -0.15517902, z: 50.878212}
+      PointBackward: {x: -21.994879, y: -0.7230892, z: 50.21254}
+      PointForward: {x: -25.746975, y: 0.42236137, z: 51.394985}
+      Bisector: {x: -2.497741, y: 1.6526495, z: -9.540967}
+      PerpendicularForward: {x: -0.92745155, y: 0.28317216, z: 0.29184863}
+      PerpendicularBackward: {x: 0.9499221, y: -0.29003292, z: -0.2989196}
+  - Position: {x: -25.746975, y: 0.42236137, z: 51.394985}
+    Velocity: {x: -281.48346, y: 60.291134, z: 66.16629}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.31146076, g: 0.09022231, b: 0.68853927, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -25.746975, y: 0.42236137, z: 51.394985}
+      PointBackward: {x: -23.875744, y: -0.15517902, z: 50.878212}
+      PointForward: {x: -27.60919, y: 0.6543999, z: 51.760117}
+      Bisector: {x: -2.7424188, y: -8.95402, z: -3.5078015}
+      PerpendicularForward: {x: -0.9109499, y: 0.19511694, z: 0.21412985}
+      PerpendicularBackward: {x: 0.9650597, y: -0.20670675, z: -0.22684902}
+  - Position: {x: -27.60919, y: 0.6543999, z: 51.760117}
+    Velocity: {x: -299.59424, y: -31.991945, z: 46.62276}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.33878374, g: 0.08664206, b: 0.66121626, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -27.60919, y: 0.6543999, z: 51.760117}
+      PointBackward: {x: -25.746975, y: 0.42236137, z: 51.394985}
+      PointForward: {x: -29.463007, y: 0.011675835, z: 51.97084}
+      Bisector: {x: 0.75916255, y: -9.798859, z: -1.8455489}
+      PerpendicularForward: {x: -0.9695616, y: -0.103533804, z: 0.15088102}
+      PerpendicularBackward: {x: 0.93932086, y: 0.100304574, z: -0.14617503}
+  - Position: {x: -29.463007, y: 0.011675835, z: 51.97084}
+    Velocity: {x: -300.35333, y: -139.79117, z: 21.995316}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.36610675, g: 0.08306181, b: 0.63389325, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -29.463007, y: 0.011675835, z: 51.97084}
+      PointBackward: {x: -27.60919, y: 0.6543999, z: 51.760117}
+      PointForward: {x: -31.30904, y: -1.087183, z: 52.024384}
+      Bisector: {x: 3.6842127, y: -8.506096, z: -3.751389}
+      PerpendicularForward: {x: -0.9720174, y: -0.45239863, z: 0.07118084}
+      PerpendicularBackward: {x: 0.8925724, y: 0.41542315, z: -0.06536308}
+  - Position: {x: -31.30904, y: -1.087183, z: 52.024384}
+    Velocity: {x: -271.40405, y: -91.0468, z: -4.764473}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.39342973, g: 0.07948156, b: 0.60657024, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -31.30904, y: -1.087183, z: 52.024384}
+      PointBackward: {x: -29.463007, y: 0.011675835, z: 51.97084}
+      PointForward: {x: -33.147903, y: -1.2905092, z: 51.91799}
+      Bisector: {x: -3.091783, y: 9.316313, z: -1.9097621}
+      PerpendicularForward: {x: -0.87833, y: -0.29464978, z: -0.015417548}
+      PerpendicularBackward: {x: 1.0185649, y: 0.34169382, z: 0.017879127}
+  - Position: {x: -33.147903, y: -1.2905092, z: 51.91799}
+    Velocity: {x: -294.1066, y: -67.186646, z: -29.70782}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.4207527, g: 0.07590131, b: 0.5792473, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -33.147903, y: -1.2905092, z: 51.91799}
+      PointBackward: {x: -31.30904, y: -1.087183, z: 52.024384}
+      PointForward: {x: -34.980217, y: -1.9385824, z: 51.648895}
+      Bisector: {x: 2.417831, y: -9.125382, z: -3.298712}
+      PerpendicularForward: {x: -0.95180154, y: -0.21743251, z: -0.09614073}
+      PerpendicularBackward: {x: 0.89894545, y: 0.20535791, z: 0.090801775}
+  - Position: {x: -34.980217, y: -1.9385824, z: 51.648895}
+    Velocity: {x: -310.64316, y: -163.77663, z: -58.609383}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.44807568, g: 0.07232106, b: 0.55192435, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -34.980217, y: -1.9385824, z: 51.648895}
+      PointBackward: {x: -33.147903, y: -1.2905092, z: 51.91799}
+      PointForward: {x: -36.80659, y: -3.274907, z: 51.214336}
+      Bisector: {x: 4.849012, y: -8.565749, z: -1.7649423}
+      PerpendicularForward: {x: -1.0053171, y: -0.53002137, z: -0.18967462}
+      PerpendicularBackward: {x: 0.8559806, y: 0.4512885, z: 0.16149908}
+  - Position: {x: -36.80659, y: -3.274907, z: 51.214336}
+    Velocity: {x: -268.45483, y: -147.99872, z: -77.09205}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.4753987, g: 0.0687408, b: 0.52460134, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -36.80659, y: -3.274907, z: 51.214336}
+      PointBackward: {x: -34.980217, y: -1.9385824, z: 51.648895}
+      PointForward: {x: -38.627647, y: -3.9863577, z: 50.611557}
+      Bisector: {x: -3.569648, y: 8.496694, z: -3.8812137}
+      PerpendicularForward: {x: -0.868787, y: -0.47896022, z: -0.24948762}
+      PerpendicularBackward: {x: 0.9785521, y: 0.5394735, z: 0.28100863}
+  - Position: {x: -38.627647, y: -3.9863577, z: 50.611557}
+    Velocity: {x: -284.31125, y: -39.045074, z: -107.8018}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.50272167, g: 0.06516056, b: 0.49727833, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -38.627647, y: -3.9863577, z: 50.611557}
+      PointBackward: {x: -36.80659, y: -3.274907, z: 51.214336}
+      PointForward: {x: -40.444004, y: -3.788354, z: 49.837788}
+      Bisector: {x: -0.55231875, y: 9.765605, z: -2.0803628}
+      PerpendicularForward: {x: -0.9201028, y: -0.12635933, z: -0.34887436}
+      PerpendicularBackward: {x: 0.9487158, y: 0.1302888, z: 0.3597235}
+  - Position: {x: -40.444004, y: -3.788354, z: 49.837788}
+    Velocity: {x: -288.40503, y: 49.42345, z: -136.44757}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.5300447, g: 0.0615803, b: 0.46995533, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -40.444004, y: -3.788354, z: 49.837788}
+      PointBackward: {x: -38.627647, y: -3.9863577, z: 50.611557}
+      PointForward: {x: -42.25627, y: -3.3585062, z: 48.89027}
+      Bisector: {x: 3.634802, y: 7.991328, z: -4.7882037}
+      PerpendicularForward: {x: -0.9333511, y: 0.15994635, z: -0.44157746}
+      PerpendicularBackward: {x: 0.88623065, y: -0.15187143, z: 0.41928434}
+  - Position: {x: -42.25627, y: -3.3585062, z: 48.89027}
+    Velocity: {x: -290.093, y: 88.3424, z: -165.4729}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.5573676, g: 0.058000058, b: 0.44263238, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -42.25627, y: -3.3585062, z: 48.89027}
+      PointBackward: {x: -40.444004, y: -3.788354, z: 49.837788}
+      PointForward: {x: -44.065063, y: -2.677083, z: 47.766243}
+      Bisector: {x: 4.660369, y: 7.921427, z: -3.94106}
+      PerpendicularForward: {x: -0.93881047, y: 0.28589767, z: -0.53551215}
+      PerpendicularBackward: {x: 0.87740415, y: -0.2671975, z: 0.500485}
+  - Position: {x: -44.065063, y: -2.677083, z: 47.766243}
+    Velocity: {x: -309.42316, y: 178.39279, z: -206.40942}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.58469063, g: 0.0544198, b: 0.41530937, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -44.065063, y: -2.677083, z: 47.766243}
+      PointBackward: {x: -42.25627, y: -3.3585062, z: 48.89027}
+      PointForward: {x: -45.871006, y: -1.2043333, z: 46.462936}
+      Bisector: {x: 4.7255077, y: 8.797701, z: 0.5196636}
+      PerpendicularForward: {x: -1.0013708, y: 0.5773231, z: -0.66799057}
+      PerpendicularBackward: {x: 0.83857745, y: -0.4834674, z: 0.559395}
+  - Position: {x: -45.871006, y: -1.2043333, z: 46.462936}
+    Velocity: {x: -333.95984, y: 376.95273, z: -255.35547}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.61201364, g: 0.05083955, b: 0.38798636, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -45.871006, y: -1.2043333, z: 46.462936}
+      PointBackward: {x: -44.065063, y: -2.677083, z: 47.766243}
+      PointForward: {x: -47.674706, y: 1.6058626, z: 44.9776}
+      Bisector: {x: 6.186783, y: 7.3539586, z: 2.7646008}
+      PerpendicularForward: {x: -1.080777, y: 1.2199117, z: -0.82639337}
+      PerpendicularBackward: {x: 0.78958833, y: -0.8912366, z: 0.6037421}
+  - Position: {x: -47.674706, y: 1.6058626, z: 44.9776}
+    Velocity: {x: -360.13263, y: 744.68054, z: -311.06042}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.6393366, g: 0.04725931, b: 0.3606634, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -47.674706, y: 1.6058626, z: 44.9776}
+      PointBackward: {x: -45.871006, y: -1.2043333, z: 46.462936}
+      PointForward: {x: -49.47679, y: 6.771307, z: 43.307465}
+      Bisector: {x: 7.1143017, y: 5.345931, z: 4.5615487}
+      PerpendicularForward: {x: -1.1654786, y: 2.409969, z: -1.0066673}
+      PerpendicularBackward: {x: 0.74465805, y: -1.5397992, z: 0.64318895}
+  - Position: {x: -49.47679, y: 6.771307, z: 43.307465}
+    Velocity: {x: -282.252, y: 818.092, z: -276.15082}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.6666596, g: 0.04367905, b: 0.3333404, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -49.47679, y: 6.771307, z: 43.307465}
+      PointBackward: {x: -47.674706, y: 1.6058626, z: 44.9776}
+      PointForward: {x: -51.27786, y: 12.051017, z: 41.449768}
+      Bisector: {x: 3.3544908, y: -1.953503, z: -9.215814}
+      PerpendicularForward: {x: -0.913435, y: 2.6475472, z: -0.89369214}
+      PerpendicularBackward: {x: 0.8886372, y: -2.575672, z: 0.8694303}
+  - Position: {x: -51.27786, y: 12.051017, z: 41.449768}
+    Velocity: {x: -259.84177, y: 685.3486, z: -282.76828}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.69398254, g: 0.04009881, b: 0.30601746, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -51.27786, y: 12.051017, z: 41.449768}
+      PointBackward: {x: -49.47679, y: 6.771307, z: 43.307465}
+      PointForward: {x: -53.078545, y: 16.342712, z: 39.40174}
+      Bisector: {x: -4.2366424, y: -4.7806907, z: -7.6938844}
+      PerpendicularForward: {x: -0.8409105, y: 2.2179568, z: -0.9151072}
+      PerpendicularBackward: {x: 0.97235316, y: -2.5646455, z: 1.0581475}
+  - Position: {x: -53.078545, y: 16.342712, z: 39.40174}
+    Velocity: {x: -235.22139, y: 313.4692, z: -283.12308}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.72130555, g: 0.03651855, b: 0.27869445, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -53.078545, y: 16.342712, z: 39.40174}
+      PointBackward: {x: -51.27786, y: 12.051017, z: 41.449768}
+      PointForward: {x: -54.87945, y: 17.578327, z: 37.160637}
+      Bisector: {x: -3.747325, y: -7.603485, z: -5.3051467}
+      PerpendicularForward: {x: -0.7612349, y: 1.0144641, z: -0.91625524}
+      PerpendicularBackward: {x: 1.2369365, y: -1.6484107, z: 1.4888302}
+  - Position: {x: -54.87945, y: 17.578327, z: 37.160637}
+    Velocity: {x: -520.56995, y: -291.3466, z: -669.5994}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.74862856, g: 0.0329383, b: 0.25137144, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -54.87945, y: 17.578327, z: 37.160637}
+      PointBackward: {x: -53.078545, y: 16.342712, z: 39.40174}
+      PointForward: {x: -56.529167, y: 12.49356, z: 34.89884}
+      Bisector: {x: 2.167172, y: -9.455278, z: 2.429211}
+      PerpendicularForward: {x: -1.6846932, y: -0.9428693, z: -2.1669884}
+      PerpendicularBackward: {x: 0.9082484, y: 0.5083178, z: 1.1682625}
+  - Position: {x: -56.529167, y: 12.49356, z: 34.89884}
+    Velocity: {x: -267.17236, y: -1030.2427, z: -386.25}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.7759515, g: 0.029358052, b: 0.2240485, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -56.529167, y: 12.49356, z: 34.89884}
+      PointBackward: {x: -54.87945, y: 17.578327, z: 37.160637}
+      PointForward: {x: -57.8948, y: 5.615717, z: 32.76903}
+      Bisector: {x: 6.41223, y: -4.0957217, z: 6.4890976}
+      PerpendicularForward: {x: -0.8646369, y: -3.3341184, z: -1.2499998}
+      PerpendicularBackward: {x: 0.6848376, y: 2.6407957, z: 0.99006504}
+  - Position: {x: -57.8948, y: 5.615717, z: 32.76903}
+    Velocity: {x: -160.71904, y: -750.84753, z: -274.10394}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.8032745, g: 0.025777802, b: 0.19672549, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -57.8948, y: 5.615717, z: 32.76903}
+      PointBackward: {x: -56.529167, y: 12.49356, z: 34.89884}
+      PointForward: {x: -58.98933, y: 0.8608198, z: 30.75885}
+      Bisector: {x: -2.1061592, y: 3.7469745, z: -9.029079}
+      PerpendicularForward: {x: -0.52012736, y: -2.4299273, z: -0.88706774}
+      PerpendicularBackward: {x: 0.7223108, y: 3.3744864, z: 1.2318879}
+  - Position: {x: -58.98933, y: 0.8608198, z: 30.75885}
+    Velocity: {x: -118.43523, y: -432.07455, z: -246.04518}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.8305975, g: 0.022197545, b: 0.16940248, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -58.98933, y: 0.8608198, z: 30.75885}
+      PointBackward: {x: -57.8948, y: 5.615717, z: 32.76903}
+      PointForward: {x: -59.825733, y: -1.7129259, z: 28.855957}
+      Bisector: {x: -1.9371861, y: 5.250292, z: -8.287445}
+      PerpendicularForward: {x: -0.3832862, y: -1.3982996, z: -0.7962628}
+      PerpendicularBackward: {x: 0.6113875, y: 2.2304556, z: 1.2701347}
+  - Position: {x: -59.825733, y: -1.7129259, z: 28.855957}
+    Velocity: {x: -92.42983, y: -250.1279, z: -246.36757}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.85792047, g: 0.018617302, b: 0.14207953, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -59.825733, y: -1.7129259, z: 28.855957}
+      PointBackward: {x: -58.98933, y: 0.8608198, z: 30.75885}
+      PointForward: {x: -60.417015, y: -3.0925856, z: 27.048023}
+      Bisector: {x: 0.043825306, y: 7.009021, z: -7.13244}
+      PerpendicularForward: {x: -0.29912686, y: -0.8094754, z: -0.7973064}
+      PerpendicularBackward: {x: 0.42113537, y: 1.139646, z: 1.1225134}
+  - Position: {x: -60.417015, y: -3.0925856, z: 27.048023}
+    Velocity: {x: -64.71998, y: -132.19165, z: -246.9593}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.8852435, g: 0.015037052, b: 0.114756525, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -60.417015, y: -3.0925856, z: 27.048023}
+      PointBackward: {x: -59.825733, y: -1.7129259, z: 28.855957}
+      PointForward: {x: -60.776142, y: -3.689927, z: 25.32269}
+      Bisector: {x: 1.8619086, y: 8.450912, z: -5.011525}
+      PerpendicularForward: {x: -0.2094512, y: -0.42780465, z: -0.7992216}
+      PerpendicularBackward: {x: 0.26449662, y: 0.5402351, z: 1.0092633}
+  - Position: {x: -60.776142, y: -3.689927, z: 25.32269}
+    Velocity: {x: -36.05888, y: -61.42068, z: -249.57788}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.9125664, g: 0.0114568025, b: 0.08743358, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -60.776142, y: -3.689927, z: 25.32269}
+      PointBackward: {x: -60.417015, y: -3.0925856, z: 27.048023}
+      PointForward: {x: -60.9161, y: -3.9412909, z: 23.667627}
+      Bisector: {x: 5.183816, y: 8.099857, z: -2.7423265}
+      PerpendicularForward: {x: -0.11669687, y: -0.19877252, z: -0.8076953}
+      PerpendicularBackward: {x: 0.12926462, y: 0.22017948, z: 0.8946807}
+  - Position: {x: -60.9161, y: -3.9412909, z: 23.667627}
+    Velocity: {x: -5.206501, y: -26.26678, z: -245.99568}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.93988943, g: 0.007876553, b: 0.06011057, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -60.9161, y: -3.9412909, z: 23.667627}
+      PointBackward: {x: -60.776142, y: -3.689927, z: 25.32269}
+      PointForward: {x: -60.84986, y: -4.0406675, z: 22.070475}
+      Bisector: {x: 8.157401, y: 5.7307315, z: -0.7845572}
+      PerpendicularForward: {x: -0.016848864, y: -0.08500582, z: -0.7961031}
+      PerpendicularBackward: {x: 0.017672256, y: 0.08915999, z: 0.8350081}
+  - Position: {x: -60.84986, y: -4.0406675, z: 22.070475}
+    Velocity: {x: 25.12016, y: -12.674564, z: -241.62549}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.96721244, g: 0.004296303, b: 0.03278756, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -60.84986, y: -4.0406675, z: 22.070475}
+      PointBackward: {x: -60.9161, y: -3.9412909, z: 23.667627}
+      PointForward: {x: -60.59044, y: -4.106723, z: 20.518911}
+      Bisector: {x: 9.826529, y: 1.6000335, z: 0.93766654}
+      PerpendicularForward: {x: 0.08129508, y: -0.04101821, z: -0.78196007}
+      PerpendicularBackward: {x: -0.08269556, y: 0.04172484, z: 0.795431}
+  - Position: {x: -60.59044, y: -4.106723, z: 20.518911}
+    Velocity: {x: 54.184387, y: -9.232492, z: -238.09163}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 0.9945354, g: 0.0007160455, b: 0.0054646134, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -60.59044, y: -4.106723, z: 20.518911}
+      PointBackward: {x: -60.84986, y: -4.0406675, z: 22.070475}
+      PointForward: {x: -60.150795, y: -4.1596823, z: 19.00059}
+      Bisector: {x: 9.7308855, y: 0.72788113, z: 2.1863325}
+      PerpendicularForward: {x: 0.17535585, y: -0.029878633, z: -0.7705231}
+      PerpendicularBackward: {x: -0.17456959, y: 0.029744662, z: 0.7670682}
+  - Position: {x: -60.150795, y: -4.1596823, z: 19.00059}
+    Velocity: {x: 81.69857, y: -7.305103, z: -235.85497}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.01839098, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -60.150795, y: -4.1596823, z: 19.00059}
+      PointBackward: {x: -60.59044, y: -4.106723, z: 20.518911}
+      PointForward: {x: -59.5439, y: -4.2, z: 17.50315}
+      Bisector: {x: 9.424792, y: 0.8253714, z: 3.2391443}
+      PerpendicularForward: {x: 0.26439825, y: -0.02364117, z: -0.7632837}
+      PerpendicularBackward: {x: -0.2587263, y: 0.02313401, z: 0.7469095}
+  - Position: {x: -59.5439, y: -4.2, z: 17.50315}
+    Velocity: {x: 107.41281, y: -3.225626, z: -234.93672}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.041379705, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -59.5439, y: -4.2, z: 17.50315}
+      PointBackward: {x: -60.150795, y: -4.1596823, z: 19.00059}
+      PointForward: {x: -58.78277, y: -4.2, z: 16.014273}
+      Bisector: {x: 8.760097, y: 2.7422757, z: 3.9674463}
+      PerpendicularForward: {x: 0.3476134, y: -0.010438842, z: -0.760313}
+      PerpendicularBackward: {x: -0.3359934, y: 0.010089893, z: 0.7348973}
+  - Position: {x: -58.78277, y: -4.2, z: 16.014273}
+    Velocity: {x: 131.12555, y: 0, z: -235.43327}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.06436843, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -58.78277, y: -4.2, z: 16.014273}
+      PointBackward: {x: -59.5439, y: -4.2, z: 17.50315}
+      PointForward: {x: -57.88037, y: -4.2, z: 14.521598}
+      Bisector: {x: 8.736376, y: 0, z: 4.86577}
+      PerpendicularForward: {x: 0.42435536, y: -0, z: -0.7619201}
+      PerpendicularBackward: {x: -0.40681443, y: 0, z: 0.7304258}
+  - Position: {x: -57.88037, y: -4.2, z: 14.521598}
+    Velocity: {x: 152.70714, y: 0, z: -237.44244}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.087357156, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -57.88037, y: -4.2, z: 14.521598}
+      PointBackward: {x: -58.78277, y: -4.2, z: 16.014273}
+      PointForward: {x: -56.84968, y: -4.2, z: 13.0127945}
+      Bisector: {x: 8.410735, y: 0, z: 5.4092083}
+      PerpendicularForward: {x: 0.49419624, y: -0, z: -0.76842177}
+      PerpendicularBackward: {x: -0.47174987, y: 0, z: 0.7335201}
+  - Position: {x: -56.84968, y: -4.2, z: 13.0127945}
+    Velocity: {x: 172.11511, y: 0, z: -241.11392}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.110345885, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -56.84968, y: -4.2, z: 13.0127945}
+      PointBackward: {x: -57.88037, y: -4.2, z: 14.521598}
+      PointForward: {x: -55.703693, y: -4.2, z: 11.475513}
+      Bisector: {x: 8.139078, y: 0, z: 5.8099394}
+      PerpendicularForward: {x: 0.5570065, y: -0, z: -0.780304}
+      PerpendicularBackward: {x: -0.53080785, y: 0, z: 0.74360263}
+  - Position: {x: -55.703693, y: -4.2, z: 11.475513}
+    Velocity: {x: 189.35185, y: 0, z: -246.55382}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.1333346, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -55.703693, y: -4.2, z: 11.475513}
+      PointBackward: {x: -56.84968, y: -4.2, z: 13.0127945}
+      PointForward: {x: -54.455383, y: -4.2, z: 9.897413}
+      Bisector: {x: 7.930973, y: 0, z: 6.090949}
+      PerpendicularForward: {x: 0.6127899, y: -0, z: -0.7979086}
+      PerpendicularBackward: {x: -0.58394724, y: 0, z: 0.76035273}
+  - Position: {x: -54.455383, y: -4.2, z: 9.897413}
+    Velocity: {x: 204.44092, y: 0, z: -253.83667}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.15632333, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -54.455383, y: -4.2, z: 9.897413}
+      PointBackward: {x: -55.703693, y: -4.2, z: 11.475513}
+      PointForward: {x: -53.117744, y: -4.2, z: 8.266155}
+      Bisector: {x: 7.7881093, y: 0, z: 6.272588}
+      PerpendicularForward: {x: 0.66162276, y: -0, z: -0.8214776}
+      PerpendicularBackward: {x: -0.631064, y: 0, z: 0.78353554}
+  - Position: {x: -53.117744, y: -4.2, z: 8.266155}
+    Velocity: {x: 217.4224, y: 0, z: -263.0136}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.17931205, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -53.117744, y: -4.2, z: 8.266155}
+      PointBackward: {x: -54.455383, y: -4.2, z: 9.897413}
+      PointForward: {x: -51.70375, y: -4.2, z: 6.5693903}
+      Bisector: {x: 7.707463, y: 0, z: 6.3714223}
+      PerpendicularForward: {x: 0.7036305, y: -0, z: -0.8511767}
+      PerpendicularBackward: {x: -0.67204773, y: 0, z: 0.8129712}
+  - Position: {x: -51.70375, y: -4.2, z: 6.5693903}
+    Velocity: {x: 228.33754, y: 0, z: -274.1069}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.20230079, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -51.70375, y: -4.2, z: 6.5693903}
+      PointBackward: {x: -53.117744, y: -4.2, z: 8.266155}
+      PointForward: {x: -50.226387, y: -4.2, z: 4.79478}
+      Bisector: {x: -7.683386, y: 0, z: -6.400437}
+      PerpendicularForward: {x: 0.7389557, y: -0, z: -0.8870772}
+      PerpendicularBackward: {x: -0.70683473, y: 0, z: 0.8485177}
+  - Position: {x: -50.226387, y: -4.2, z: 4.79478}
+    Velocity: {x: 237.16986, y: 0, z: -287.17877}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.22528951, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -50.226387, y: -4.2, z: 4.79478}
+      PointBackward: {x: -51.70375, y: -4.2, z: 6.5693903}
+      PointForward: {x: -48.69864, y: -4.2, z: 2.929985}
+      Bisector: {x: -7.7104673, y: 0, z: -6.3677855}
+      PerpendicularForward: {x: 0.76754093, y: -0, z: -0.92938113}
+      PerpendicularBackward: {x: -0.7351859, y: 0, z: 0.8902039}
+  - Position: {x: -48.69864, y: -4.2, z: 2.929985}
+    Velocity: {x: 243.99005, y: 0, z: -302.21066}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.24827825, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -48.69864, y: -4.2, z: 2.929985}
+      PointBackward: {x: -50.226387, y: -4.2, z: 4.79478}
+      PointForward: {x: -47.133484, y: -4.2, z: 0.96265554}
+      Bisector: {x: -7.7807145, y: 0, z: -6.281758}
+      PerpendicularForward: {x: 0.7896107, y: -0, z: -0.978028}
+      PerpendicularBackward: {x: -0.75717163, y: 0, z: 0.9378484}
+  - Position: {x: -47.133484, y: -4.2, z: 0.96265554}
+    Velocity: {x: 248.79343, y: 0, z: -319.2279}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.27126697, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -47.133484, y: -4.2, z: 0.96265554}
+      PointBackward: {x: -48.69864, y: -4.2, z: 2.929985}
+      PointForward: {x: -45.543915, y: -4.2, z: -1.1195469}
+      Bisector: {x: -7.8874683, y: 0, z: -6.1471825}
+      PerpendicularForward: {x: 0.80515754, y: -0, z: -1.0331}
+      PerpendicularBackward: {x: -0.77269465, y: 0, z: 0.99144685}
+  - Position: {x: -45.543915, y: -4.2, z: -1.1195469}
+    Velocity: {x: 251.59529, y: 0, z: -338.2409}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.29425567, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -45.543915, y: -4.2, z: -1.1195469}
+      PointBackward: {x: -47.133484, y: -4.2, z: 0.96265554}
+      PointForward: {x: -43.942913, y: -4.2, z: -3.3289626}
+      Bisector: {x: -8.023676, y: 0, z: -5.968301}
+      PerpendicularForward: {x: 0.8142261, y: -0, z: -1.0946308}
+      PerpendicularBackward: {x: -0.7817276, y: 0, z: 1.0509405}
+  - Position: {x: -43.942913, y: -4.2, z: -3.3289626}
+    Velocity: {x: 547.1058, y: 626.4166, z: -768.15857}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.3172444, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -43.942913, y: -4.2, z: -3.3289626}
+      PointBackward: {x: -45.543915, y: -4.2, z: -1.1195469}
+      PointForward: {x: -42.343456, y: 2.5544271, z: -5.6779394}
+      Bisector: {x: -3.3298154, y: 8.328961, z: 4.4204907}
+      PerpendicularForward: {x: 1.7705696, y: 2.0272384, z: -2.48595}
+      PerpendicularBackward: {x: -0.65926087, y: -0.75482994, z: 0.9256285}
+  - Position: {x: -42.343456, y: 2.5544271, z: -5.6779394}
+    Velocity: {x: 617.70886, y: -35.830647, z: -914.73846}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.34023312, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -42.343456, y: 2.5544271, z: -5.6779394}
+      PointBackward: {x: -43.942913, y: -4.2, z: -3.3289626}
+      PointForward: {x: -41.04341, y: -4.2, z: -7.622228}
+      Bisector: {x: -0.19484988, y: -9.994722, z: 0.25991803}
+      PerpendicularForward: {x: 1.9990581, y: -0.11595684, z: -2.9603186}
+      PerpendicularBackward: {x: -2.0493975, y: 0.11887681, z: 3.0348637}
+  - Position: {x: -41.04341, y: -4.2, z: -7.622228}
+    Velocity: {x: 131.66425, y: -159.47134, z: -181.12791}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.36322188, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -41.04341, y: -4.2, z: -7.622228}
+      PointBackward: {x: -42.343456, y: 2.5544271, z: -5.6779394}
+      PointForward: {x: -39.978832, y: -4.2, z: -9.047956}
+      Bisector: {x: 3.588718, y: 8.143524, z: -4.561152}
+      PerpendicularForward: {x: 0.42609778, y: -0.5160883, z: -0.5861749}
+      PerpendicularBackward: {x: -1.7117133, y: 2.073222, z: 2.3547726}
+  - Position: {x: -39.978832, y: -4.2, z: -9.047956}
+    Velocity: {x: 148.79254, y: 2.3599877, z: -174.99184}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.3862106, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -39.978832, y: -4.2, z: -9.047956}
+      PointBackward: {x: -41.04341, y: -4.2, z: -7.622228}
+      PointForward: {x: -38.94623, y: -4.1695127, z: -10.117244}
+      Bisector: {x: 7.5094748, y: 1.6004739, z: 6.406737}
+      PerpendicularForward: {x: 0.4815277, y: 0.007637459, z: -0.56631696}
+      PerpendicularBackward: {x: -0.576271, y: -0.009140173, z: 0.677743}
+  - Position: {x: -38.94623, y: -4.1695127, z: -10.117244}
+    Velocity: {x: 173.5685, y: 0.7978606, z: -150.88893}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.40919933, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -38.94623, y: -4.1695127, z: -10.117244}
+      PointBackward: {x: -39.978832, y: -4.2, z: -9.047956}
+      PointForward: {x: -37.7421, y: -4.1897497, z: -10.99221}
+      Bisector: {x: 6.4436426, y: -1.9208095, z: 7.4020243}
+      PerpendicularForward: {x: 0.561712, y: 0.0025819575, z: -0.488314}
+      PerpendicularBackward: {x: -0.56103456, y: -0.0025788436, z: 0.48772508}
+  - Position: {x: -37.7421, y: -4.1897497, z: -10.99221}
+    Velocity: {x: 234.40335, y: -2.6781006, z: -146.7315}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.43218803, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -37.7421, y: -4.1897497, z: -10.99221}
+      PointBackward: {x: -38.94623, y: -4.1695127, z: -10.117244}
+      PointForward: {x: -36.16295, y: -4.2, z: -11.834978}
+      Bisector: {x: 5.3020234, y: 0.5691131, z: 8.459589}
+      PerpendicularForward: {x: 0.75858676, y: -0.0086668655, z: -0.47485906}
+      PerpendicularBackward: {x: -0.6308551, y: 0.007207529, z: 0.39490178}
+  - Position: {x: -36.16295, y: -4.2, z: -11.834978}
+    Velocity: {x: 800.1226, y: 632.6636, z: -410.05084}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.45517677, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -36.16295, y: -4.2, z: -11.834978}
+      PointBackward: {x: -37.7421, y: -4.1897497, z: -10.99221}
+      PointForward: {x: -34.005287, y: 2.510477, z: -12.807671}
+      Bisector: {x: -4.988518, y: 8.174785, z: 2.8788147}
+      PerpendicularForward: {x: 2.5893943, y: 2.0474548, z: -1.3270257}
+      PerpendicularBackward: {x: -0.6513836, y: -0.5150542, z: 0.33382428}
+  - Position: {x: -34.005287, y: 2.510477, z: -12.807671}
+    Velocity: {x: 1022.0219, y: 30.299843, z: -462.8794}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.4781655, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -34.005287, y: 2.510477, z: -12.807671}
+      PointBackward: {x: -36.16295, y: -4.2, z: -11.834978}
+      PointForward: {x: -31.472334, y: -4.2, z: -13.959478}
+      Bisector: {x: 0.24335878, y: -9.996353, z: -0.11702818}
+      PerpendicularForward: {x: 3.3075151, y: 0.09805778, z: -1.497992}
+      PerpendicularBackward: {x: -3.2397316, y: -0.09604819, z: 1.4672924}
+  - Position: {x: -31.472334, y: -4.2, z: -13.959478}
+    Velocity: {x: 305.31467, y: -226.33972, z: -146.97343}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.50115424, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -31.472334, y: -4.2, z: -13.959478}
+      PointBackward: {x: -34.005287, y: 2.510477, z: -12.807671}
+      PointForward: {x: -29.105536, y: -4.2, z: -15.123325}
+      Bisector: {x: 4.938841, y: 8.314564, z: -2.544773}
+      PerpendicularForward: {x: 0.9880742, y: -0.73249084, z: -0.4756418}
+      PerpendicularBackward: {x: -2.7214925, y: 2.017529, z: 1.3100793}
+  - Position: {x: -29.105536, y: -4.2, z: -15.123325}
+    Velocity: {x: 344.60153, y: 0, z: -174.27339}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.5241429, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -29.105536, y: -4.2, z: -15.123325}
+      PointBackward: {x: -31.472334, y: -4.2, z: -13.959478}
+      PointForward: {x: -26.887875, y: -4.2, z: -16.276209}
+      Bisector: {x: -4.512959, y: 0, z: -8.923744}
+      PerpendicularForward: {x: 1.1152146, y: -0, z: -0.5639917}
+      PerpendicularBackward: {x: -1.1768076, y: 0, z: 0.5951409}
+  - Position: {x: -26.887875, y: -4.2, z: -16.276209}
+    Velocity: {x: 323.3323, y: 0, z: -170.77135}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.54713166, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -26.887875, y: -4.2, z: -16.276209}
+      PointBackward: {x: -29.105536, y: -4.2, z: -15.123325}
+      PointForward: {x: -24.802351, y: -4.2, z: -17.39513}
+      Bisector: {x: -4.670238, y: 0, z: -8.842448}
+      PerpendicularForward: {x: 1.0463827, y: -0, z: -0.55265874}
+      PerpendicularBackward: {x: -1.1050549, y: 0, z: 0.5836471}
+  - Position: {x: -24.802351, y: -4.2, z: -17.39513}
+    Velocity: {x: 304.5868, y: 0, z: -163.77611}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.5701204, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -24.802351, y: -4.2, z: -17.39513}
+      PointBackward: {x: -26.887875, y: -4.2, z: -16.276209}
+      PointForward: {x: -22.831945, y: -4.2, z: -18.45708}
+      Bisector: {x: -4.735798, y: 0, z: -8.807509}
+      PerpendicularForward: {x: 0.98571706, y: -0, z: -0.53002006}
+      PerpendicularBackward: {x: -1.0422482, y: 0, z: 0.5604169}
+  - Position: {x: -22.831945, y: -4.2, z: -18.45708}
+    Velocity: {x: 320.9878, y: 96.57775, z: -170.83087}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.59310913, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -22.831945, y: -4.2, z: -18.45708}
+      PointBackward: {x: -24.802351, y: -4.2, z: -17.39513}
+      PointForward: {x: -20.959654, y: -2.991713, z: -19.439058}
+      Bisector: {x: -2.1696854, y: 9.662887, z: 1.386033}
+      PerpendicularForward: {x: 1.0387958, y: 0.3125494, z: -0.5528507}
+      PerpendicularBackward: {x: -0.95486623, y: -0.28729695, z: 0.5081831}
+  - Position: {x: -20.959654, y: -2.991713, z: -19.439058}
+    Velocity: {x: 281.8135, y: 41.79515, z: -142.76208}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.61609787, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -20.959654, y: -2.991713, z: -19.439058}
+      PointBackward: {x: -22.831945, y: -4.2, z: -18.45708}
+      PointForward: {x: -19.168467, y: -3.5143018, z: -20.31807}
+      Bisector: {x: 1.316027, y: -9.908396, z: -0.30294093}
+      PerpendicularForward: {x: 0.91201735, y: 0.13525929, z: -0.46201417}
+      PerpendicularBackward: {x: -1.0767516, y: -0.15969066, z: 0.545466}
+  - Position: {x: -19.168467, y: -3.5143018, z: -20.31807}
+    Velocity: {x: 438.61737, y: 181.78801, z: -206.30687}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.63908654, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -19.168467, y: -3.5143018, z: -20.31807}
+      PointBackward: {x: -20.959654, y: -2.991713, z: -19.439058}
+      PointForward: {x: -17.441374, y: -0.7435212, z: -21.071106}
+      Bisector: {x: -3.058257, y: 9.359556, z: 1.7452174}
+      PerpendicularForward: {x: 1.4194733, y: 0.58831066, z: -0.6676604}
+      PerpendicularBackward: {x: -0.87376994, y: -0.3621401, z: 0.41098455}
+  - Position: {x: -17.441374, y: -0.7435212, z: -21.071106}
+    Velocity: {x: 306.63898, y: 61.740322, z: -119.61751}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.6620753, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -17.441374, y: -0.7435212, z: -21.071106}
+      PointBackward: {x: -19.168467, y: -3.5143018, z: -20.31807}
+      PointForward: {x: -15.76136, y: -1.9727035, z: -21.675161}
+      Bisector: {x: 1.8296938, y: -9.823833, z: -0.3801392}
+      PerpendicularForward: {x: 0.99235886, y: 0.19980685, z: -0.38711175}
+      PerpendicularBackward: {x: -1.5340402, y: -0.30887187, z: 0.5984176}
+  - Position: {x: -15.76136, y: -1.9727035, z: -21.675161}
+    Velocity: {x: 303.03055, y: -1.9655514, z: -93.889114}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.6850641, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -15.76136, y: -1.9727035, z: -21.675161}
+      PointBackward: {x: -17.441374, y: -0.7435212, z: -21.071106}
+      PointForward: {x: -14.111423, y: -0.82927895, z: -22.107237}
+      Bisector: {x: 0.25249472, y: 9.978426, z: 0.60603863}
+      PerpendicularForward: {x: 0.9806816, y: -0.006361026, z: -0.30384848}
+      PerpendicularBackward: {x: -1.0351983, y: 0.0067146393, z: 0.3207396}
+  - Position: {x: -14.111423, y: -0.82927895, z: -22.107237}
+    Velocity: {x: 239.96907, y: 73.98063, z: -47.342384}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.70805275, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -14.111423, y: -0.82927895, z: -22.107237}
+      PointBackward: {x: -15.76136, y: -1.9727035, z: -21.675161}
+      PointForward: {x: -12.474551, y: -0.83593225, z: -22.344332}
+      Bisector: {x: 3.1298077, y: -9.430405, z: 1.1277322}
+      PerpendicularForward: {x: 0.77659893, y: 0.23941953, z: -0.15321209}
+      PerpendicularBackward: {x: -0.9641421, y: -0.29723766, z: 0.19021171}
+  - Position: {x: -12.474551, y: -0.83593225, z: -22.344332}
+    Velocity: {x: 281.44693, y: -76.2421, z: -23.26482}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.7310415, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -12.474551, y: -0.83593225, z: -22.344332}
+      PointBackward: {x: -14.111423, y: -0.82927895, z: -22.107237}
+      PointForward: {x: -10.833733, y: -1.7803893, z: -22.363445}
+      Bisector: {x: -2.3344588, y: -9.389192, z: 2.528517}
+      PerpendicularForward: {x: 0.9108316, y: -0.24673823, z: -0.07529067}
+      PerpendicularBackward: {x: -0.7956855, y: 0.21554594, z: 0.06577253}
+  - Position: {x: -10.833733, y: -1.7803893, z: -22.363445}
+    Velocity: {x: 251.31416, y: -61.56607, z: 16.527723}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.75403017, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -10.833733, y: -1.7803893, z: -22.363445}
+      PointBackward: {x: -12.474551, y: -0.83593225, z: -22.344332}
+      PointForward: {x: -9.17196, y: -1.706645, z: -22.14157}
+      Bisector: {x: 2.1512983, y: 9.44656, z: 2.476775}
+      PerpendicularForward: {x: 0.81331426, y: -0.199243, z: 0.053488623}
+      PerpendicularBackward: {x: -0.91760004, y: 0.22479056, z: -0.06034711}
+  - Position: {x: -9.17196, y: -1.706645, z: -22.14157}
+    Velocity: {x: 270.83472, y: 34.0685, z: 56.276653}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.7770189, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -9.17196, y: -1.706645, z: -22.14157}
+      PointBackward: {x: -10.833733, y: -1.7803893, z: -22.363445}
+      PointForward: {x: -7.472223, y: -1.3473997, z: -21.655704}
+      Bisector: {x: -2.2585678, y: 7.300481, z: 6.44995}
+      PerpendicularForward: {x: 0.87648803, y: 0.11025411, z: 0.18212537}
+      PerpendicularBackward: {x: -0.81536186, y: -0.102565, z: -0.16942397}
+  - Position: {x: -7.472223, y: -1.3473997, z: -21.655704}
+    Velocity: {x: 276.67377, y: 40.127525, z: 100.13527}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.8000077, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -7.472223, y: -1.3473997, z: -21.655704}
+      PointBackward: {x: -9.17196, y: -1.706645, z: -22.14157}
+      PointForward: {x: -5.7175117, y: -1.2130089, z: -20.88285}
+      Bisector: {x: -1.5624369, y: -6.88936, z: 7.0778184}
+      PerpendicularForward: {x: 0.89538443, y: 0.12986253, z: 0.32406193}
+      PerpendicularBackward: {x: -0.8403554, y: -0.12188137, z: -0.30414557}
+  - Position: {x: -5.7175117, y: -1.2130089, z: -20.88285}
+    Velocity: {x: 309.54385, y: 85.517525, z: 158.18945}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.8229964, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -5.7175117, y: -1.2130089, z: -20.88285}
+      PointBackward: {x: -7.472223, y: -1.3473997, z: -21.655704}
+      PointForward: {x: -3.890815, y: -0.2859609, z: -19.800003}
+      Bisector: {x: -3.470867, y: 9.200435, z: 1.817991}
+      PerpendicularForward: {x: 1.0017599, y: 0.27675575, z: 0.51194}
+      PerpendicularBackward: {x: -0.8309898, y: -0.22957714, z: -0.4246695}
+  - Position: {x: -3.890815, y: -0.2859609, z: -19.800003}
+    Velocity: {x: 301.82205, y: 140.62692, z: 200.60883}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.8459851, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -3.890815, y: -0.2859609, z: -19.800003}
+      PointBackward: {x: -5.7175117, y: -1.2130089, z: -20.88285}
+      PointForward: {x: -1.9751266, y: 0.5241442, z: -18.38416}
+      Bisector: {x: -2.1387126, y: -6.190104, z: 7.557018}
+      PerpendicularForward: {x: 0.9767704, y: 0.45510334, z: 0.64922017}
+      PerpendicularBackward: {x: -0.8995049, y: -0.4191033, z: -0.5978649}
+  - Position: {x: -1.9751266, y: 0.5241442, z: -18.38416}
+    Velocity: {x: 317.67975, y: 80.22021, z: 256.4511}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.8689738, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -1.9751266, y: 0.5241442, z: -18.38416}
+      PointBackward: {x: -3.890815, y: -0.2859609, z: -19.800003}
+      PointForward: {x: 0.046566963, y: 0.68534946, z: -16.612316}
+      Bisector: {x: -0.382428, y: -9.39223, z: 3.4117107}
+      PerpendicularForward: {x: 1.0280899, y: 0.25961235, z: 0.82993823}
+      PerpendicularBackward: {x: -0.9605276, y: -0.24255158, z: -0.7753978}
+  - Position: {x: 0.046566963, y: 0.68534946, z: -16.612316}
+    Velocity: {x: 324.39398, y: -8.84651, z: 300.74084}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.8919626, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 0.046566963, y: 0.68534946, z: -16.612316}
+      PointBackward: {x: -1.9751266, y: 0.5241442, z: -18.38416}
+      PointForward: {x: 2.0810297, y: 0.3998232, z: -14.617268}
+      Bisector: {x: -2.3818574, y: -9.437981, z: 2.2915652}
+      PerpendicularForward: {x: 1.0498186, y: -0.02862947, z: 0.9732711}
+      PerpendicularBackward: {x: -0.98726857, y: 0.026923675, z: -0.91528183}
+  - Position: {x: 2.0810297, y: 0.3998232, z: -14.617268}
+    Velocity: {x: 310.09204, y: -118.88834, z: 317.2394}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.91495126, b: 0, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 2.0810297, y: 0.3998232, z: -14.617268}
+      PointBackward: {x: 0.046566963, y: 0.68534946, z: -16.612316}
+      PointForward: {x: 3.9299011, y: -0.82232, z: -12.636192}
+      Bisector: {x: -2.7208388, y: -9.577709, z: -0.9297948}
+      PerpendicularForward: {x: 1.0035341, y: -0.38475192, z: 1.0266645}
+      PerpendicularBackward: {x: -0.9667556, y: 0.37065113, z: -0.9890383}
+  - Position: {x: 3.9299011, y: -0.82232, z: -12.636192}
+    Velocity: {x: 277.7517, y: -229.27783, z: 311.82043}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.931887, b: 0.012361494, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 3.9299011, y: -0.82232, z: -12.636192}
+      PointBackward: {x: 2.0810297, y: 0.3998232, z: -14.617268}
+      PointForward: {x: 5.595795, y: -2.5128698, z: -10.667859}
+      Bisector: {x: -5.0400743, y: -8.461502, z: -1.7322328}
+      PerpendicularForward: {x: 0.8988728, y: -0.7419995, z: 1.0091277}
+      PerpendicularBackward: {x: -0.86657906, y: 0.71534175, z: -0.972873}
+  - Position: {x: 5.595795, y: -2.5128698, z: -10.667859}
+    Velocity: {x: 225.50606, y: -181.63434, z: 282.12766}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.934725, b: 0.0535131, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 5.595795, y: -2.5128698, z: -10.667859}
+      PointBackward: {x: 3.9299011, y: -0.82232, z: -12.636192}
+      PointForward: {x: 7.081325, y: -3.4134307, z: -8.711022}
+      Bisector: {x: 1.1765556, y: 8.751295, z: 4.693672}
+      PerpendicularForward: {x: 0.72979313, y: -0.58781326, z: 0.9130346}
+      PerpendicularBackward: {x: -0.8599677, y: 0.69266266, z: -1.0758944}
+  - Position: {x: 7.081325, y: -3.4134307, z: -8.711022}
+    Velocity: {x: 207.77145, y: -113.106285, z: 291.00916}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.93756306, b: 0.0946647, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 7.081325, y: -3.4134307, z: -8.711022}
+      PointBackward: {x: 5.595795, y: -2.5128698, z: -10.667859}
+      PointForward: {x: 8.389105, y: -4.040132, z: -6.7644463}
+      Bisector: {x: -2.7412117, y: 8.140122, z: 5.1209545}
+      PerpendicularForward: {x: 0.6723995, y: -0.36603972, z: 0.9417771}
+      PerpendicularBackward: {x: -0.72483534, y: 0.3945847, z: -1.0152199}
+  - Position: {x: 8.389105, y: -4.040132, z: -6.7644463}
+    Velocity: {x: 182.04807, y: -57.51153, z: 290.50967}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.9404011, b: 0.1358163, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 8.389105, y: -4.040132, z: -6.7644463}
+      PointBackward: {x: 7.081325, y: -3.4134307, z: -8.711022}
+      PointForward: {x: 9.5217495, y: -4.2, z: -4.826887}
+      Bisector: {x: -1.7733794, y: 9.383028, z: 2.9688244}
+      PerpendicularForward: {x: 0.58915263, y: -0.18612128, z: 0.9401608}
+      PerpendicularBackward: {x: -0.63559544, y: 0.20079318, z: -1.0142735}
+  - Position: {x: 9.5217495, y: -4.2, z: -4.826887}
+    Velocity: {x: 158.17708, y: -11.844878, z: 292.81052}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.94323915, b: 0.1769679, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 9.5217495, y: -4.2, z: -4.826887}
+      PointBackward: {x: 8.389105, y: -4.040132, z: -6.7644463}
+      PointForward: {x: 10.481868, y: -4.2, z: -2.8971066}
+      Bisector: {x: -5.9224076, y: 7.261117, z: 3.4930315}
+      PerpendicularForward: {x: 0.51190025, y: -0.038332757, z: 0.9476068}
+      PerpendicularBackward: {x: -0.53436404, y: 0.040014915, z: -0.9891907}
+  - Position: {x: 10.481868, y: -4.2, z: -2.8971066}
+    Velocity: {x: 133.08257, y: 14.171419, z: 293.40613}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.94607717, b: 0.21811952, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 10.481868, y: -4.2, z: -2.8971066}
+      PointBackward: {x: 9.5217495, y: -4.2, z: -4.826887}
+      PointForward: {x: 11.272078, y: -4.0168476, z: -0.9738629}
+      Bisector: {x: -5.898237, y: 7.7404222, z: 2.3014476}
+      PerpendicularForward: {x: 0.43068758, y: 0.04586232, z: 0.9495345}
+      PerpendicularBackward: {x: -0.44474426, y: -0.047359165, z: -0.98052514}
+  - Position: {x: 11.272078, y: -4.0168476, z: -0.9738629}
+    Velocity: {x: 109.28996, y: 52.94258, z: 297.15503}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.94891524, b: 0.25927112, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 11.272078, y: -4.0168476, z: -0.9738629}
+      PointBackward: {x: 10.481868, y: -4.2, z: -2.8971066}
+      PointForward: {x: 11.894989, y: -3.516364, z: 0.9440831}
+      Bisector: {x: -4.5743227, y: 8.891903, z: 0.09815522}
+      PerpendicularForward: {x: 0.35368925, y: 0.1713352, z: 0.96166676}
+      PerpendicularBackward: {x: -0.35531688, y: -0.17212367, z: -0.9660922}
+  - Position: {x: 11.894989, y: -3.516364, z: 0.9440831}
+    Velocity: {x: 87.02943, y: -13.007191, z: 308.47025}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.95175326, b: 0.30042273, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 11.894989, y: -3.516364, z: 0.9440831}
+      PointBackward: {x: 11.272078, y: -4.0168476, z: -0.9738629}
+      PointForward: {x: 12.353219, y: -4.177997, z: 2.8579679}
+      Bisector: {x: -1.3996773, y: -9.901535, z: -0.022621963}
+      PerpendicularForward: {x: 0.28164825, y: -0.042094458, z: 0.99828565}
+      PerpendicularBackward: {x: -0.281855, y: 0.042125363, z: -0.99901855}
+  - Position: {x: 12.353219, y: -4.177997, z: 2.8579679}
+    Velocity: {x: 56.588135, y: -49.959778, z: 289.1117}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.95459133, b: 0.34157434, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 12.353219, y: -4.177997, z: 2.8579679}
+      PointBackward: {x: 11.894989, y: -3.516364, z: 0.9440831}
+      PointForward: {x: 12.649379, y: -4.2, z: 4.7690363}
+      Bisector: {x: -2.1014087, y: 9.556631, z: 2.0627406}
+      PerpendicularForward: {x: 0.18313302, y: -0.16168228, z: 0.9356364}
+      PerpendicularBackward: {x: -0.19659941, y: 0.17357133, z: -1.004437}
+  - Position: {x: 12.649379, y: -4.2, z: 4.7690363}
+    Velocity: {x: 35.071095, y: 50.16871, z: 306.92938}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.95742935, b: 0.38272592, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 12.649379, y: -4.2, z: 4.7690363}
+      PointBackward: {x: 12.353219, y: -4.177997, z: 2.8579679}
+      PointForward: {x: 12.786085, y: -3.5376565, z: 6.678527}
+      Bisector: {x: -2.433368, y: 9.612823, z: -1.2932001}
+      PerpendicularForward: {x: 0.11349909, y: 0.1623581, z: 0.99329907}
+      PerpendicularBackward: {x: -0.108360425, y: -0.15500735, z: -0.9483275}
+  - Position: {x: 12.786085, y: -3.5376565, z: 6.678527}
+    Velocity: {x: 9.023266, y: 15.865787, z: 302.29163}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.9602674, b: 0.42387754, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 12.786085, y: -3.5376565, z: 6.678527}
+      PointBackward: {x: 12.649379, y: -4.2, z: 4.7690363}
+      PointForward: {x: 12.7659445, y: -3.9813805, z: 8.58768}
+      Bisector: {x: -1.3894305, y: -9.887135, z: 0.56040156}
+      PerpendicularForward: {x: 0.029201655, y: 0.051345672, z: 0.97829}
+      PerpendicularBackward: {x: -0.030178595, y: -0.05306344, z: -1.0110186}
+  - Position: {x: 12.7659445, y: -3.9813805, z: 8.58768}
+    Velocity: {x: -15.043393, y: -48.358753, z: 293.41025}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.96310544, b: 0.46502915, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 12.7659445, y: -3.9813805, z: 8.58768}
+      PointBackward: {x: 12.786085, y: -3.5376565, z: 6.678527}
+      PointForward: {x: 12.5915785, y: -4.169294, z: 10.497732}
+      Bisector: {x: -5.250596, y: 8.436468, z: 1.1212659}
+      PerpendicularForward: {x: -0.048684057, y: -0.15650101, z: 0.94954777}
+      PerpendicularBackward: {x: 0.049516823, y: 0.15917805, z: -0.9657903}
+  - Position: {x: 12.5915785, y: -4.169294, z: 10.497732}
+    Velocity: {x: -38.80859, y: -15.880152, z: 296.75937}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.96594346, b: 0.50618076, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 12.5915785, y: -4.169294, z: 10.497732}
+      PointBackward: {x: 12.7659445, y: -3.9813805, z: 8.58768}
+      PointForward: {x: 12.2655945, y: -4.1853538, z: 12.40993}
+      Bisector: {x: -6.5540104, y: 7.539173, z: -0.453665}
+      PerpendicularForward: {x: -0.12559448, y: -0.051392104, z: 0.96038586}
+      PerpendicularBackward: {x: 0.12477392, y: 0.05105634, z: -0.9541112}
+  - Position: {x: 12.2655945, y: -4.1853538, z: 12.40993}
+    Velocity: {x: -62.3566, y: -2.39535, z: 298.47385}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.96878153, b: 0.54733235, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 12.2655945, y: -4.1853538, z: 12.40993}
+      PointBackward: {x: 12.5915785, y: -4.169294, z: 10.497732}
+      PointForward: {x: 11.790608, y: -4.2, z: 14.325505}
+      Bisector: {x: -9.788191, y: 0.11565953, z: -2.0439987}
+      PerpendicularForward: {x: -0.2018009, y: -0.0077517494, z: 0.9659347}
+      PerpendicularBackward: {x: 0.19834615, y: 0.0076190424, z: -0.9493983}
+  - Position: {x: 11.790608, y: -4.2, z: 14.325505}
+    Velocity: {x: -85.575745, y: -1.1576715, z: 299.84207}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.97161955, b: 0.5884839, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 11.790608, y: -4.2, z: 14.325505}
+      PointBackward: {x: 12.2655945, y: -4.1853538, z: 12.40993}
+      PointForward: {x: 11.169235, y: -4.2, z: 16.245703}
+      Bisector: {x: -9.563357, y: 1.0558398, z: -2.7253265}
+      PerpendicularForward: {x: -0.27694368, y: -0.0037465761, z: 0.9703628}
+      PerpendicularBackward: {x: 0.2708246, y: 0.0036637955, z: -0.94892263}
+  - Position: {x: 11.169235, y: -4.2, z: 16.245703}
+    Velocity: {x: -108.45659, y: 0.14542723, z: 301.271}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.9744576, b: 0.6296356, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 11.169235, y: -4.2, z: 16.245703}
+      PointBackward: {x: 11.790608, y: -4.2, z: 14.325505}
+      PointForward: {x: 10.404086, y: -4.1981177, z: 18.171766}
+      Bisector: {x: -9.4079485, y: 0.1393399, z: -3.386901}
+      PerpendicularForward: {x: -0.3509922, y: 0.00047076587, z: 0.97498643}
+      PerpendicularBackward: {x: 0.3418048, y: -0.0004584433, z: -0.94946563}
+  - Position: {x: 10.404086, y: -4.1981177, z: 18.171766}
+    Velocity: {x: -130.96524, y: 0.74304914, z: 302.7574}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.97729564, b: 0.67078716, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 10.404086, y: -4.1981177, z: 18.171766}
+      PointBackward: {x: 11.169235, y: -4.2, z: 16.245703}
+      PointForward: {x: 9.497775, y: -4.1904426, z: 20.104929}
+      Bisector: {x: -9.168583, y: 0.44551733, z: -3.9671903}
+      PerpendicularForward: {x: -0.4238353, y: 0.0024045955, z: 0.9797968}
+      PerpendicularBackward: {x: 0.41140833, y: -0.0023340918, z: -0.9510689}
+  - Position: {x: 9.497775, y: -4.1904426, z: 20.104929}
+    Velocity: {x: -154.52328, y: 28.625, z: 307.33502}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.9801337, b: 0.7119388, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 9.497775, y: -4.1904426, z: 20.104929}
+      PointBackward: {x: 10.404086, y: -4.1981177, z: 18.171766}
+      PointForward: {x: 8.452916, y: -3.8292325, z: 22.04643}
+      Bisector: {x: -2.5722818, y: 9.416629, z: -2.1703641}
+      PerpendicularForward: {x: -0.50007534, y: 0.09263753, z: 0.9946109}
+      PerpendicularBackward: {x: 0.4778909, y: -0.08852793, z: -0.95048785}
+  - Position: {x: 8.452916, y: -3.8292325, z: 22.04643}
+    Velocity: {x: -183.99815, y: 115.10852, z: 322.93863}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.9829717, b: 0.7530904, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 8.452916, y: -3.8292325, z: 22.04643}
+      PointBackward: {x: 9.497775, y: -4.1904426, z: 20.104929}
+      PointForward: {x: 7.272122, y: -2.76088, z: 23.997519}
+      Bisector: {x: -0.042947844, y: 9.41166, z: -3.3791723}
+      PerpendicularForward: {x: -0.5954634, y: 0.37251958, z: 1.0451084}
+      PerpendicularBackward: {x: 0.5282623, y: -0.33047888, z: -0.92716265}
+  - Position: {x: 7.272122, y: -2.76088, z: 23.997519}
+    Velocity: {x: -193.78893, y: 65.432236, z: 303.46582}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.9858098, b: 0.79424196, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 7.272122, y: -2.76088, z: 23.997519}
+      PointBackward: {x: 8.452916, y: -3.8292325, z: 22.04643}
+      PointForward: {x: 5.958008, y: -2.947018, z: 25.959427}
+      Bisector: {x: -1.6752802, y: -9.8032465, z: 1.0439326}
+      PerpendicularForward: {x: -0.62714845, y: 0.2117549, z: 0.9820905}
+      PerpendicularBackward: {x: 0.6667934, y: -0.22514091, z: -1.044173}
+  - Position: {x: 5.958008, y: -2.947018, z: 25.959427}
+    Velocity: {x: -236.79929, y: 78.8469, z: 338.864}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.9886478, b: 0.8353936, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 5.958008, y: -2.947018, z: 25.959427}
+      PointBackward: {x: 7.272122, y: -2.76088, z: 23.997519}
+      PointForward: {x: 4.5131836, y: -1.7486808, z: 27.9334}
+      Bisector: {x: 0.46059626, y: 9.795734, z: -1.9574064}
+      PerpendicularForward: {x: -0.76634073, y: 0.255168, z: 1.0966471}
+      PerpendicularBackward: {x: 0.6663815, y: -0.22188461, z: -0.9536036}
+  - Position: {x: 4.5131836, y: -1.7486808, z: 27.9334}
+    Velocity: {x: -246.29854, y: 232.24818, z: 323.98358}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.9914859, b: 0.8765452, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 4.5131836, y: -1.7486808, z: 27.9334}
+      PointBackward: {x: 5.958008, y: -2.947018, z: 25.959427}
+      PointForward: {x: 2.9402673, y: -0.08282375, z: 29.920668}
+      Bisector: {x: 0.9063392, y: 8.407467, z: -5.337888}
+      PerpendicularForward: {x: -0.7970827, y: 0.75161225, z: 1.0484911}
+      PerpendicularBackward: {x: 0.7159001, y: -0.6750608, z: -0.9417026}
+  - Position: {x: 2.9402673, y: -0.08282375, z: 29.920668}
+    Velocity: {x: -242.99792, y: 153.95982, z: 295.66196}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.9943239, b: 0.9176968, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 2.9402673, y: -0.08282375, z: 29.920668}
+      PointBackward: {x: 4.5131836, y: -1.7486808, z: 27.9334}
+      PointForward: {x: 1.2418704, y: 0.40405464, z: 31.92248}
+      Bisector: {x: -2.961671, y: -9.249483, z: 2.3823469}
+      PerpendicularForward: {x: -0.786401, y: 0.4982519, z: 0.95683426}
+      PerpendicularBackward: {x: 0.89328474, y: -0.56597185, z: -1.0868825}
+  - Position: {x: 1.2418704, y: 0.40405464, z: 31.92248}
+    Velocity: {x: -281.7525, y: 108.68443, z: 322.0964}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 0.997162, b: 0.9588484, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: 1.2418704, y: 0.40405464, z: 31.92248}
+      PointBackward: {x: 2.9402673, y: -0.08282375, z: 29.920668}
+      PointForward: {x: -0.5793965, y: 1.2866988, z: 33.94008}
+      Bisector: {x: -0.0896789, y: 9.450723, z: -3.267384}
+      PerpendicularForward: {x: -0.9118204, y: 0.35172957, z: 1.0423843}
+      PerpendicularBackward: {x: 0.85191, y: -0.32861948, z: -0.9738953}
+  - Position: {x: -0.5793965, y: 1.2866988, z: 33.94008}
+    Velocity: {x: -308.4429, y: 5.479269, z: 332.29074}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
+    IsTemp: 1
+    LabelColor: {r: 1, g: 1, b: 1, a: 1}
+    Caption: 
+    NavPoint:
+      PointCenter: {x: -0.5793965, y: 1.2866988, z: 33.94008}
+      PointBackward: {x: 1.2418704, y: 0.40405464, z: 31.92248}
+      PointForward: {x: -2.520914, y: 0.447999, z: 35.974693}
+      Bisector: {x: -0.40758842, y: -9.989407, z: -0.21361741}
+      PerpendicularForward: {x: -0.9981971, y: 0.017732283, z: 1.0753739}
+      PerpendicularBackward: {x: 0.9720207, y: -0.017267276, z: -1.0471736}
