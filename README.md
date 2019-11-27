@@ -17,7 +17,7 @@ Tool for making navigation bezier splines with points, events and bindings to co
 - Under `dependencies` add following line:
 
 ```json
-"com.trismegistus.unity-navigation-splines" : "https://github.com/TrismegistusDevelopment/unity-splines.git#upm"
+"trismegistus.splines" : "https://github.com/TrismegistusDevelopment/unity-splines.git#upm"
 ```
 
 - Reopen your project in Unity
